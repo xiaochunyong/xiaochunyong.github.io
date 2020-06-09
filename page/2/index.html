@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Ely Xiao">
+  <meta name="keywords" content="">
+  <title>Ely Xiao</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Ely Xiao</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2019/07/22/kotlin-jackson-jsonproperty/">Jackson/FastJSON处理Kotlin Data Class字段别名</a>
+
+      <a href="/2019/07/22/kotlin-jackson-jsonproperty/" class="index-excerpt">
+        
+        
+          
+        
+        <div>问题Jackson/FastJSON 处理 Kotlin Data Class时, JsonProperty/JSONField没有正常工作
+Jackson/FastJSON 在处理 Kotlin Data Class 时, 如果需要别名, 直接使用@JsonProperty是不行的.
+
+data class User(
+    val id: Int,
+    val name: String,</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-07-23
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%B7%A5%E4%BD%9C%E9%9A%8F%E7%AC%94/">工作随笔</a>
+            
+              <a href="/tags/kotlin/">kotlin</a>
+            
+              <a href="/tags/json/">json</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2019/07/21/mackup/">Mackup 备份macOS/Linux应用配置, 并同步</a>
+
+      <a href="/2019/07/21/mackup/" class="index-excerpt">
+        
+        
+          
+        
+        <div>
+Mackup - Keep your application settings in sync (OS X/Linux)
+
+backup/restore/uninstall 3个操作做了什么? 经常混淆Backup
+home/realfile  copy to backup/file and generate home/linkfile
+
+Backup the application confi</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-07-21
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/macOS/">macOS</a>
+            
+              <a href="/tags/mackup/">mackup</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2019/07/16/mac-apps/">用过的 macOS Apps</a>
+
+      <a href="/2019/07/16/mac-apps/" class="index-excerpt">
+        
+        
+          
+        
+        <div>开发工具
+Visual Studio Code
+JetBrains Toolbox
+IntelliJ IDEA
+WebStorm
+PyCharm
+GoLand
+AndroidStudio
+DataGrip 
+Robot 3T / Studio 3T (MongoDB客户端 免费&amp;收费版)
+NoSQLBooster for MongoDB (史上最好MongoDB 客户端, 但是要收费) 用</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-07-16
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/macOS/">macOS</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2019/06/24/exception-of-encode/">数据录入格式错误问题-u202c</a>
+
+      <a href="/2019/06/24/exception-of-encode/" class="index-excerpt">
+        
+        
+          
+        
+        <div>数据录入问题同事在录数据的时候表示无法提交, 报错了.  错误日志如下
+报错提示:&#123;"timestamp":"2019-06-11 12:22:15","status":400,"error":"Bad Request","message":"JSON parse error: Cannot deserialize value of type `java.lang.Integer` fr</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-06-24
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%B7%A5%E4%BD%9C%E9%9A%8F%E7%AC%94/">工作随笔</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2019/05/28/Docker-for-Mac/">macOS 安装Docker</a>
+
+      <a href="/2019/05/28/Docker-for-Mac/" class="index-excerpt">
+        
+        
+          
+        
+        <div>QA1. Kubernetes is Starting…解决方法1:rm -rf ~/.kube
+open global vpn, fq,
+then reset Kubernetes cluster
+Waiting 2-5 minutes
+
+解决方法2:1. Preferences -&gt; Reset -&gt; Reset to factory defaults2. Daemonhttps:</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-05-28
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/docker/">docker</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2019/02/25/Git-Advance/">Git 高级教程</a>
+
+      <a href="/2019/02/25/Git-Advance/" class="index-excerpt">
+        
+        
+          
+        
+        <div>优雅的删除子模块MOD_NAME=xxx
+# 逆初始化模块，其中&#123;MOD_NAME&#125;为模块目录，执行后可发现模块目录被清空
+git submodule deinit $MOD_NAME
+# 删除.gitmodules中记录的模块信息（--cached选项清除.git/modules中的缓存）
+git rm --cached $MOD_NAME
+# 删除.gitmodules文件</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-02-26
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/git/">git</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2018/10/14/blockchain/">区块链分享</a>
+
+      <a href="/2018/10/14/blockchain/" class="index-excerpt">
+        
+        
+          
+        
+        <div>
+TODO 待完善
+
+区块链概念女巫攻击(Sybil Attack)拜占庭将军问题扩容分叉51%算力攻击Merkle Tree/MerkleRoot双重支付: 通过共识算法来解决双重支付问题, 当一笔交易成功后(大家对这笔交易的结果达成了共识, 想重复交易就会被拒绝)挖矿UTXO(Unspent Transaction output): 未被使用的交易输出
+数字签名: 用来保证交易出自本人, 防止</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2018-10-15
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Blockchain/">Blockchain</a>
+            
+              <a href="/tags/Bitcoin/">Bitcoin</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2016/12/04/Protocol-RFCs/">常见协议及其RFC文档链接</a>
+
+      <a href="/2016/12/04/Protocol-RFCs/" class="index-excerpt">
+        
+        
+          
+        
+        <div>HTTPHTTP 1.0 https://tools.ietf.org/html/rfc1945HTTP 1.1 https://tools.ietf.org/html/rfc2616HTTP 2.0 https://tools.ietf.org/html/rfc7540
+HTTPShttps://tools.ietf.org/html/rfc2817https://tools.ietf.org/</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2016-12-05
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/protocol/">protocol</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2016/06/13/python-quick-start/">Python 入门</a>
+
+      <a href="/2016/06/13/python-quick-start/" class="index-excerpt">
+        
+        
+          
+        
+        <div>注释# 这是注释
+
+算数运算符
++
+-
+*
+/
+%
+//    浮点除法（对结果四舍五入）
+**    乘方
+
+&gt;&gt;&gt; 10 / 1.2
+8.33333333333333...
+&gt;&gt;&gt; 10 // 1.2
+8
+&gt;&gt;&gt; 2 ** 2	#(2的平方)
+4
+&gt;&gt;&gt; 2 ** 3	#(2的3次方)
+8
+
+赋值运算符
+=
++=
+-=
+/</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2016-06-14
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/python/">python</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2015/05/21/mac-os-x-install-storm-0.9.0-wip16/">Mac OS X 10.10 安装 Storm-0.9.0-wip16</a>
+
+      <a href="/2015/05/21/mac-os-x-install-storm-0.9.0-wip16/" class="index-excerpt">
+        
+        
+          
+        
+        <div>Requirements// install brew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+// install build-tools
+brew install pkg-config 
+brew install automake
+brew instal</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2015-05-22
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%B7%A5%E4%BD%9C%E9%9A%8F%E7%AC%94/">工作随笔</a>
+            
+              <a href="/tags/storm/">storm</a>
+            
+              <a href="/tags/zeromq/">zeromq</a>
+            
+              <a href="/tags/jqzm/">jqzm</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "An elegant Material-Design theme for Hexo&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

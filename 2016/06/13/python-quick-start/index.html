@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Ely Xiao">
+  <meta name="keywords" content="">
+  <title>Python 入门 - Ely Xiao</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Ely Xiao</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2016-06-14 00:00">
+      2016年6月14日 凌晨
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      18
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><pre><code class="hljs python"><span class="hljs-comment"># 这是注释</span></code></pre>
+
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><ul>
+<li>+</li>
+<li>-</li>
+<li>*</li>
+<li>/</li>
+<li>%</li>
+<li>//    浮点除法（对结果四舍五入）</li>
+<li>**    乘方</li>
+</ul>
+<pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">10</span> / <span class="hljs-number">1.2</span>
+<span class="hljs-number">8.33333333333333</span>...
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">10</span> // <span class="hljs-number">1.2</span>
+<span class="hljs-number">8</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">2</span> ** <span class="hljs-number">2</span>	<span class="hljs-comment">#(2的平方)</span>
+<span class="hljs-number">4</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">2</span> ** <span class="hljs-number">3</span>	<span class="hljs-comment">#(2的3次方)</span>
+<span class="hljs-number">8</span></code></pre>
+
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><ul>
+<li>=</li>
+<li>+=</li>
+<li>-=</li>
+<li>/=</li>
+<li>*=</li>
+</ul>
+<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><ul>
+<li>&lt;</li>
+<li>&lt;=</li>
+<li>.&gt;</li>
+<li>.&gt;=</li>
+<li>==</li>
+<li>!=</li>
+<li>&lt;&gt;</li>
+</ul>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><ul>
+<li>and</li>
+<li>or</li>
+<li>not</li>
+</ul>
+<h2 id="，–支持"><a href="#，–支持" class="headerlink" title="++，–支持"></a>++，–支持</h2><p>不支持</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><pre><code class="hljs ini"><span class="hljs-attr">counter</span> = <span class="hljs-number">0</span>
+<span class="hljs-attr">miles</span> = <span class="hljs-number">1000.0</span>
+<span class="hljs-attr">name</span> = <span class="hljs-string">'Bob'</span></code></pre>
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
+<li>int</li>
+<li>long</li>
+<li>bool</li>
+<li>float</li>
+<li>decimal</li>
+<li>complex</li>
+</ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>pystr = <span class="hljs-string">'python'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>iscool = <span class="hljs-string">"is cool!"</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>pystr[<span class="hljs-number">0</span>]
+<span class="hljs-string">'p'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>pystr[<span class="hljs-number">2</span>:<span class="hljs-number">5</span>]
+<span class="hljs-string">'tho'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>iscool[:<span class="hljs-number">2</span>]
+<span class="hljs-string">'is'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>iscool[<span class="hljs-number">3</span>:]
+<span class="hljs-string">'cool!'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>iscool[<span class="hljs-number">-1</span>]
+<span class="hljs-string">'!'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>pystr + iscool
+<span class="hljs-string">'Pythonis cool!'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>pystr + <span class="hljs-string">' '</span> + iscool
+<span class="hljs-string">'Python is cool!'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>pystr * <span class="hljs-number">2</span>
+<span class="hljs-string">'PythonPython'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>pystr = <span class="hljs-string">'''python</span>
+<span class="hljs-string"><span class="hljs-meta">... </span>is cool'''</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>pystr
+<span class="hljs-string">'python\nis cool'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">print</span> pystr
+python
+<span class="hljs-keyword">is</span> cool</code></pre>
+
+<h2 id="三元表达式"><a href="#三元表达式" class="headerlink" title="三元表达式"></a>三元表达式</h2><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>列表元素用[]包裹，元素的个数及元素的值可以改变.</p>
+<pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>aList = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>aList
+[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>aList[<span class="hljs-number">0</span>]
+<span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>aList[<span class="hljs-number">2</span>:]
+[<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>aList[<span class="hljs-number">1</span>] = <span class="hljs-number">5</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>aList
+[<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]</code></pre>
+
+<h2 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h2><p>元组元素用()包裹，元素的值无法更改, 变量本身可以重新被赋值.</p>
+<pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>aTuple = (<span class="hljs-string">'robots'</span>, <span class="hljs-number">77</span>, <span class="hljs-number">93</span>, <span class="hljs-string">'try'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>aTuple
+(<span class="hljs-string">'robots'</span>, <span class="hljs-number">77</span>, <span class="hljs-number">93</span>, <span class="hljs-string">'try'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>aTuple[:<span class="hljs-number">3</span>]
+(<span class="hljs-string">'robots'</span>, <span class="hljs-number">77</span>, <span class="hljs-number">93</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>aTuple[<span class="hljs-number">1</span>] = <span class="hljs-number">5</span>
+Traceback (most recent call last):
+  File <span class="hljs-string">"&lt;stdin&gt;"</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+TypeError: <span class="hljs-string">'tuple'</span> object does <span class="hljs-keyword">not</span> support item assignment
+<span class="hljs-meta">&gt;&gt;&gt; </span>aTuple = (<span class="hljs-string">'a'</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>aTuple
+(<span class="hljs-string">'a'</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)</code></pre>
+
+<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>字典元素用{}包裹.</p>
+<pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>aDict = &#123;<span class="hljs-string">'host'</span>: <span class="hljs-string">'earth'</span>&#125;
+<span class="hljs-meta">&gt;&gt;&gt; </span>aDict[<span class="hljs-string">'port'</span>] = <span class="hljs-number">80</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>aDict
+&#123;<span class="hljs-string">'host'</span>: <span class="hljs-string">'earth'</span>, <span class="hljs-string">'port'</span>: <span class="hljs-number">80</span>&#125;
+<span class="hljs-meta">&gt;&gt;&gt; </span>aDict.keys()
+[<span class="hljs-string">'host'</span>, <span class="hljs-string">'port'</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>aDict[<span class="hljs-string">'host'</span>]
+earth
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> aDict:
+<span class="hljs-meta">... </span>  <span class="hljs-keyword">print</span> key, aDict[key]
+...
+host earth
+port <span class="hljs-number">80</span></code></pre>
+
+<h2 id="条件控制语句"><a href="#条件控制语句" class="headerlink" title="条件控制语句"></a>条件控制语句</h2><pre><code class="hljs python">n = <span class="hljs-number">3</span>
+<span class="hljs-keyword">if</span> n &gt; <span class="hljs-number">2</span>:
+  <span class="hljs-keyword">print</span> <span class="hljs-string">"n &gt; 2"</span>
+
+<span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">2</span>:
+  <span class="hljs-keyword">print</span> <span class="hljs-string">"if"</span>
+<span class="hljs-keyword">else</span>
+	<span class="hljs-keyword">print</span> <span class="hljs-string">"else"</span>
+
+<span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">2</span>:
+  <span class="hljs-keyword">print</span> <span class="hljs-string">"if"</span>
+<span class="hljs-keyword">elif</span> n == <span class="hljs-number">3</span>:
+	<span class="hljs-keyword">print</span> <span class="hljs-string">"n is 3"</span>
+<span class="hljs-keyword">else</span>
+	<span class="hljs-keyword">print</span> <span class="hljs-string">"else"</span></code></pre>
+
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><pre><code class="hljs python">i = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> i &lt; <span class="hljs-number">3</span>:
+	<span class="hljs-keyword">print</span> <span class="hljs-string">"#%d"</span>
+
+<span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]:
+	<span class="hljs-keyword">print</span> item
+
+foo = <span class="hljs-string">"abc"</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(foo)):
+	<span class="hljs-keyword">print</span> foo[i], <span class="hljs-string">"(%d)"</span> % i</code></pre>
+
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><pre><code class="hljs python"><span class="hljs-keyword">try</span>:
+    fileName = raw_input(<span class="hljs-string">"please input file name:"</span>)
+    file = open(fileName, <span class="hljs-string">'r'</span>)
+    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> file:
+        <span class="hljs-keyword">print</span> line
+    file.close()
+<span class="hljs-keyword">except</span> IOError, e:
+	<span class="hljs-keyword">print</span> <span class="hljs-string">"file open error"</span>, e
+
+<span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">"message"</span>) <span class="hljs-comment"># 语句可以引发一个异常, 类似Java的throw</span></code></pre>
+
+<h2 id="Python-特性"><a href="#Python-特性" class="headerlink" title="Python 特性"></a>Python 特性</h2><h3 id="列表解析"><a href="#列表解析" class="headerlink" title="列表解析"></a>列表解析</h3><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>squred = [x ** <span class="hljs-number">2</span> <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>)]
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> squred:
+<span class="hljs-meta">... </span>	<span class="hljs-keyword">print</span> i
+...
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">9</span>
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>squred = [x ** <span class="hljs-number">2</span> <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">8</span>) <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> x % <span class="hljs-number">2</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> squred:
+<span class="hljs-meta">... </span>	<span class="hljs-keyword">print</span> i
+...
+<span class="hljs-number">0</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">16</span>
+<span class="hljs-number">36</span></code></pre>
+
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li>定义函数</li>
+</ul>
+<pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">funtion_name</span><span class="hljs-params">([arguments])</span>:</span>
+    <span class="hljs-string">"optional documentation string"</span>
+    function suite</code></pre>
+<ul>
+<li>函数的参数可以有带默认值</li>
+</ul>
+<pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">(debug=True)</span>:</span>
+    <span class="hljs-string">"optional documentation string"</span>
+    <span class="hljs-keyword">if</span> debug:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">"xxx"</span></code></pre>
+
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>使用class定义类，可以提供一个可选的父类或者说基类，如果没有合适的基类，那就使用object作为基类。class行之后是可选的文档字符串，静态成员定义，方法定义。</p>
+<h4 id="定义类"><a href="#定义类" class="headerlink" title="定义类"></a>定义类</h4><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassName</span><span class="hljs-params">(base_class[es])</span>:</span>
+    <span class="hljs-string">"optional document string"</span>
+    static_member_declarations
+    method_declarations</code></pre>
+
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FooClass</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">"my first class"</span>
+    version = <span class="hljs-number">0.1</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, nm=<span class="hljs-string">'john doe'</span>)</span>:</span>
+        <span class="hljs-string">"constructor"</span>
+        self.name = nm
+        <span class="hljs-keyword">print</span> <span class="hljs-string">"created a class instance for"</span>, nm
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">showname</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">"display instance attribute and class name"</span>
+        <span class="hljs-keyword">print</span> <span class="hljs-string">"Your name is "</span>, self.name
+        <span class="hljs-keyword">print</span> <span class="hljs-string">"My Name is "</span>, self.__class__.__name__
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">showver</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">"display class(static) attribute"</span>
+        <span class="hljs-keyword">print</span> self.version
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addMe2Me</span><span class="hljs-params">(self, x)</span>:</span>
+        <span class="hljs-string">"apply + operation to argument"</span>
+        <span class="hljs-keyword">return</span> x + x</code></pre>
+
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>foo1 &gt;&gt;&gt; = FooClass()
+created a <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">instance</span> <span class="hljs-title">for</span> <span class="hljs-title">john</span> <span class="hljs-title">doe</span></span>
+&gt;&gt;&gt; foo2 = FooClass("Ely")
+created a <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">instance</span> <span class="hljs-title">for</span> <span class="hljs-title">Ely</span></span>
+<span class="hljs-class">&gt;&gt;&gt; <span class="hljs-title">foo2</span>.<span class="hljs-title">showname</span><span class="hljs-params">()</span></span>
+<span class="hljs-class"><span class="hljs-title">Your</span> <span class="hljs-title">name</span> <span class="hljs-title">is</span>  <span class="hljs-title">Ely</span></span>
+<span class="hljs-class"><span class="hljs-title">My</span> <span class="hljs-title">Name</span> <span class="hljs-title">is</span>  <span class="hljs-title">FooClass</span></span>
+<span class="hljs-class">&gt;&gt;&gt; <span class="hljs-title">foo2</span>.<span class="hljs-title">showver</span><span class="hljs-params">()</span></span>
+<span class="hljs-class">0.1</span>
+<span class="hljs-class">&gt;&gt;&gt; <span class="hljs-title">print</span> <span class="hljs-title">foo2</span>.<span class="hljs-title">addMe2Me</span><span class="hljs-params">(<span class="hljs-number">2</span>)</span></span>
+<span class="hljs-class">4</span></code></pre>
+
+<h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>模块是一种组织形式，它将彼此有关系的python代码组织到一个个独立文件当中。<br>模块可以包含可执行代码，函数和类或者这些东西的组合。</p>
+<p><strong>当你创建了一个Python源文件，模块的名字就是不带 .py后缀的文件名。 一个模块创建之后，你可以从另一个模块中使用import语句导入这个模块来使用。</strong></p>
+<ul>
+<li><p>导入模块<br><code>import module_name</code></p>
+</li>
+<li><p>使用模块<br><code>module_name.functionName()</code><br><code>module_name.attributeName</code></p>
+</li>
+</ul>
+<h3 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h3><p>PEB: 一个PEB就是一个Python 增强提案（Python Enhancement Proposal), 这也是在新版Python中增加新特性的方式。</p>
+<h3 id="内建函数"><a href="#内建函数" class="headerlink" title="内建函数"></a>内建函数</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dir([obj])</td>
+<td>显示对象的属性，如果没有提供参数，则显示全局对象的名字</td>
+</tr>
+<tr>
+<td>help([obj])</td>
+<td>以一种整齐美观的形式，显示对象的文档字符串，如果没有提供任何参数，则会进入交互式帮助</td>
+</tr>
+<tr>
+<td>int(obj)</td>
+<td>将一个对象转换为一个整数</td>
+</tr>
+<tr>
+<td>len(obj)</td>
+<td>返回对象的长度</td>
+</tr>
+<tr>
+<td>open(fn, mode)</td>
+<td>以mode(‘r’ = 读, ‘w’ = ‘写’, ‘a’ = ‘追加’)方式打开一个文件名为fn的文件</td>
+</tr>
+<tr>
+<td>range([start,]stop[,step])</td>
+<td>返回一个整数列表，起始值为start，结束值为stop - 1；start默认为0，step默认值为1</td>
+</tr>
+<tr>
+<td>raw_input(str)</td>
+<td>等待用户输入一个字符串，可以提供一个可选的参数str用作提示信息</td>
+</tr>
+<tr>
+<td>str(obj)</td>
+<td>将一个对象转换为字符串</td>
+</tr>
+<tr>
+<td>type(obj)</td>
+<td>返回对象的类型（返回值本身是一个type对象！）</td>
+</tr>
+<tr>
+<td>print</td>
+<td>打印</td>
+</tr>
+</tbody></table>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/python/">python</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/12/04/Protocol-RFCs/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">常见协议及其RFC文档链接</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2015/05/21/mac-os-x-install-storm-0.9.0-wip16/">
+                        <span class="hidden-mobile">Mac OS X 10.10 安装 Storm-0.9.0-wip16</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      function loadDisqus() {
+        var disqus_config = function () {
+          this.page.url = 'http://blog.ely.me/2016/06/13/python-quick-start/';
+          this.page.identifier = '/2016/06/13/python-quick-start/';
+        };
+        (function () {
+          var d = document,
+            s = d.createElement('script');
+          s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      }
+      createObserver(loadDisqus, 'disqus_thread');
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Python 入门&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

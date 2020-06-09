@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Ely Xiao">
+  <meta name="keywords" content="">
+  <title>Ubuntu 14.04 搭L2TP-Over-IPSec服务器 - Ely Xiao</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Ely Xiao</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2014-12-15 00:00">
+      2014年12月15日 凌晨
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      748 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <blockquote>
+<p>Tip: VI编辑文件时, 先找配置项是否存在,若存在,修改,反之新增</p>
+</blockquote>
+<h5 id="1-安装openswan"><a href="#1-安装openswan" class="headerlink" title="1. 安装openswan"></a>1. 安装openswan</h5><pre><code class="hljs vala"><span class="hljs-meta"># apt-get install openswan</span>
+<span class="hljs-meta"># 查看版本</span>
+<span class="hljs-meta"># ipsec --version</span>
+Linux Openswan U2<span class="hljs-number">.6</span><span class="hljs-number">.38</span>/K3<span class="hljs-number">.13</span><span class="hljs-number">.0</span><span class="hljs-number">-37</span>-generic (netkey)</code></pre>
+
+<h5 id="2-修改-etc-ipsec-conf"><a href="#2-修改-etc-ipsec-conf" class="headerlink" title="2. 修改 /etc/ipsec.conf"></a>2. 修改 /etc/ipsec.conf</h5><pre><code class="hljs routeros"><span class="hljs-comment"># vi /etc/ipsec.conf</span>
+
+version 2.0
+config setup
+    <span class="hljs-attribute">nat_traversal</span>=<span class="hljs-literal">yes</span>
+    <span class="hljs-attribute">virtual_private</span>=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%v4:172.16.0.0/12
+    <span class="hljs-attribute">oe</span>=off
+    <span class="hljs-attribute">protostack</span>=netkey
+
+conn L2TP-PSK-NAT
+    <span class="hljs-attribute">rightsubnet</span>=vhost:%priv
+    <span class="hljs-attribute">also</span>=L2TP-PSK-noNAT
+
+conn L2TP-PSK-noNAT
+    <span class="hljs-attribute">authby</span>=secret
+    <span class="hljs-attribute">pfs</span>=<span class="hljs-literal">no</span>
+    <span class="hljs-attribute">auto</span>=add
+    <span class="hljs-attribute">keyingtries</span>=3
+    <span class="hljs-attribute">rekey</span>=<span class="hljs-literal">no</span>
+    <span class="hljs-attribute">ikelifetime</span>=8h
+    <span class="hljs-attribute">keylife</span>=1h
+    <span class="hljs-attribute">type</span>=transport
+    <span class="hljs-attribute">left</span>=你的服务器公网IP地址
+    <span class="hljs-attribute">leftprotoport</span>=17/%any
+    <span class="hljs-attribute">right</span>=%any
+    <span class="hljs-attribute">rightprotoport</span>=17/%any</code></pre>
+
+
+<h5 id="3-配置密钥"><a href="#3-配置密钥" class="headerlink" title="3. 配置密钥"></a>3. 配置密钥</h5><pre><code class="hljs accesslog"># vi /etc/ipsec.secrets
+你的服务器公网IP地址 %any: PSK <span class="hljs-string">"自定义密钥"</span>
+<span class="hljs-number">222.22.22.22</span> %any: PSK <span class="hljs-string">"xxxxxxxx"</span></code></pre>
+
+<h5 id="4-运行以下命令"><a href="#4-运行以下命令" class="headerlink" title="4. 运行以下命令"></a>4. 运行以下命令</h5><pre><code class="hljs bash"><span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> /proc/sys/net/ipv4/conf/*
+<span class="hljs-keyword">do</span>
+<span class="hljs-built_in">echo</span> 0 &gt; <span class="hljs-variable">$each</span>/accept_redirects
+<span class="hljs-built_in">echo</span> 0 &gt; <span class="hljs-variable">$each</span>/send_redirects
+<span class="hljs-keyword">done</span></code></pre>
+
+<h5 id="5-检查一下-IPSec-能否正常工作"><a href="#5-检查一下-IPSec-能否正常工作" class="headerlink" title="5. 检查一下 IPSec 能否正常工作"></a>5. 检查一下 IPSec 能否正常工作</h5><pre><code># ipsec verify</code></pre><h5 id="6-重启openswan"><a href="#6-重启openswan" class="headerlink" title="6. 重启openswan"></a>6. 重启openswan</h5><pre><code class="hljs vala"><span class="hljs-meta"># service ipsec restart</span>
+或者
+<span class="hljs-meta"># /etc/init.d/ipsec restart</span></code></pre>
+
+
+
+<h5 id="7-安装xl2tpd："><a href="#7-安装xl2tpd：" class="headerlink" title="7. 安装xl2tpd："></a>7. 安装xl2tpd：</h5><pre><code class="hljs vala"><span class="hljs-meta"># apt-get install xl2tpd</span></code></pre>
+
+<h5 id="8-配置-etc-xl2tpd-xl2tpd-conf"><a href="#8-配置-etc-xl2tpd-xl2tpd-conf" class="headerlink" title="8. 配置/etc/xl2tpd/xl2tpd.conf"></a>8. 配置/etc/xl2tpd/xl2tpd.conf</h5><pre><code class="hljs routeros"><span class="hljs-comment"># vi /etc/xl2tpd/xl2tpd.conf</span>
+
+[global]
+ipsec saref = <span class="hljs-literal">yes</span>
+
+[lns default]
+ip range = 10.0.2.2-10.0.2.255
+local<span class="hljs-built_in"> ip </span>= 10.0.2.1
+;require chap = <span class="hljs-literal">yes</span>
+refuse chap = <span class="hljs-literal">yes</span>
+refuse pap = <span class="hljs-literal">yes</span>
+require authentication = <span class="hljs-literal">yes</span>
+ppp <span class="hljs-builtin-name">debug</span> = <span class="hljs-literal">yes</span>
+pppoptfile = /etc/ppp/options.xl2tpd
+length bit = <span class="hljs-literal">yes</span></code></pre>
+
+
+<h5 id="9-如果你之前没有在服务器上安装过pptpd，那么下面这一步你要进行安装："><a href="#9-如果你之前没有在服务器上安装过pptpd，那么下面这一步你要进行安装：" class="headerlink" title="9. 如果你之前没有在服务器上安装过pptpd，那么下面这一步你要进行安装："></a>9. 如果你之前没有在服务器上安装过pptpd，那么下面这一步你要进行安装：</h5><pre><code># apt-get install pptpd</code></pre><h5 id="10-配置-etc-ppp-options-xl2tpd，如果没有就新建一个，内容如下："><a href="#10-配置-etc-ppp-options-xl2tpd，如果没有就新建一个，内容如下：" class="headerlink" title="10. 配置/etc/ppp/options.xl2tpd，如果没有就新建一个，内容如下："></a>10. 配置/etc/ppp/options.xl2tpd，如果没有就新建一个，内容如下：</h5><pre><code class="hljs angelscript"># vi /etc/ppp/options.xl2tpd
+
+require-mschap-v2
+ms-dns <span class="hljs-number">8.8</span><span class="hljs-number">.8</span><span class="hljs-number">.8</span>
+ms-dns <span class="hljs-number">8.8</span><span class="hljs-number">.4</span><span class="hljs-number">.4</span>
+asyncmap <span class="hljs-number">0</span>
+auth
+crtscts
+lock
+hide-password
+modem
+debug
+name l2tpd
+proxyarp
+lcp-echo-<span class="hljs-built_in">int</span>erval <span class="hljs-number">30</span>
+lcp-echo-failure <span class="hljs-number">4</span>
+mtu <span class="hljs-number">1400</span>
+connect-delay <span class="hljs-number">5000</span>
+noccp</code></pre>
+
+
+<h5 id="11-添加或修改用户"><a href="#11-添加或修改用户" class="headerlink" title="11. 添加或修改用户"></a>11. 添加或修改用户</h5><pre><code class="hljs markdown"><span class="hljs-section"># vi /etc/ppp/chap-secrets</span>
+xiaochunyong    <span class="hljs-emphasis">*       123456  *</span>
+ely.xiao        <span class="hljs-emphasis">*       123456  *</span></code></pre>
+
+<h5 id="12-重启-xl2tpd"><a href="#12-重启-xl2tpd" class="headerlink" title="12. 重启 xl2tpd"></a>12. 重启 xl2tpd</h5><pre><code class="hljs vala"><span class="hljs-meta"># service xl2tpd restart</span></code></pre>
+
+<h5 id="13-设置-iptables-的数据包转发"><a href="#13-设置-iptables-的数据包转发" class="headerlink" title="13. 设置 iptables 的数据包转发"></a>13. 设置 iptables 的数据包转发</h5><pre><code class="hljs vala"><span class="hljs-meta"># iptables --table nat --append POSTROUTING --jump MASQUERADE</span>
+<span class="hljs-meta"># echo 1 &gt; /proc/sys/net/ipv4/ip_forward</span></code></pre>
+
+<h5 id="14-设置自启动项-编辑-etc-rc-local-加入下面的语句："><a href="#14-设置自启动项-编辑-etc-rc-local-加入下面的语句：" class="headerlink" title="14. 设置自启动项,编辑/etc/rc.local,加入下面的语句："></a>14. 设置自启动项,编辑/etc/rc.local,加入下面的语句：</h5><pre><code class="hljs jboss-cli"><span class="hljs-comment"># vi /etc/rc.local</span>
+iptables <span class="hljs-params">--table</span> nat <span class="hljs-params">--append</span> POSTROUTING <span class="hljs-params">--jump</span> MASQUERADE
+<span class="hljs-keyword">echo</span> 1 &gt; <span class="hljs-string">/proc/sys/net/ipv4/ip_forward</span>
+for each in <span class="hljs-string">/proc/sys/net/ipv4/conf/</span>*
+do
+<span class="hljs-keyword">echo</span> 0 &gt; $each/accept_redirects
+<span class="hljs-keyword">echo</span> 0 &gt; $each/send_redirects
+done
+<span class="hljs-string">/etc/init.d/ipsec</span> restart</code></pre>
+<h5 id="附录-如果客户端连接VPN服务器发生异常-可以查看日志文件-var-log-auth-log"><a href="#附录-如果客户端连接VPN服务器发生异常-可以查看日志文件-var-log-auth-log" class="headerlink" title="附录(如果客户端连接VPN服务器发生异常,可以查看日志文件/var/log/auth.log):"></a>附录(如果客户端连接VPN服务器发生异常,可以查看日志文件/var/log/auth.log):</h5><pre><code class="hljs lasso">tail <span class="hljs-params">-f</span> /<span class="hljs-built_in">var</span>/<span class="hljs-keyword">log</span>/auth.<span class="hljs-keyword">log</span></code></pre>
+
+
+
+<h5 id="我安装L2TP-IPSec-VPN-遇到的问题"><a href="#我安装L2TP-IPSec-VPN-遇到的问题" class="headerlink" title="我安装L2TP/IPSec VPN 遇到的问题:"></a>我安装L2TP/IPSec VPN 遇到的问题:</h5><ul>
+<li>连接VPN服务器时，一直提示L2TP-VPN 服务器未响应<br>在日志/var/log/auth.log中找到下面这行错误<code>ERROR: asynchronous network error report on eth1 (sport=4500) for message to 101.224.23.44 port 4500, complainant 101.224.23.44: Connection refused [errno 111, origin ICMP type 3 code 3 (not authenticated)]</code>, 解决办法:<pre><code class="hljs routeros">vi /etc/ipsec.conf
+将
+<span class="hljs-attribute">leftprotoport</span>=17/1701
+改为
+<span class="hljs-attribute">leftprotoport</span>=17/%any</code></pre>
+
+
+</li>
+</ul>
+<p>在<a href="http://blog.bydell.com/posts/trouble-shooting-%E6%90%AD%E5%BB%BAl2tp-vpn%E6%8A%A5%E9%94%99%EF%BC%9Aerrno-111-origin-icmp-type-3-code-3-not-authenticated/" target="_blank" rel="noopener">某个博客</a>上找到了解决方法：</p>
+<p>这才是终极原帖~ <a href="https://lists.openswan.org/pipermail/users/2013-July/022546.html" target="_blank" rel="noopener">https://lists.openswan.org/pipermail/users/2013-July/022546.html</a></p>
+<pre><code class="hljs livecodeserver">Good day @robert-woodward
+I solved my problem <span class="hljs-keyword">a</span> few minutes ago,
+thanks <span class="hljs-built_in">to</span> this <span class="hljs-built_in">post</span> <span class="hljs-keyword">https</span>://lists.openswan.org/pipermail/users/<span class="hljs-number">2013</span>-July/<span class="hljs-number">022546.</span>html
+Especially <span class="hljs-built_in">to</span> this part <span class="hljs-keyword">of</span> message:
+“I also make <span class="hljs-keyword">it</span> my habit <span class="hljs-built_in">to</span> make leftprotoport <span class="hljs-number">17</span>/%<span class="hljs-keyword">any</span> instead <span class="hljs-keyword">of</span> <span class="hljs-number">17</span>/<span class="hljs-number">1701</span>″
+
+After i changed leftprotoport <span class="hljs-built_in">from</span> <span class="hljs-number">17</span>/<span class="hljs-number">1701</span> <span class="hljs-built_in">to</span> <span class="hljs-number">17</span>/%<span class="hljs-keyword">any</span> <span class="hljs-keyword">in</span> ipsec.conf <span class="hljs-keyword">and</span> restarted ipsec service – everything got back <span class="hljs-built_in">to</span> <span class="hljs-keyword">normal</span> <span class="hljs-keyword">and</span> vpn started working properly.
+I hope this would solve your issue too.</code></pre>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/vpn/">vpn</a>
+                    
+                      <a class="hover-with-bg" href="/tags/l2tp/">l2tp</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ipsec/">ipsec</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2015/05/21/mac-os-x-install-storm-0.9.0-wip16/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Mac OS X 10.10 安装 Storm-0.9.0-wip16</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2014/12/11/VPS-Ubuntu-14.04-PPTP/">
+                        <span class="hidden-mobile">Ubuntu 14.04 搭PPTP服务器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      function loadDisqus() {
+        var disqus_config = function () {
+          this.page.url = 'http://blog.ely.me/2014/12/14/VPS-Ubuntu-14.04-L2TP-Over-IPSec/';
+          this.page.identifier = '/2014/12/14/VPS-Ubuntu-14.04-L2TP-Over-IPSec/';
+        };
+        (function () {
+          var d = document,
+            s = d.createElement('script');
+          s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      }
+      createObserver(loadDisqus, 'disqus_thread');
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Ubuntu 14.04 搭L2TP-Over-IPSec服务器&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

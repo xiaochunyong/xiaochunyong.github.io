@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Ely Xiao">
+  <meta name="keywords" content="">
+  <title>Mac OS X 10.10 安装 Storm-0.9.0-wip16 - Ely Xiao</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Ely Xiao</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2015-05-22 00:00">
+      2015年5月22日 凌晨
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      427 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><pre><code class="hljs clean"><span class="hljs-comment">// install brew</span>
+ruby -e <span class="hljs-string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span>
+
+<span class="hljs-comment">// install build-tools</span>
+brew install pkg-config 
+brew install automake
+brew install libtool
+``` 
+
+
+### <span class="hljs-number">1.</span> 安装zookeeper
+
+### <span class="hljs-number">2.</span> install storm</code></pre>
+<p>download storm-0.9.0-wip16.zip<br>unzip storm-0.9.0-wip16.zip<br>cd storm-0.9.0-wip16<br>vi conf/storm.yaml</p>
+<pre><code class="hljs">
+
+##### 2.1 install zeromq
+```   
+$ cd /usr/local
+$ git checkout 381c97f Library/Formula/zeromq.rb
+$ brew install zeromq</code></pre>
+
+
+<h5 id="2-2-install-jzmq"><a href="#2-2-install-jzmq" class="headerlink" title="2.2 install jzmq"></a>2.2 install jzmq</h5><pre><code class="hljs yaml"><span class="hljs-string">$</span> <span class="hljs-string">git</span> <span class="hljs-string">clone</span> <span class="hljs-string">https://github.com/nathanmarz/jzmq.git</span>
+<span class="hljs-string">$</span> <span class="hljs-string">cd</span> <span class="hljs-string">jzmq</span>
+<span class="hljs-string">$</span> <span class="hljs-string">./autogen.sh</span>
+<span class="hljs-attr">autoreconf:</span> <span class="hljs-string">Entering</span> <span class="hljs-string">directory</span> <span class="hljs-string">`.'</span>
+<span class="hljs-attr">autoreconf: configure.ac:</span> <span class="hljs-string">not</span> <span class="hljs-string">using</span> <span class="hljs-string">Gettext</span>
+<span class="hljs-attr">autoreconf: running:</span> <span class="hljs-string">aclocal</span> <span class="hljs-string">--force</span> 
+<span class="hljs-attr">autoreconf: configure.ac:</span> <span class="hljs-string">tracing</span>
+<span class="hljs-attr">autoreconf: configure.ac:</span> <span class="hljs-string">not</span> <span class="hljs-string">using</span> <span class="hljs-string">Libtool</span>
+<span class="hljs-attr">autoreconf: running:</span> <span class="hljs-string">/usr/local/Cellar/autoconf/2.69/bin/autoconf</span> <span class="hljs-string">--force</span>
+<span class="hljs-attr">configure.ac:14: error: possibly undefined macro:</span> <span class="hljs-string">AC_PROG_LIBTOOL</span>
+      <span class="hljs-string">If</span> <span class="hljs-string">this</span> <span class="hljs-string">token</span> <span class="hljs-string">and</span> <span class="hljs-string">others</span> <span class="hljs-string">are</span> <span class="hljs-string">legitimate,</span> <span class="hljs-string">please</span> <span class="hljs-string">use</span> <span class="hljs-string">m4_pattern_allow.</span>
+      <span class="hljs-string">See</span> <span class="hljs-string">the</span> <span class="hljs-string">Autoconf</span> <span class="hljs-string">documentation.</span>
+<span class="hljs-attr">autoreconf: /usr/local/Cellar/autoconf/2.69/bin/autoconf failed with exit status:</span> <span class="hljs-number">1</span>
+
+<span class="hljs-string">出现这种情况的时候，请检查/usr/local/lib</span> <span class="hljs-string">和</span> <span class="hljs-string">/usr/local/include</span> <span class="hljs-string">文件夹的权限(这两个目录是brew在使用)</span>
+
+
+<span class="hljs-string">$</span> <span class="hljs-string">./configure</span>
+<span class="hljs-string">$</span> <span class="hljs-string">make</span>
+<span class="hljs-string">...</span>
+<span class="hljs-string">make[1]:</span> <span class="hljs-string">***</span> <span class="hljs-literal">No</span> <span class="hljs-string">rule</span> <span class="hljs-string">to</span> <span class="hljs-string">make</span> <span class="hljs-string">target</span> <span class="hljs-string">classdist_noinst.stamp',</span> <span class="hljs-string">needed</span> <span class="hljs-string">byorg/zeromq/ZMQ.class'.</span>  <span class="hljs-string">Stop.</span>
+<span class="hljs-attr">make:</span> <span class="hljs-string">***</span> <span class="hljs-string">[all-recursive]</span> <span class="hljs-string">Error</span> <span class="hljs-number">1</span>
+    
+<span class="hljs-string">解决方法:</span>
+<span class="hljs-string">touch</span> <span class="hljs-string">src/classdist_noinst.stamp</span>
+
+<span class="hljs-string">$</span> <span class="hljs-string">make</span>
+<span class="hljs-string">...</span>
+<span class="hljs-string">make[1]:</span> <span class="hljs-string">***</span> <span class="hljs-literal">No</span> <span class="hljs-string">rule</span> <span class="hljs-string">to</span> <span class="hljs-string">make</span> <span class="hljs-string">target</span> <span class="hljs-string">org/zeromq/ZMQException.class,</span> <span class="hljs-string">needed</span> <span class="hljs-string">byall'.</span>  <span class="hljs-string">Stop.</span>
+<span class="hljs-attr">make:</span> <span class="hljs-string">***</span> <span class="hljs-string">[all-recursive]</span> <span class="hljs-string">Error</span> <span class="hljs-number">1</span>
+
+<span class="hljs-string">解决方法:</span>
+<span class="hljs-string">cd</span> <span class="hljs-string">src</span>
+<span class="hljs-string">javac</span> <span class="hljs-string">-d</span> <span class="hljs-string">.</span> <span class="hljs-string">org/zeromq/*.java</span>
+
+<span class="hljs-string">$</span> <span class="hljs-string">cd</span> <span class="hljs-string">../</span>
+<span class="hljs-string">$</span> <span class="hljs-string">make</span>
+<span class="hljs-string">...</span>
+<span class="hljs-attr">In file included from ZMQ.cpp:25:</span>
+<span class="hljs-attr">In file included from ./util.hpp:23:</span>
+<span class="hljs-string">/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/include/jni.h:45:10:</span> <span class="hljs-attr">fatal error:</span> <span class="hljs-string">'jni_md.h'</span> <span class="hljs-string">file</span> <span class="hljs-string">not</span> <span class="hljs-string">found</span>
+<span class="hljs-comment">#include "jni_md.h"</span>
+         <span class="hljs-string">^</span>
+<span class="hljs-number">1</span> <span class="hljs-string">error</span> <span class="hljs-string">generated.</span>
+<span class="hljs-string">make[2]:</span> <span class="hljs-string">***</span> <span class="hljs-string">[libjzmq_la-ZMQ.lo]</span> <span class="hljs-string">Error</span> <span class="hljs-number">1</span>
+<span class="hljs-string">make[1]:</span> <span class="hljs-string">***</span> <span class="hljs-string">[all]</span> <span class="hljs-string">Error</span> <span class="hljs-number">2</span>
+<span class="hljs-attr">make:</span> <span class="hljs-string">***</span> <span class="hljs-string">[all-recursive]</span> <span class="hljs-string">Error</span> <span class="hljs-number">1</span>
+
+<span class="hljs-string">解决方法:</span>
+<span class="hljs-string">$</span> <span class="hljs-string">vi</span> <span class="hljs-string">config.status</span>
+<span class="hljs-string">找到如下行</span>
+<span class="hljs-string">S["CPPFLAGS"]="-D_REENTRANT</span> <span class="hljs-string">-D_THREAD_SAFE</span>  <span class="hljs-string">-I/usr/local/Cellar/zeromq/2.1.9/include</span>  <span class="hljs-string">-I/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/include"</span>
+<span class="hljs-string">修改为</span>
+<span class="hljs-string">S["CPPFLAGS"]="-D_REENTRANT</span> <span class="hljs-string">-D_THREAD_SAFE</span>  <span class="hljs-string">-I/usr/local/Cellar/zeromq/2.1.9/include</span>  <span class="hljs-string">-I/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/include</span> <span class="hljs-string">-I/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers/"</span>
+    
+
+<span class="hljs-string">$</span> <span class="hljs-string">sudo</span> <span class="hljs-string">make</span> <span class="hljs-string">install</span></code></pre>
+
+
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章:"></a>参考文章:</h3><p><a href="http://storm.apache.org/documentation/Installing-native-dependencies.html" target="_blank" rel="noopener">http://storm.apache.org/documentation/Installing-native-dependencies.html</a><br><a href="http://nsdifficult.com/blog/20140325/storm/" target="_blank" rel="noopener">http://nsdifficult.com/blog/20140325/storm/</a><br><a href="http://xxthermidorxx.hatenablog.com/entry/2014/03/15/225926" target="_blank" rel="noopener">http://xxthermidorxx.hatenablog.com/entry/2014/03/15/225926</a><br><a href="https://github.com/oschrenk/zeromq-java-sample/blob/master/README.md" target="_blank" rel="noopener">https://github.com/oschrenk/zeromq-java-sample/blob/master/README.md</a></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B7%A5%E4%BD%9C%E9%9A%8F%E7%AC%94/">工作随笔</a>
+                    
+                      <a class="hover-with-bg" href="/tags/storm/">storm</a>
+                    
+                      <a class="hover-with-bg" href="/tags/zeromq/">zeromq</a>
+                    
+                      <a class="hover-with-bg" href="/tags/jqzm/">jqzm</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/06/13/python-quick-start/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python 入门</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2014/12/14/VPS-Ubuntu-14.04-L2TP-Over-IPSec/">
+                        <span class="hidden-mobile">Ubuntu 14.04 搭L2TP-Over-IPSec服务器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      function loadDisqus() {
+        var disqus_config = function () {
+          this.page.url = 'http://blog.ely.me/2015/05/21/mac-os-x-install-storm-0.9.0-wip16/';
+          this.page.identifier = '/2015/05/21/mac-os-x-install-storm-0.9.0-wip16/';
+        };
+        (function () {
+          var d = document,
+            s = d.createElement('script');
+          s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      }
+      createObserver(loadDisqus, 'disqus_thread');
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Mac OS X 10.10 安装 Storm-0.9.0-wip16&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

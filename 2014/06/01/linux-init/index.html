@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Ely Xiao">
+  <meta name="keywords" content="">
+  <title>Ubuntu 系统初始化 - Ely Xiao</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Ely Xiao</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2014-06-02 00:00">
+      2014年6月2日 凌晨
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h2 id="系统初始化"><a href="#系统初始化" class="headerlink" title="系统初始化"></a>系统初始化</h2><h4 id="Terminal-Tab键忽略大小写自动补全"><a href="#Terminal-Tab键忽略大小写自动补全" class="headerlink" title="Terminal Tab键忽略大小写自动补全"></a>Terminal Tab键忽略大小写自动补全</h4><p>系统配置文件为/etc/inputrc<br>个人配置文件为~/.inputrc</p>
+<p>修改个人配置文件后, 重启终端:</p>
+<pre><code class="hljs sql">echo "<span class="hljs-keyword">set</span> completion-<span class="hljs-keyword">ignore</span>-<span class="hljs-keyword">case</span> <span class="hljs-keyword">on</span><span class="hljs-string">" &gt;&gt; ~/.inputrc</span></code></pre>
+
+
+<h3 id="1-更新apt源"><a href="#1-更新apt源" class="headerlink" title="1. 更新apt源"></a>1. 更新apt源</h3><pre><code>$ apt-get update</code></pre><h3 id="2-安装add-apt-repository"><a href="#2-安装add-apt-repository" class="headerlink" title="2. 安装add-apt-repository"></a>2. 安装add-apt-repository</h3><pre><code>$ apt-get install software-properties-common python-software-properties
+# 可能会提示安装失败,提示执行apt-get update:
+
+apt-get update --fix-missing
+apt-get install python-software-properties</code></pre><h3 id="3-安装zip-unzip"><a href="#3-安装zip-unzip" class="headerlink" title="3. 安装zip unzip"></a>3. 安装zip unzip</h3><pre><code>$ apt-get install zip unzip</code></pre><h3 id="4-设置系统语言"><a href="#4-设置系统语言" class="headerlink" title="4. 设置系统语言"></a>4. 设置系统语言</h3><pre><code>$ vi /var/lib/locales/supported.d/local
+  zh_CN.UTF-8 UTF-8
+$ locale-gen</code></pre><h6 id="配置-ssh-免登陆访问"><a href="#配置-ssh-免登陆访问" class="headerlink" title="配置 ssh 免登陆访问"></a>配置 ssh 免登陆访问</h6><pre><code>$ vi .ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVR3kIcLZHBntZgMkpiLyl11NOglWUc95UvjWfiPmjFFMJbNAQtaXNqdNKj4R4gC3heVyvEWmaYoVxhzwiwNV2SWdRUUQzviA5MmxgLkoNTXldK50j3b/zK0mxnRl3PMiBl21XKzz2psu4t4zkW5CM0F3aRminwRANdUryB5c7K5jxVLidvdcokZb+eTViCe+wUmwHI2xwjjzTSnJ8zMFrPJuVe9+0ZFQX8/VW1rtbv8TK4+GbjrAnolSp1he7Ok6bI5B8aIu5Lb9U17ZU9xNu4RuTH3/sr8v9XTnCqvYD69JXHxAc7RGO4seLQIMzthxTxmGtTlQBGUr9/sop/gsx ely.xiao@qq.com</code></pre><h3 id="5-安装-Git"><a href="#5-安装-Git" class="headerlink" title="5. 安装 Git"></a>5. 安装 Git</h3><pre><code>$ add-apt-repository ppa:git-core/ppa
+$ apt-get update
+$ apt-get install git</code></pre><h3 id="6-zsh"><a href="#6-zsh" class="headerlink" title="6. zsh"></a>6. zsh</h3><pre><code class="hljs jboss-cli"><span class="hljs-comment"># 安装zsh</span>
+$ apt-get install zsh
+
+<span class="hljs-comment"># 安装配置 oh-my-zsh</span>
+$ git clone git:<span class="hljs-string">//github.com/robbyrussell/oh-my-zsh.git</span> ~<span class="hljs-string">/.oh-my-zsh</span>
+$ cp ~<span class="hljs-string">/.oh-my-zsh/templates/zshrc.zsh-template</span> ~<span class="hljs-string">/.zshrc</span>
+$ chsh -s <span class="hljs-string">/bin/zsh</span>
+
+<span class="hljs-comment"># 安装配置 oh-my-zsh 的插件 - autojump</span>
+$ git clone git:<span class="hljs-string">//github.com/joelthelion/autojump.git</span> &amp;&amp; <span class="hljs-keyword">cd</span> autojump &amp;&amp; <span class="hljs-string">./install.py</span>
+
+$ vi ~<span class="hljs-string">/.zshrc</span>
+    [[ -s <span class="hljs-string">/root/.autojump/etc/profile.d/autojump.sh</span> ]] &amp;&amp; source <span class="hljs-string">/root/.autojump/etc/profile.d/autojump.sh</span>
+    autoload -U compinit &amp;&amp; compinit -u
+
+$ source ~<span class="hljs-string">/.zshrc</span>
+
+<span class="hljs-comment"># 配置zsh主题</span>
+$ 参见 robbyrussell.zsh-theme.server
+$ vi ~<span class="hljs-string">/.oh-my-zsh/themes/robbyrussell.zsh-theme</span></code></pre>
+
+<h3 id="9-nginx"><a href="#9-nginx" class="headerlink" title="9.nginx"></a>9.nginx</h3><pre><code class="hljs dts"><span class="hljs-meta"># 安装</span>
+apt-add-repository ppa:nginx/stable
+apt-get update
+apt-get install nginx
+
+<span class="hljs-comment">// 卸载</span>
+<span class="hljs-meta"># apt-get remove nginx  <span class="hljs-comment">// 删除nginx，保留配置文件</span></span>
+<span class="hljs-meta"># rm -rf /etc/nginx     <span class="hljs-comment">// 手动删除配置文件</span></span>
+<span class="hljs-meta"># apt-get purge nginx   <span class="hljs-comment">// 删除nginx，连带配置文件</span></span>
+
+<span class="hljs-meta"># 配置nginx:</span>
+$ vi <span class="hljs-meta-keyword">/etc/</span>nginx/nginx.conf
+include <span class="hljs-meta-keyword">/etc/</span>nginx<span class="hljs-meta-keyword">/sites-enabled/</span>*; (将这行注释掉)
+
+$ vi <span class="hljs-meta-keyword">/etc/</span>nginx/conf.d/ely.conf
+<span class="hljs-class">server </span>&#123;
+    listen <span class="hljs-number">80</span>;
+    server_name www.ely.me;
+
+    location <span class="hljs-class">/ &#123;</span>
+<span class="hljs-class">        proxy_pass http:<span class="hljs-comment">//127.0.0.1:8080/;</span></span>
+<span class="hljs-class">    &#125;</span>
+<span class="hljs-class">&#125;</span>
+<span class="hljs-class"></span>
+<span class="hljs-class">$ service nginx restart</span></code></pre>
+<h3 id="11-java"><a href="#11-java" class="headerlink" title="11. java"></a>11. java</h3><pre><code>$ add-apt-repository ppa:webupd8team/java
+$ apt-get update
+$ apt-get install oracle-java7-installer
+$ apt-get install oracle-java8-installer</code></pre><h3 id="12-nodejs"><a href="#12-nodejs" class="headerlink" title="12. nodejs"></a>12. nodejs</h3><pre><code>$ add-apt-repository ppa:chris-lea/node.js &amp;&amp; apt-get update &amp;&amp; apt-get install nodejs</code></pre><h3 id="安装-PHP"><a href="#安装-PHP" class="headerlink" title="安装 PHP"></a>安装 PHP</h3><pre><code>$ apt-get install php5-cgi php5-fpm php5-mysql
+
+$ vi /etc/php5/fpm/pool.d/www.conf 
+    # listen = /var/run/php5-fpm.sock
+    listen = 127.0.0.1:9000</code></pre><h3 id="测试Nginx-amp-PHP-搭建是否正常"><a href="#测试Nginx-amp-PHP-搭建是否正常" class="headerlink" title="测试Nginx &amp; PHP 搭建是否正常"></a>测试Nginx &amp; PHP 搭建是否正常</h3><pre><code>$ mkdir -p /var/www/wordpress &amp;&amp; vi /var/www/wordpress/index.php
+  &lt;? phpinfo();?&gt;
+
+service php5-fpm restart
+service nginx restart</code></pre><h3 id="nginx-conf-for-wordpress"><a href="#nginx-conf-for-wordpress" class="headerlink" title="nginx.conf for wordpress"></a>nginx.conf for wordpress</h3><pre><code class="hljs shell">server &#123;
+    listen 80;
+
+    root /var/www/wordpress;
+    index index.html index.htm index.php;
+    # Make site accessible from http://localhost/
+    server_name blog.ely.me;
+
+    location / &#123;
+            # First attempt to serve request as file, then
+            # as directory, then fall back to index.html
+            try_files $uri $uri/ /index.html;
+            # Uncomment to enable naxsi on this location
+            # include /etc/nginx/naxsi.rules
+            if (-f $request_filename/index.html)&#123;
+                    rewrite (.*) $1/index.html break;
+            &#125;
+
+            if (-f $request_filename/index.php)&#123;
+                    rewrite (.*) $1/index.php;
+            &#125;
+
+            if (!-f $request_filename)&#123;
+                    rewrite (.*) /index.php;
+            &#125;
+    &#125;
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    location ~ \.php$ &#123;
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    #       # NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+    #
+    #       # With php5-cgi alone:
+            fastcgi_pass 127.0.0.1:9000;
+    #       # With php5-fpm:
+    #       fastcgi_pass unix:/var/run/php5-fpm.sock;
+            fastcgi_index index.php;
+            include fastcgi_params;
+    &#125;
+&#125;</code></pre>
+
+<h3 id="16-配置环境变量"><a href="#16-配置环境变量" class="headerlink" title="16. 配置环境变量"></a>16. 配置环境变量</h3><pre><code>$ vi ~/.zshrc
+ALL_IP=$(ifconfig | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk &apos;{print $2}&apos; | tr -d &quot;addr:&quot;)
+cat logo
+echo &quot;公网：$ALL_IP                                                   内网：xxx.xxx.xxx.xxx &quot;
+echo &quot;-------------------------------------------------------------------------------------------&quot;
+
+alias -s java=vi
+alias -s go=vi
+alias -s html=vi
+alias -s js=vi
+alias -s css=vi
+alias -s gz=&apos;tar -xzvf&apos;
+alias -s tgz=&apos;tar -xzvf&apos;
+alias -s bz2=&apos;tar -xjvf&apos;
+alias -s zip=&apos;unzip&apos;
+alias -s rar=&apos;unrar x&apos;
+
+# Java
+export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Gradle
+export GRADLE_HOME=/root/sdk/gradle-2.3
+export PATH=$GRADLE_HOME/bin:$PATH
+
+# Tomcat
+export TOMCAT_HOME=/root/sdk/apache-tomcat-6.0.43</code></pre><h3 id="19-服务器安全设置"><a href="#19-服务器安全设置" class="headerlink" title="19. 服务器安全设置"></a>19. 服务器安全设置</h3><h5 id="19-1-SSH-默认端口更改-修改完端口后，客户端需要配置ssh的config文件，指明端口"><a href="#19-1-SSH-默认端口更改-修改完端口后，客户端需要配置ssh的config文件，指明端口" class="headerlink" title="19.1 SSH 默认端口更改(修改完端口后，客户端需要配置ssh的config文件，指明端口)"></a>19.1 SSH 默认端口更改(修改完端口后，客户端需要配置ssh的config文件，指明端口)</h5><pre><code>$ vi /etc/ssh/sshd_config
+Port XXXX (将端口修改为自己想要的)
+
+$ service ssh restart</code></pre><h5 id="19-2-详情http-coralzd-blog-51cto-com"><a href="#19-2-详情http-coralzd-blog-51cto-com" class="headerlink" title="19.2 详情http://coralzd.blog.51cto.com/"></a>19.2 详情<a href="http://coralzd.blog.51cto.com/" target="_blank" rel="noopener">http://coralzd.blog.51cto.com/</a></h5><pre><code class="hljs routeros"><span class="hljs-comment">#!/bin/sh</span>
+<span class="hljs-comment"># desc: setup linux system security</span>
+<span class="hljs-comment"># author:coralzd</span>
+<span class="hljs-comment"># powered by www.freebsdsystem.org</span>
+<span class="hljs-comment"># version 0.1.2 written by 2011.05.03</span>
+<span class="hljs-comment">#account setup</span>
+
+passwd -l xfs
+passwd -l news
+passwd -l nscd
+passwd -l dbus
+passwd -l vcsa
+passwd -l games
+passwd -l nobody
+passwd -l avahi
+passwd -l haldaemon
+passwd -l gopher
+passwd -l ftp
+passwd -l mailnull
+passwd -l pcap
+passwd -l mail
+passwd -l shutdown
+passwd -l halt
+passwd -l uucp
+passwd -l operator
+passwd -l sync
+passwd -l adm
+passwd -l lp
+
+<span class="hljs-comment"># chattr /etc/passwd /etc/shadow</span>
+chattr +i /etc/passwd
+chattr +i /etc/shadow
+chattr +i /etc/group
+chattr +i /etc/gshadow
+<span class="hljs-comment"># add continue input failure 3 ,passwd unlock time 5 minite</span>
+sed -i <span class="hljs-string">'s#auth        required      pam_env.so#auth        required      pam_env.so\nauth       required       pam_tally.so  onerr=fail deny=3 unlock_time=300\nauth           required     /lib/security/$ISA/pam_tally.so onerr=fail deny=3 unlock_time=300#'</span> /etc/pam.d/system-auth
+<span class="hljs-comment"># system timeout 5 minite auto logout</span>
+echo <span class="hljs-string">"TMOUT=300"</span> &gt;&gt;/etc/profile
+
+<span class="hljs-comment"># will system save history command list to 10</span>
+sed -i <span class="hljs-string">"s/HISTSIZE=1000/HISTSIZE=10/"</span> /etc/profile
+
+<span class="hljs-comment"># enable /etc/profile go!</span>
+source /etc/profile
+
+<span class="hljs-comment"># add syncookie enable /etc/sysctl.conf</span>
+echo <span class="hljs-string">"net.ipv4.tcp_syncookies=1"</span> &gt;&gt; /etc/sysctl.conf
+
+sysctl -p # exec sysctl.conf enable
+<span class="hljs-comment"># optimizer sshd_config</span>
+
+sed -i <span class="hljs-string">"s/#MaxAuthTries 6/MaxAuthTries 6/"</span> /etc/ssh/sshd_config
+sed -i  <span class="hljs-string">"s/#UseDNS yes/UseDNS no/"</span> /etc/ssh/sshd_config
+
+<span class="hljs-comment"># limit chmod important commands</span>
+chmod 700 /bin/ping
+chmod 700 /usr/bin/finger
+chmod 700 /usr/bin/who
+chmod 700 /usr/bin/w
+chmod 700 /usr/bin/locate
+chmod 700 /usr/bin/whereis
+chmod 700 /sbin/ifconfig
+chmod 700 /usr/bin/pico
+chmod 700 /bin/vi
+chmod 700 /usr/bin/which
+chmod 700 /usr/bin/gcc
+chmod 700 /usr/bin/make
+chmod 700 /bin/rpm
+
+<span class="hljs-comment"># history security</span>
+
+chattr +a /root/.bash_history
+chattr +i /root/.bash_history
+
+<span class="hljs-comment"># write important command md5</span>
+    cat &gt; list &lt;&lt; <span class="hljs-string">"EOF"</span> &amp;&amp;
+    /bin/ping
+    /bin/finger
+    /usr/bin/who
+    /usr/bin/w
+    /usr/bin/locate
+    /usr/bin/whereis
+    /sbin/ifconfig
+    /bin/pico
+    /bin/vi
+    /usr/bin/vim
+    /usr/bin/which
+    /usr/bin/gcc
+    /usr/bin/make
+    /bin/rpm
+    EOF
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `cat list`
+    <span class="hljs-keyword">do</span>
+       <span class="hljs-keyword">if</span> [ ! -x <span class="hljs-variable">$i</span> ];then
+       echo <span class="hljs-string">"<span class="hljs-variable">$i</span> not found,no md5sum!"</span>
+      <span class="hljs-keyword">else</span>
+       md5sum <span class="hljs-variable">$i</span> &gt;&gt; /var/log/`hostname`.log
+      fi
+    done
+    rm -f list</code></pre>
+
+
+<h2 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h2><ol>
+<li>如果提示 <code>The program ‘add-apt-repository’ is currently not installed. You can install it by typing: apt-get install python-software-properties</code> 执行: <pre><code class="hljs maxima">apt-<span class="hljs-built_in">get</span> install software-<span class="hljs-built_in">properties</span>-common python-software-<span class="hljs-built_in">properties</span></code></pre>
+</li>
+</ol>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/linux/">linux</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ubuntu/">ubuntu</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2014/06/01/linux-custom/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Linux 系统个性化</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2014/03/31/git-quick-start/">
+                        <span class="hidden-mobile">Git 快速入门</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      function loadDisqus() {
+        var disqus_config = function () {
+          this.page.url = 'http://blog.ely.me/2014/06/01/linux-init/';
+          this.page.identifier = '/2014/06/01/linux-init/';
+        };
+        (function () {
+          var d = document,
+            s = d.createElement('script');
+          s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      }
+      createObserver(loadDisqus, 'disqus_thread');
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Ubuntu 系统初始化&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
