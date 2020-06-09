@@ -1,0 +1,51 @@
+---
+layout:     post
+title:      "对称加密/非对称加密/摘要算法/"
+date:       2019-07-31T10:37:51+08:00
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - java
+    - password
+    - algorithm
+---
+> 加密算法总结
+
+## 基础概念
+加密算法/工作模式/填充方式
+
+## 对称加密
+| 算法名词 | 安全性 | 描述 |
+| --- | --- | --- |
+| RC4 | 弱 | [JDK8u51不推荐使用](https://www.oracle.com/technetwork/java/javase/8u51-relnotes-2587590.html) |
+| AES | 高 |  |
+| blowfish | | |
+
+
+## 摘要算法
+| 算法名词 | 安全性 | 描述 |
+| --- | --- | --- |
+| MD5 | | |
+| SHA-1 | | |
+| SHA-256 | | |
+
+
+
+
+// token
+//用户  微信 - 公众号下的User-ID, 关注的时候创建
+
+/*
+客户端
+
+nonce,
+timestamp
+
+*/
+
+// 验签需要解决的问题
+// 1. 来源是否合法 + accessToken
+// 2. 请求的参数是否被篡改 - sha1
+// 3. 请求的唯一性  timestamp
+// accessToken + params+timestamp+sha1(params+timestamp+nonce)

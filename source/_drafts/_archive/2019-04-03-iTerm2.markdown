@@ -1,0 +1,24 @@
+---
+layout:     post
+title:      "iTerm2 设置"
+subtitle:   "iTerm2 设置"
+date:       2019-04-03T02:53:47+08:00
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - software
+---
+
+# Home/End 快捷键映射
+```
+Preferences -> Keys -> Key Mappings
+双击 ⌘←,  将Action设置为 Send Hex Code 值改为001
+双击 ⌘→,  将Action设置为 Send Hex Code 值改为005
+```
+![](/img/in-post/post-iterm/15542779530688.jpg)
+
+![](/img/in-post/post-iterm/15542778825788.jpg)
+![](/img/in-post/post-iterm/15542778919587.jpg)
+
+

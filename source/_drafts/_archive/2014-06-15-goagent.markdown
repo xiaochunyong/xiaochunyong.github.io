@@ -1,0 +1,28 @@
+---
+layout:     post
+title:      "GoAgent 证书无效"
+subtitle:   "GoAgent 证书无效"
+date:       2014-06-15
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - goagent
+    - GFW
+---
+
+### 如果你在访问https网站时用 GoAgent 遇到证书无效问题，请按以下方法解决：
+
+这里以Chrome浏览器为例，理论上只要证书正确导入系统，就可以了。
+
+Ubuntu 系统：
+
+打开 Chrome 浏览器
+首选项 > 高级选项 > 管理证书…
+在 授权中心 导入 GoAgent/local 目录下的 CA.crt 证书
+（注意不要导入到 服务器 ，否则不起作用）
+在 授权中心 找到 GoAgent CA 并点击 修改…
+修改信任设置为全部选中
+重启浏览器
+
+来自: [http://www.eit.name/blog/read.php?534](http://www.eit.name/blog/read.php?534)

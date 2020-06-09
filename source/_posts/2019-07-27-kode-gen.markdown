@@ -1,0 +1,85 @@
+---
+layout:     post
+title:      "KodeGen Plugin Release"
+subtitle:   "KodeGen - a IntelliJ IDEA plugin for Kotlin with Spring-Boot"
+date:       2019-07-27T16:26:08+08:00
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - kotlin
+    - IntelliJ IDEA
+---
+![KodeGen-Demo](https://github.com/xiaochunyong/static-resources/raw/master/images/KodeGen/KodeGen-Demo.gif)
+
+## Install
+1. Search 'KodeGen' in Idea plugins
+2. Download [Releases](https://github.com/xiaochunyong/kode-gen/releases)
+
+## Usage
+This plugin generates code from right click 'Generate...' menu while focused on a Kotlin class. 
+![Generate](https://blog.ely.me/img/in-post/post-kode-gen/KodeGen-1.png)
+
+The plugin support multiple class to generate one code, you can set the class number of template to select multiple classes to use.
+
+![select class](https://blog.ely.me/img/in-post/post-kode-gen/KodeGen-2.png)
+
+## Configuration
+![configure](https://blog.ely.me/img/in-post/post-kode-gen/KodeGen-3.png)
+- **Setting Email**
+- **Setting basePackage for Template**
+- **Add template**: click "Add Template" button to add a template, after saving changes.
+- **Delete template**: click "Delete Template" button to delete a template.
+
+#### Template Context
+```
+########################################################################################
+##
+## Common variables:
+##  $year - yyyy
+##  $date - yyyy-MM-dd
+##  $time - yyyy-MM-dd HH:mm:ss
+##  $user - user.name
+##
+## Settings Panel variables:
+##  $email
+##  $basePackage
+##
+## Available variables:
+##  $class0 - the context class, alias: $class
+##  $class1 - the selected class, like $class1, $class2
+##  $ClassName - generate by the config of "Class Name", the generated class name
+##
+## Class Entry Structure:
+##  $class0.className - the class Name
+##  $class0.packageName - the packageName
+##  $class0.importList - the list of imported classes name
+##  $class0.fields - the list of the class fields
+##          - type: the field type
+##          - name: the field name
+##          - modifier: the field modifier, like "private",or "@Setter private" if include annotations
+##  $class0.allFields - the list of the class fields include all fields of superclass
+##          - type: the field type
+##          - name: the field name
+##          - modifier: the field modifier, like "private",or "@Setter private" if include annotations
+##  $class0.methods - the list of class methods
+##          - name: the method name
+##          - modifier: the method modifier, like "private static"
+##          - returnType: the method returnType
+##          - params: the method params, like "(String name)"
+##  $class0.allMethods - the list of class methods include all methods of superclass
+##          - name: the method name
+##          - modifier: the method modifier, like "private static"
+##          - returnType: the method returnType
+##          - params: the method params, like "(String name)"#
+########################################################################################
+```
+
+## Release
+#### 0.1.1
+* 支持JPAService
+* 支持JPARepository
+* 支持MongoService
+* 支持MongoRepository
+* 支持Controller
+* 支持自定义模板

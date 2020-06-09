@@ -1,0 +1,33 @@
+---
+layout:     post
+title:      "zsh 最佳实践"
+subtitle:   "zsh 最佳实践"
+date:       2019-06-05T02:53:47+08:00
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - software
+---
+
+## Plugins
+
+1. [zsh-autosuggestions] (https://github.com/zsh-users/zsh-autosuggestions) - 命令行命令键入时的历史命令建议插件
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+2. [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+命令行语法高亮插件
+```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+
+## 最终配置
+```
+# autojump 功能弱，fasd 功能强，但是没 autojump 实用
+# 值得注意的是，根据官方文档，zsh-syntax-highlighting 插件需放在最后
+plugins=(git z extract zsh-autosuggestions zsh-syntax-highlighting)
+```
+

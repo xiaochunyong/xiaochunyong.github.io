@@ -1,0 +1,76 @@
+---
+layout:     post
+title:      "zsh"
+subtitle:   "zsh"
+date:       2014-06-29
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - shell
+    - zsh
+---
+
+
+### 安装 zsh
+```
+// ubuntu
+apt-get install zsh
+// macOS
+brew install zsh
+```
+
+### 安装 oh-my-zsh
+open link [ohmyz.sh](https://ohmyz.sh) will see:
+```
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+    
+
+
+
+### Plugins
+
+
+1. [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - 命令行命令键入时的历史命令建议插件
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+2. [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+命令行语法高亮插件
+```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+3. [autojump](https://github.com/wting/autojump) - a faster way to navigate your filesystem
+
+```
+// macOS
+brew install autojump
+
+// manual install
+git clone git://github.com/joelthelion/autojump.git
+cd autojump
+./install.py or uninstall.py
+```
+
+##### 最终配置
+```
+# autojump 功能弱，fasd 功能强，但是没 autojump 实用
+# 值得注意的是，根据官方文档，zsh-syntax-highlighting 插件需放在最后
+plugins=(git z extract zsh-autosuggestions zsh-syntax-highlighting)
+```
+
+### Themes:
+```
+echo -n "please input computer name:"
+read computerName
+echo
+echo 'local ret_status="%{$fg_bold[red]%}'$computerName'$s %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"' > ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+echo 'PROMPT='"'"'${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%d %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'"'" >> ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+echo '' >> ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+echo 'ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"' >> ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+echo 'ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"' >> ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+echo 'ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"' >> ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+echo 'ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"' >> ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+```

@@ -1,0 +1,169 @@
+---
+layout:     post
+title:      "用过的 macOS Apps"
+subtitle:   "用过的 macOS Apps"
+date:       2019-07-16T19:41:22+08:00
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - macOS
+---
+
+### 开发工具
+* Visual Studio Code
+* JetBrains Toolbox
+* IntelliJ IDEA
+* WebStorm
+* PyCharm
+* GoLand
+* AndroidStudio
+* DataGrip 
+* Robot 3T / Studio 3T (MongoDB客户端 免费&收费版)
+* NoSQLBooster for MongoDB (史上最好MongoDB 客户端, 但是要收费) `用户名：侠骨留香 5.x注册码: 999999-9d5988960387b3f63481722566cb0e9f`
+* Redis Desktop Manager
+* Navicat for MongoDB
+* DB Browser for SQLite
+* Postico
+* JD-GUI
+* Iceworks
+* Fork (Git 图形客户端)
+* Docker
+* 微信开发者工具
+* Taobao Editor
+* Xcode
+* Paw
+
+
+### 设计类
+* Axure RP 8
+* Sketch
+* ProcessOn
+
+### 设计师
+* [Astropad Studio](https://astropad.com/downloads/)
+* [Adobe Cretive Cloud](https://www.adobe.com/cn/creativecloud/catalog/desktop.html)
+* Adobe Photoshop CC
+* Adobe Illustrator CC
+* Adobe Zii
+* [Cinema 4D R20](https://c4dsky.com/62911.html)
+
+
+### 常用系列
+##### 浏览器
+* Google Chrome
+* Microsoft Edge
+* FireFox
+
+##### 视频/音乐
+* 腾讯视频
+* 爱奇艺
+* 优酷
+* NeteaseMusic
+* QQMusic
+* 虾米音乐
+
+##### 社交
+* QQ
+* WeChat
+* AliWangwang
+* Telegram
+
+##### 网盘
+* 百度网盘
+* 微云
+* OneDrive
+
+##### 工具
+* 搜狗输入法
+* TeamViewer
+* 有道笔记
+* 有道词典
+* 欧路词典
+* The Unarchiver (解压缩)
+* eZip
+* 迅雷
+* PicGo
+
+
+
+
+### 办公应用
+* DingTalk
+* WeChat Work
+* MWeb `Markdown`
+* Typora `Markdown`
+* Reeder
+* OmniPlan
+* OmniGraffle
+* FileZilla
+* Adobe Acrobat DC
+* MiTalk
+* MindNode
+* Microsoft Office
+* Microsoft OneNote
+* Microsoft Remote Desktop
+* Microsoft To-Do
+
+
+
+
+### 系统工具
+* iTerm
+* zsh + ohmyzsh
+* brew
+* Alfred 4 `快捷搜索`
+* iStat Menus `系统状态统计`
+* Magnet `窗口管理`
+* CatchMouse `多屏鼠标速切`
+* CleanMyMac X `系统清理`
+* Tencent Lemon `系统清理`
+* ~~Shadowsocks~~ `GFW`
+* ~~V2RayX~~ `GFW`
+* ~~V2RayU~~ `GFW`
+* Trojan `GFW`
+* SwitchHosts
+* Reflector 3
+* PlistEdit Pro
+* PacketSender `TCP 发包工具`
+* KeyCue `快捷键提醒`
+* CheatSheet `快捷键提醒`
+* Kap Beta `录制Gif`
+* Hammerspoon `工具箱`
+* Huoying Video Desktop `Desktop Screen`
+* DictUnifier `Dictionary`
+* DaisyDisk `磁盘空间占用分析`
+* Bartender 3 `菜单栏托盘图标管理`
+* tcpdump `命令行抓包`
+* Wireshark `抓包`
+* Charles `抓包`
+* Lantern `GFW`
+* ZeroTier One
+* [mackup](https://github.com/lra/mackup)
+* [Keystroke Pro](https://ixeau.com/apps/keystroke-pro/) `按键记录`
+* [AndroidFileTransfer](https://dl.google.com/dl/androidjumper/mtp/5071136/AndroidFileTransfer.dmg) `Google官方Android传文件`
+* BitBar
+
+
+### Windows
+* [火柴](https://www.huochaipro.com) `原火萤酱` `效率工具`
+* [Rufus](https://rufus.ie) `制作U盘启动盘`
+
+
+### 好玩的
+* [Server酱](https://sc.ftqq.com/) `推送`
+* [Bark](https://day.app/) `推送`
+
+### 问题
+###### “XXXX” is damaged and can’t be opened. You should move it to the Trash.
+```
+sudo spctl --master-disable
+# 或者
+xattr -cr /path/to/xxxx.app
+```
+
+###### Alfred 3/4 无法打开, 执行
+```
+codesign --sign - --force --deep /Applications/Alfred\ 4.app
+codesign --sign - --force --deep /Applications/Alfred\ 4.app/Contents/Preferences/Alfred\ Preferences.app
+```

@@ -1,0 +1,69 @@
+---
+layout:     post
+title:      "Mackup 备份macOS/Linux应用配置, 并同步"
+subtitle:   "Mackup Backup/Restore macOS/Linux Apps Config and Sync"
+date:       2019-07-21T17:27:49+08:00
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - macOS
+    - mackup
+---
+
+> [Mackup](https://github.com/lra/mackup) - Keep your application settings in sync (OS X/Linux)
+
+## backup/restore/uninstall 3个操作做了什么? 经常混淆
+## Backup
+> home/realfile  copy to backup/file and generate home/linkfile
+```
+Backup the application config files.
+
+        Algorithm:
+            if exists home/file
+              if home/file is a real file
+                if exists mackup/file
+                  are you sure ?
+                  if sure
+                    rm mackup/file
+                    mv home/file mackup/file
+                    link mackup/file home/file
+                else
+                  mv home/file mackup/file
+                  link mackup/file home/file
+```
+
+
+
+## Restore
+> mackup/file generate linkfile to replace home/file
+```
+Restore the application config files.
+
+        Algorithm:
+            if exists mackup/file
+              if exists home/file
+                are you sure ?
+                if sure
+                  rm home/file
+                  link mackup/file home/file
+              else
+                link mackup/file home/file
+```
+
+## Uninstall
+> mackup/file  back to home/realfile
+```
+Uninstall Mackup.
+
+        Restore any file where it was before the 1st Mackup backup.
+
+        Algorithm:
+            for each file in config
+                if mackup/file exists
+                    if home/file exists
+                        delete home/file
+                    copy mackup/file home/file
+            delete the mackup folder
+            print how to delete mackup
+```

@@ -1,0 +1,96 @@
+---
+layout:     post
+title:      "猎来社区(Discuz) 修改记录"
+subtitle:   "猎来社区(Discuz) 修改记录"
+date:       2014-02-01
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - software
+---
+
+
+
+### 头像显示不了
+
+	修改config/config_ucenter.php文件
+    define('UC_API', 'http://hi.hunteron.com/uc_server');
+    登陆discuz后台  -  工具  - 更新缓存
+    
+### 修改默认头像
+	/var/www/bbs/uc_server/img/noavatar_big.gif
+    /var/www/bbs/uc_server/img/noavatar_middle.gif
+    /var/www/bbs/uc_server/img/noavatar_small.gif
+    登陆discuz后台  -  工具  - 更新缓存
+    
+### 导航菜单论坛 两个字 改为社区
+	后台 - 界面 - 导航设置 - 主导航
+    将论坛两个字改成社区,提交
+    
+### 社区Title修改
+	后台 - 全局 - SEO设置 - 论坛
+    或者
+    修改${discuz}/template/default/common/header_common.htm的title
+    
+### Discuz 新增接口
+	编辑${discuz}/uc_server/model/user.php
+    function isopenforum($hunteronid) {
+        $uid = $this->db->result_first("SELECT uid FROM bbs_common_member_profile WHERE field1='$hunteronid'");
+        return $uid;
+    }
+    function add_user2($username, $password, $email, $uid = 0, $questionid = '', $answer = '', $regip = '',$hunteronid) {
+        $uid = $this->add_user($username, $password, $email, $uid, $questionid, $answer, $regip);
+        if ($uid > 0) {
+            $this->db->query("insert into bbs_common_member(uid, email, username, password, groupid, regdate, credits, timeoffset) values('$uid','$email','$username','$password',10,unix_timestamp(),2,9999)");
+            $this->db->query("insert into bbs_common_member_count(uid) values('$uid')");
+            $this->db->query("INSERT INTO bbs_common_member_profile SET uid='$uid',field1='$hunteronid'");
+        }
+        return $uid;
+    }
+    
+    编辑${discuz}/uc_server/control/user.php
+    function onisopenforum() {
+        $this->init_input();
+        $hunteronid = $this->input('hunteronid');
+        $uid = $_ENV['user']->isopenforum($hunteronid);
+        if (empty($uid)) {
+            $uid = -1;     
+        }
+        return $uid;
+    }
+    function onregister2() {
+        $this->init_input();
+        $username = $this->input('username');
+        $password =  $this->input('password');
+        $email = $this->input('email');
+        $questionid = $this->input('questionid');
+        $answer = $this->input('answer');
+        $regip = $this->input('regip');
+        $hunteronid = $this->input('hunteronid');
+        if(($status = $this->_check_username($username)) < 0) {
+            return $status;
+        }
+        if(($status = $this->_check_email($email)) < 0) {
+            return $status;
+        }
+        $uid = $_ENV['user']->add_user2($username, $password, $email, 0, $questionid, $answer, $regip, $hunteronid);
+        return $uid;
+    }
+    
+
+### Discuz 更换 favicon.ico
+	替换discuz根目录favicon.ico文件
+	如果不生效: 用浏览器访问http://hi.hunteron.com/favicon.ico
+
+### Discuz 修改数据库连接
+	/config/config_global.php
+	/config/config_ucenter.php
+	/uc_server/data/config.inc.php
+	
+### Discuz 帖子页面,在左侧用户信息中加入加为好友功能
+	/template/default/forum/viewthread_node.htm
+	
+### Discuz 底部商家QQ修改
+	/template/veikei_dz_tour_20131230_metro/common/footer.php
+    http://shang.qq.com/index.php

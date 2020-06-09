@@ -1,0 +1,55 @@
+---
+layout:     post
+title:      "JWT 时间类型问题"
+date:       2019-07-31T10:44:25+08:00
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - jwt
+---
+> 最近在Web应用中, 集成JWT的时候, 遇到一个坑. 在设置token的exp(过期时间)字段后, 解析Token取得exp字段变成了52556年
+
+```kotlin
+// 简略版
+fun buildToken(username: String) {
+    val now = Date()
+    val expiration = Date(now.time + EXPIRATION_TIME)
+    val claims = HashMap<String, Any>()
+    claims[Claims.ID] = UUID.randomUUID().toString()        // 编号
+    claims[Claims.SUBJECT] = username                      // 主题
+    claims[Claims.EXPIRATION] = expiration                  // 过期时间
+    Jwts.builder()
+        .setClaims(claims)
+        .signWith(SignatureAlgorithm.HS512, JWT_SECRET)
+        .compact()
+}
+
+fun parseToken(token: String): Claims? {
+    try {
+        return Jwts.parser()
+                .setSigningKey(JWT_SECRET)
+                .parseClaimsJws(token)
+                .body
+    } catch (e: Exception) {
+        logger.error(e.message, e)
+    }
+    return null
+}
+
+// 测试
+parseToken(buildToken("ely.xiao"))!!.expiration // 得到: Sun Dec 19 19:19:53 CST 52556
+```
+
+> 翻了一下源码后, 在JwtMap.toDate方法中发现, 它会将日期值乘 1000 在获取日期类型字段时, 会将日期的整数表示 * 1000
+
+![-w811](/img/in-post/jwt-issue/15648348889617.jpg)
+
+> 原因上面也说了, JWT规范要求, JWT Token中的日期类型字段用秒表示.  而我们在构建的时候是直接在Map里面设置的是日期类型, 在调用compact方法中, 会使用jackson将这个map转为json字符串, 转的过程中是取Date.getTime()方法, 获得的毫秒数. (规范要求我们存秒单位, 所以导致了这个问题)
+
+![-w817](/img/in-post/jwt-issue/15648359909928.jpg)
+
+
+#### 解决办法有2种:
+1. 通过Map设置日期类型字段的时候, 采用`val expiration = Date(System.currentTimeMillis() / 1000)`的方式设置
+2. 获取builder后, 调用方法设置`Jwts.builder().setExpiration(expiration)`这个方法里面会除1000.

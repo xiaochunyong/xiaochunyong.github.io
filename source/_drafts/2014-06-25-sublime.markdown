@@ -1,0 +1,129 @@
+---
+layout:     post
+title:      "Sublime 3 笔记"
+subtitle:   "Sublime 3 笔记"
+date:       2014-06-25
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - software
+---
+
+下载(我这里下载的是Sublime 3 开发版)
+主页: http://www.sublimetext.com/3dev
+
+这里,我下载的是解压版: sublime_text_3_build_3062_x64.tar.bz2
+
+解压
+
+	tar -xf sublime_text_3_build_3062_x64.tar.bz2
+
+进入解压缩后的文件夹，我们可以看到 Sublime Text 3 的目录结构, 其中有一个可执行文件 sublime_text，我们可以执行以下命令运行它：
+	
+	sublime_text_3 $ ./sublime_text
+
+不过还有两个问题值得注意：
+
+	应用程序应该保存在什么特定的地方呢？
+首先，象 Ubuntu 这样的 Linux 系统并没有规定用户必须把应用程序保存在一个固定的地方，不过按照惯例通常有以下几个方案可供选择：
+
+	保存在 /usr/lib/ 或 /usr/local/lib/ 文件夹下
+	保存在 /opt/ 文件夹下
+	保存在 ~/SDK/ 或类似的用户自定义文件夹下
+
+这些方案都可以，重要的是养成一个习惯，不要到处乱丢就好。假设我们选择放在 ~/SDK/ 文件夹下，于是我们可以输入：
+
+	sublime_text_3 $  cd ..
+	Downloads $ mv sublime_text_3 ~/SDK/	
+	
+为什么在运行的时候要在前面加上 ./ 呢？
+
+在 Linux 系统下，有一个环境变量叫做 $PATH ，系统在其中保存了一些可执行的二进制文件所存放的路径，因此我们可以在任何地方运行这些命令而不需要指定它们的绝对路径。
+
+你可以在任何情况下输入下面的命令来查看当前系统的 $PATH 环境变量：
+$ echo $PATH
+
+在之前的例子中，~/Downloads/Sublime Text 2/ 文件夹并不在 $PATH 环境变量之中，所以即使处于这个路径之下，也无法直接执行 sublime_text 这个命令，所以我们须要加一个 ./ （等同于当前目录）才可以。
+
+可是这么一来岂不是很麻烦？难道每安装一个应用程序，就得把它所处的文件夹路径添加到 $PATH 变量中去才能运行它吗？当然不是的。
+
+象 ls cd pwd 这样的命令，我们随时随地都可以运行，这是因为它们被统一存放在 /bin/ 或 /sbin/ 文件夹下，这些文件夹默认就在 $PATH 环境变量之中。同样的，/usr/bin/ 和 usr/sbin/ 也是如此。不过我们没有把 Sublime Text 2 的所有文件都放在这些文件夹下，这是因为它们不全是可执行的二进制文件。我们可以这么做：
+
+	$ ln -s ~/SDK/Sublime\ Text\ 2/sublime_text /usr/bin/subl
+
+这条命令的意思就是给可执行的 sublime_text 文件创建了一个叫做 subl 的连接（类似 Windows 下的快捷方式，只不过是运行在命令行下的），并且把它保存在 /usr/bin/ 文件夹下。于是，我们就可以通过输入 subl 来运行 Sublime Text 2 了。
+简化
+
+通过上述操作，我们就安装好了 Linux 版本的 Sublime Text 2，不过相比 Windows 或 Mac OS X 而言，这还是太麻烦了。是否可以创建一个图形化的快捷方式以便我们在 Ubuntu 的 Dash 或 Launch Bar 里运行它呢？
+
+当然也是可以的啦！首先让我们进入一个文件夹：
+$ cd /usr/share/applications/
+
+在这里我们用 Sublime Text 2 创建一个文件：
+$ subl sublime.desktop
+
+.desktop 后缀的文件，就像是图形界面下的快捷方式，可以通过 Dash 搜索或运行它，也可以把它锁定在 Launch Bar 上。这个文件里需要输入的内容如下：
+
+	[Desktop Entry]
+    Version=1.0
+    Type=Application
+    Name=Sublime Text
+    GenericName=Text Editor
+    Comment=Sophisticated text editor for code, markup and prose
+    Exec=subl
+    Terminal=false
+    MimeType=text/plain;
+    Icon=/home/ely/SDK/sublime_text_3/Icon/48x48/sublime-text.png
+    Categories=TextEditor;Development;
+    StartupNotify=true
+    Actions=Window;Document;
+    
+    [Desktop Action Window]
+    Name=New Window
+    Exec=subl -n
+    OnlyShowIn=Unity;
+    
+    [Desktop Action Document]
+    Name=New File
+    Exec=subl --command new_file
+    OnlyShowIn=Unity;
+    
+注意：第7行所指定的路径将决定快捷方式能否正确显示图标，请不要输错；第5行和第13行里的 subl 就是之前创建的那个连接，如果你创建的连接名字不一样，别忘了改正确。
+附上ppa安装方法更方便
+sudo add-apt-repository ppa:webupd8team/sublime-text-2
+sudo apt-get update
+sudo apt-get install sublime-text-2
+
+
+默认文本编辑器
+
+插件：Package Control 安装教程
+===
+自动安装：
+---
+
+1、通过快捷键 ctrl+` 或者 View > Show Console 菜单打开控制台
+
+2、粘贴对应版本的代码后回车安装
+
+适用于 Sublime Text 3：
+
+import  urllib.request,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.join(ipp,pf),'wb').write(urllib.request.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())
+
+
+适用于 Sublime Text 2：
+
+import  urllib2,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();os.makedirs(ipp)ifnotos.path.exists(ipp)elseNone;urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler()));open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read());print('Please restart Sublime Text to finish installation')
+
+手动安装：
+------
+1、点击 Preferences > Browse Packages… 菜单
+
+2、进入 Installed Packages/ 目录
+
+3、下载 Package Control.sublime-package，并复制文件到 Installed Packages/ 目录
+
+4、重启 Sublime Text
+
+BTW: [Console 命令](http://www.sublimetext.com/docs/commands)

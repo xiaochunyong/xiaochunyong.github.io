@@ -1,0 +1,21 @@
+---
+layout:     post
+title:      "装 nodejs-yo-bower-grunt"
+subtitle:   "装 nodejs-yo-bower-grunt"
+date:       2014-06-23
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - software
+---
+
+安装 nodejs
+---
+    add-apt-repository ppa:chris-lea/node.js
+    apt-get update
+    apt-get install nodejs
+
+安装 yo bower grunt
+---
+    npm install -g yo

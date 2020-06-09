@@ -1,0 +1,47 @@
+---
+layout:     post
+title:      "gradle 笔记"
+subtitle:   "gradle 笔记"
+date:       2014-06-18
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - gradle
+---
+
+# 查看依赖
+gradle -q :common:dependencies --configuration compile > aaaa
+
+# 发布jar包到指定maven库,以及从maven库中下载jar包
+发布 jar包 到 公司nexus仓库的配置  要发布的话执行:gradle publish
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username 'deploy'
+                password 'deploy123'
+            }
+            url "http://192.168.2.211:8081/nexus/content/repositories/releases"
+        }
+    }
+}
+
+从公司下载依赖jar包的配置:
+repositories {
+    maven {
+        credentials {
+            username 'deploy'
+            password 'deploy123'
+        }
+        url "http://192.168.2.211:8081/nexus/content/groups/public/"
+    }
+    mavenCentral()
+}

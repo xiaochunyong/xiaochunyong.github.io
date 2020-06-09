@@ -1,0 +1,38 @@
+---
+layout:     post
+title:      "Linux 常用命令"
+subtitle:   "Linux 常用命令"
+date:       2014-07-02
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - shell
+---
+
+## 查找文件内容
+find / -type f -name "*.log" | xargs grep "要查找的内容"
+
+### 1、查看统计当前目录下文件的个数
+	ls -l | grep "^-" | wc -l
+
+### 2、查看统计当前目录下文件的个数，包括子目录里的。
+	ls -lR| grep "^-" | wc -l
+
+### 3、查看某目录下文件夹(目录)的个数，包括子目录里的。
+	ls -lR| grep "^d" | wc -l
+
+## apt-get
+```
+$ sudo apt-add-repository ppa:nginx/stable // 新增源
+$ apt-get update --fix-missing // 更新源
+$ apt-get autoremove // 卸载不再需要的依赖程序
+$ apt-get -f install // 使用 dpkg -i 安装软件 提示缺少依赖包时，执行
+```
+
+
+## top
+* Linux服务器的16个监控命令 http://www.51cto.com/php/viewart.php?ID=334314
+* Linux top VIRT RES SHR SWAP DATA内存参数详解 http://blog.csdn.net/u011547375/article/details/9851455
+* linux TOP命令及参数解析（常用） http://justdo2008.iteye.com/blog/2193868
+* linux 下查看机器是cpu是几核的 http://www.cnblogs.com/xd502djj/archive/2011/02/28/1967350.html

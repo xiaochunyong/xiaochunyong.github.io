@@ -1,0 +1,25 @@
+---
+layout:     post
+title:      "你好"
+subtitle:   "Hello"
+date:       2013-11-28
+author:     "Ely Xiao"
+header-img: "img/common.jpg"
+catalog: true
+tags:
+    - blog
+---
+Hello Blog
+
+### 博客框架
+* [jekyll/jekyll](https://github.com/jekyll/jekyll) - 基于Ruby
+* [hexojs/hexo](https://github.com/hexojs/hexo) - 基于Nodejs
+* [gohugoio/hugo](https://github.com/gohugoio/hugo) - 基于Golang
+
+
+# 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
