@@ -3,9 +3,10 @@ layout:     post
 title:      "Kotlin 数据类Merge其它对象的属性"
 subtitle:   "Kotlin data class merge properties from another object"
 date:       2019-08-02T23:58:13+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/Kotlin.png
+categories:
+  - Kotlin
 tags:
     - Kotlin
 ---

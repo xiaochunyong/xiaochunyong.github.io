@@ -2,9 +2,7 @@
 layout:     post
 title:      "对称加密/非对称加密/摘要算法/"
 date:       2019-07-31T10:37:51+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
 tags:
     - java
     - password

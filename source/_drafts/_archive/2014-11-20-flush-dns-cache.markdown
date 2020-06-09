@@ -3,9 +3,9 @@ layout:     post
 title:      "如何强制刷新本地DNS缓存？"
 subtitle:   "Ub如何强制刷新本地DNS缓存？"
 date:       2014-11-20
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

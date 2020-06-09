@@ -3,9 +3,9 @@ layout:     post
 title:      "IntelliJ IDEA 设置"
 subtitle:   "IntelliJ IDEA 设置"
 date:       2014-05-30
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

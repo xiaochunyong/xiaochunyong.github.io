@@ -2,9 +2,10 @@
 layout:     post
 title:      "Jackson/FastJSON处理Kotlin Data Class字段别名"
 date:       2019-07-23T12:05:23+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/Kotlin.png
+categories:
+  - Kotlin
 tags:
     - kotlin
     - json

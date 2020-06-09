@@ -3,9 +3,9 @@ layout:     post
 title:      "Linux Terminal Tab键忽略大小写自动补全"
 subtitle:   "Linux Terminal Tab键忽略大小写自动补全"
 date:       2014-06-02
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

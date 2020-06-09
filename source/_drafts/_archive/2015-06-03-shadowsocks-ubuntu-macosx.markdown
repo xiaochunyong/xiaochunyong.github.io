@@ -3,9 +3,9 @@ layout:     post
 title:      "shadowsocks"
 subtitle:   "shadowsocks"
 date:       2015-06-03
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

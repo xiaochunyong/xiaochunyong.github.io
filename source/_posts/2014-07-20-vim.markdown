@@ -3,9 +3,10 @@ layout:     post
 title:      "Vim 教程"
 subtitle:   "Vim 教程"
 date:       2014-07-20
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/Vim.png
+categories:
+  - Linux
 tags:
     - vim
 ---

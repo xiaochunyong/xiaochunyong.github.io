@@ -3,9 +3,9 @@ layout:     post
 title:      "常见协议及其RFC文档链接"
 subtitle:   "常见协议及其RFC文档链接"
 date:       2016-12-05
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+categories:
+  - Protocol
 tags:
     - protocol
 ---

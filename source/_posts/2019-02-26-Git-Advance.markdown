@@ -3,9 +3,10 @@ layout:     post
 title:      "Git 高级教程"
 subtitle:   "Git 高级教程"
 date:       2019-02-26
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/Git.png
+categories:
+  - Git
 tags:
     - git
 ---

@@ -3,11 +3,12 @@ layout:     post
 title:      "Git 快速入门"
 subtitle:   "Git 快速入门"
 date:       2014-04-01
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/Git.png
+categories:
+  - Git
 tags:
-    - git
+  - git
 ---
 > Updated by 2019-08-21 15:51
  

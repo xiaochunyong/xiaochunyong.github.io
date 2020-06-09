@@ -3,9 +3,9 @@ layout:     post
 title:      "Ely At Ubuntu"
 subtitle:   "Ely At Ubuntu"
 date:       2014-06-29
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - linux
     - ubuntu

@@ -3,9 +3,9 @@ layout:     post
 title:      "猎来社区(Discuz) 修改记录"
 subtitle:   "猎来社区(Discuz) 修改记录"
 date:       2014-02-01
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

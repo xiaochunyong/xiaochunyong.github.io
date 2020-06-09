@@ -3,9 +3,9 @@ layout:     post
 title:      "git 安装"
 subtitle:   "git 安装"
 date:       2014-06-11
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

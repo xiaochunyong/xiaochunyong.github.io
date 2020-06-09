@@ -3,9 +3,7 @@ layout:     post
 title:      "欧路词典破解"
 subtitle:   "EuDic Crack"
 date:       2019-07-21T17:27:49+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
 tags:
     - macOS
     - 欧路词典

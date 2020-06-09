@@ -3,9 +3,9 @@ layout:     post
 title:      "mac install mtr"
 subtitle:   "mac install mtr"
 date:       2016-12-22
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

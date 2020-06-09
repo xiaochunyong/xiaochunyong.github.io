@@ -3,9 +3,7 @@ layout:     post
 title:      "基础设施"
 subtitle:   "Infrastructure"
 date:       2019-09-24T17:17:19+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
 tags:
     - infrastructure
 ---

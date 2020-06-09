@@ -3,9 +3,10 @@ layout:     post
 title:      "Ubuntu 14.04 搭L2TP-Over-IPSec服务器"
 subtitle:   "Ubuntu 14.04 搭L2TP-Over-IPSec服务器"
 date:       2014-12-15
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/Ubuntu.jpg
+categories:
+  - Linux
 tags:
     - l2tp
     - ipsec

@@ -3,9 +3,7 @@ layout:     post
 title:      "内存泄漏分析"
 subtitle:   "Memory Leak Analysis"
 date:       2019-10-28T11:08:11+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
 tags:
     - JVM
     - Java

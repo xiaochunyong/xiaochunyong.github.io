@@ -3,9 +3,9 @@ layout:     post
 title:      "iTerm2 设置"
 subtitle:   "iTerm2 设置"
 date:       2019-04-03T02:53:47+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

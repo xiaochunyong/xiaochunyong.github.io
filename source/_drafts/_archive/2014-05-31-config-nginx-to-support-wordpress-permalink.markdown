@@ -3,9 +3,9 @@ layout:     post
 title:      "配置 Nginx 支持 WordPress的固定链接"
 subtitle:   "配置 Nginx 支持 WordPress的固定链接"
 date:       2014-05-31
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - nginx, wordpress
 ---

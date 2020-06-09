@@ -2,9 +2,10 @@
 layout:     post
 title:      "JWT 时间类型问题"
 date:       2019-07-31T10:44:25+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/JWT.png
+categories:
+  - Java
 tags:
     - jwt
 ---

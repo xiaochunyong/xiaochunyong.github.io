@@ -3,9 +3,10 @@ layout:     post
 title:      "macOS 安装Docker"
 subtitle:   "macOS 安装Docker"
 date:       2019-05-29T02:53:47+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/Docker.png
+categories:
+  - 云计算
 tags:
     - docker
 ---

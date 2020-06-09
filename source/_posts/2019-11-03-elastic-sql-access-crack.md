@@ -2,9 +2,10 @@
 layout:     post
 title:      "Elastic SQL Access"
 date:       2019-11-03T15:57:37+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/Elastic.png
+categories:
+  - 数据库
 tags:
     - elastic
 ---

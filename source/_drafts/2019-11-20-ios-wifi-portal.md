@@ -3,9 +3,7 @@ layout:     post
 title:      "IOS WiFi Popup Portal"
 subtitle:   "sub-title"
 date:       2019-11-20T10:21:49+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
 tags:
     - CNA
     - Captive Portal

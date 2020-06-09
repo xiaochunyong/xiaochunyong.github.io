@@ -3,9 +3,9 @@ layout:     post
 title:      "reinstall mac os x"
 subtitle:   "reinstall mac os x"
 date:       2016-01-06
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

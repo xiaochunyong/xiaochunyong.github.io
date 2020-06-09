@@ -3,9 +3,9 @@ layout:     post
 title:      "install wordpress"
 subtitle:   "install wordpress"
 date:       2016-09-20
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

@@ -3,9 +3,7 @@ layout:     post
 title:      "macOS 新机初始化"
 subtitle:   "macOS 新机初始化"
 date:       2019-07-22T00:15:16+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
 tags:
     - macOS
 ---

@@ -3,9 +3,9 @@ layout:     post
 title:      "JVM 内存设置"
 subtitle:   "JVM 内存设置"
 date:       2014-05-31
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - nginx, wordpress
 ---

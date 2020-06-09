@@ -3,9 +3,9 @@ layout:     post
 title:      "Linux 修改 计算机名"
 subtitle:   "Linux 修改 计算机名"
 date:       2014-06-03
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

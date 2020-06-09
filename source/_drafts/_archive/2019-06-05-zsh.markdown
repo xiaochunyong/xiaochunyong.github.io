@@ -3,9 +3,9 @@ layout:     post
 title:      "zsh 最佳实践"
 subtitle:   "zsh 最佳实践"
 date:       2019-06-05T02:53:47+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

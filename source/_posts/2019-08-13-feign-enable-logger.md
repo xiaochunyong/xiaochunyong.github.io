@@ -2,9 +2,10 @@
 layout:     post
 title:      "Feign 启用日志"
 date:       2019-08-13T11:14:50+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/SpringCloud.jpeg
+categories:
+  - Spring Cloud
 tags:
     - SpringBoot
     - Feign

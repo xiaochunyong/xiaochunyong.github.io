@@ -2,9 +2,10 @@
 layout:     post
 title:      "H5页面调试之Safari"
 date:       2019-09-23T20:21:49+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/Safari.jpeg
+categories:
+  - 经验
 tags:
     - html5
     - debug

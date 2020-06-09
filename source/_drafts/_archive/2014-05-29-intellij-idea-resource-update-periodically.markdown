@@ -3,9 +3,9 @@ layout:     post
 title:      "IntelliJ IDEA 教程/资源 汇总(定期更新)"
 subtitle:   "IntelliJ IDEA 教程/资源 汇总(定期更新)"
 date:       2014-05-29
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

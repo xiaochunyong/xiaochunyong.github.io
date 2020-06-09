@@ -3,9 +3,7 @@ layout:     post
 title:      "Sublime 3 笔记"
 subtitle:   "Sublime 3 笔记"
 date:       2014-06-25
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
 tags:
     - software
 ---

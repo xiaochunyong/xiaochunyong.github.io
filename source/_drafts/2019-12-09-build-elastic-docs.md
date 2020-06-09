@@ -2,9 +2,7 @@
 layout:     post
 title:      "Build Elasticsearch Docs"
 date:       2019-12-09T11:18:12+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
 tags:
     - elastic
 ---

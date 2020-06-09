@@ -3,9 +3,9 @@ layout:     post
 title:      "Mac OS X 10.10 安装 Storm-0.9.0-wip16"
 subtitle:   "Mac OS X 10.10 安装 Storm-0.9.0-wip16"
 date:       2015-05-22
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+categories:
+  - macOS
 tags:
     - 工作随笔
     - storm

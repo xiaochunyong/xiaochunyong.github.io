@@ -3,9 +3,9 @@ layout:     post
 title:      "Ubuntu 格式化 U盘"
 subtitle:   "Ubuntu 格式化 U盘"
 date:       2014-06-05
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

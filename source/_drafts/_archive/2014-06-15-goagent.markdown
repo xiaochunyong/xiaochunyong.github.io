@@ -3,9 +3,9 @@ layout:     post
 title:      "GoAgent 证书无效"
 subtitle:   "GoAgent 证书无效"
 date:       2014-06-15
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - goagent
     - GFW

@@ -3,9 +3,10 @@ layout:     post
 title:      "Ubuntu 系统初始化"
 subtitle:   "Ubuntu 系统初始化"
 date:       2014-06-02
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/Linux.jpeg
+categories:
+  - Linux
 tags:
     - linux
     - ubuntu

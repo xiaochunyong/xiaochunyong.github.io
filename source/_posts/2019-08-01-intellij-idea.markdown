@@ -2,9 +2,10 @@
 layout:     post
 title:      "IntelliJ IDEA"
 date:       2019-08-01T16:49:43+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/IntelliJ.png
+categories:
+  - 开发工具
 tags:
     - IntelliJ IDEA
     - 开发工具

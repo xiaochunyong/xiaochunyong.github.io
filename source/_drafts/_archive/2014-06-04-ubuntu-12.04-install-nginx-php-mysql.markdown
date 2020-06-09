@@ -3,9 +3,9 @@ layout:     post
 title:      "ubuntu 12.04 安装 nginx+php+mysql web服务器"
 subtitle:   "ubuntu 12.04 安装 nginx+php+mysql web服务器"
 date:       2014-06-04
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

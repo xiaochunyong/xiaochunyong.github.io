@@ -3,9 +3,9 @@ layout:     post
 title:      "brew 安装指定版本 zsh"
 subtitle:   "brew 安装指定版本 zsh"
 date:       2014-10-01
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: false
+banner_img: /img/post_banner_common.jpg
+categories:
+  - macOS
 tags:
     - software
 ---

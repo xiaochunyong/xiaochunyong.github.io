@@ -3,9 +3,10 @@ layout:     post
 title:      "区块链分享"
 subtitle:   "Block Chain Tutorial"
 date:       2018-10-15T10:34:17+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/BlockChain.jpeg
+categories:
+  - Block Chain
 tags:
     - Blockchain
     - Bitcoin

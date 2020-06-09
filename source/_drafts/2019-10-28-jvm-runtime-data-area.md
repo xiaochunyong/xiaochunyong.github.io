@@ -3,9 +3,7 @@ layout:     post
 title:      "title"
 subtitle:   "sub-title"
 date:       2019-10-28T15:52:47+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
 tags:
     - tag1
     - tag2

@@ -3,9 +3,9 @@ layout:     post
 title:      "Window Phone 8 软重置, 硬重置"
 subtitle:   "Window Phone 8 软重置, 硬重置"
 date:       2014-06-02
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - software
 ---

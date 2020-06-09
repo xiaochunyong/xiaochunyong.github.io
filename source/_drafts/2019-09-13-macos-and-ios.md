@@ -2,9 +2,7 @@
 layout:     post
 title:      "macOS & iOS 系统优化设置"
 date:       2019-09-13T02:16:45+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
 tags:
     - macOS
     - iOS

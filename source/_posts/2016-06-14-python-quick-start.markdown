@@ -3,9 +3,10 @@ layout:     post
 title:      "Python 入门"
 subtitle:   "Python 入门"
 date:       2016-06-14
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/Python.png
+categories:
+  - Python
 tags:
     - python
 ---

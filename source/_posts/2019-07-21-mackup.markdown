@@ -3,9 +3,9 @@ layout:     post
 title:      "Mackup 备份macOS/Linux应用配置, 并同步"
 subtitle:   "Mackup Backup/Restore macOS/Linux Apps Config and Sync"
 date:       2019-07-21T17:27:49+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+categories:
+  - macOS
 tags:
     - macOS
     - mackup

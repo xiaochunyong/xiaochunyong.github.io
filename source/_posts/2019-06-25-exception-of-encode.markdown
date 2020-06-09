@@ -3,9 +3,9 @@ layout:     post
 title:      "数据录入格式错误问题-u202c"
 subtitle:   "数据录入格式错误问题-u202c"
 date:       2019-06-25T02:53:47+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+categories:
+  - 经验
 tags:
     - 工作随笔
 ---

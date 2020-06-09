@@ -3,9 +3,9 @@ layout:     post
 title:      "Ely At CentOS"
 subtitle:   "Ely At CentOS"
 date:       2016-11-11
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+
+banner_img: /img/post_banner_common.jpg
+
 tags:
     - linux
 ---

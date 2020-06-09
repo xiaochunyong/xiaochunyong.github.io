@@ -3,9 +3,7 @@ layout:     post
 title:      "写博客那些事"
 subtitle:   "about writing blog"
 date:       2019-08-28T10:12:38+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
 tags:
     - blog
 ---

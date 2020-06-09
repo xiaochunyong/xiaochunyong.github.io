@@ -3,9 +3,10 @@ layout:     post
 title:      "用过的 macOS Apps"
 subtitle:   "用过的 macOS Apps"
 date:       2019-07-16T19:41:22+08:00
-author:     "Ely Xiao"
-header-img: "img/common.jpg"
-catalog: true
+banner_img: /img/post_banner_common.jpg
+index_img: /img/index/macOS.png
+categories:
+  - macOS
 tags:
     - macOS
 ---
