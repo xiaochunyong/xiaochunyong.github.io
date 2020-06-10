@@ -8,7 +8,6 @@ categories:
   - 开发工具
 tags:
     - IntelliJ IDEA
-    - 开发工具
 ---
 ## 旗舰版正版授权
 
