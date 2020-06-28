@@ -598,7 +598,7 @@ sup > a::before,
   color: #1abc9c;
 }
 .navbar .dropdown-collapse {
-  background-color: #FFDE5C;
+  background-color: #2f4154;
 }
 .navbar-custom {
   color: white;
@@ -607,10 +607,10 @@ sup > a::before,
   color: white;
 }
 .top-nav-collapse {
-  background-color: #FFDE5C;
+  background-color: #2f4154;
 }
 .navbar-col-show {
-  background-color: #FFDE5C;
+  background-color: #2f4154;
 }
 @media (max-width: 767px) {
   .navbar {
