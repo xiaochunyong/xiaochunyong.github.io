@@ -38,13 +38,13 @@ fun_features: # 一些好玩的功能
     visible: hover # 默认悬浮显示，可选：hover（鼠标在元素上悬浮时显示） | always（一直显示） | touch（移动端触摸显示）
     icon: "" # 可选：§ | # | ❡ 等，留空则为默认效果
   mouse_click:  # 鼠标点击动效
-    enable: true
+    enable: false
     style: love # 目前设置两个值：values（价值观词汇） | love（爱心）
 
 color:  # 主题颜色配置，不一定能每一处都生效，可能会被局部样式覆盖，这种情况建议用自定义 css 解决。配色可以在这获得启发： https://www.webdesignrankings.com/resources/lolcolors/
   body_bg_color: "#eee"             # body 背景色
-#  navbar_bg_color: "#2f4154"        # 顶部菜单背景色
-  navbar_bg_color: "#FFDE5C"        # 顶部菜单背景色
+  navbar_bg_color: "#2f4154"        # 顶部菜单背景色
+#  navbar_bg_color: "#FFDE5C"        # 顶部菜单背景色
   navbar_text_color: "white"        # 顶部菜单字体色
   text_color: "#3c4858"             # 全局字体色
   sec_text_color: "#718096"         # 全局次级字体色（摘要、简介等位置）
@@ -116,6 +116,7 @@ navbar:
     - { key: 'category', link: '/categories/', icon: 'iconfont icon-category-fill' }
     - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill' }
     - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill' }
+    - { key: 'ebooks', link: '/ebooks/', icon: 'iconfont icon-books' }
     - { key: 'links', link: '/links/', icon: 'iconfont icon-link-fill' }  # 友链页，把前面#去掉即可展示
 
 search: # 搜索栏，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件。
@@ -374,6 +375,16 @@ page404:
   banner_img_height: 85  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle: 'Page not found'  # 打字机内容
+
+
+#---------------------------
+# 书单页 - Ely 扩展
+# EBooks Page
+#---------------------------
+#ebooks:
+#  name: 书单name
+#  title: 书单title
+#  subtitle: 书单subtitle
 
 
 #---------------------------
