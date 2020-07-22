@@ -192,6 +192,113 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2019/07/30/jwt-issue/" target="_self">
+          <img src="/img/index/JWT.png" srcset="/img/loading.gif" alt="JWT 时间类型问题">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2019/07/30/jwt-issue/">JWT 时间类型问题</a>
+
+      <a href="/2019/07/30/jwt-issue/" class="index-excerpt">
+        
+        
+          
+        
+        <div>
+最近在Web应用中, 集成JWT的时候, 遇到一个坑. 在设置token的exp(过期时间)字段后, 解析Token取得exp字段变成了52556年
+
+// 简略版
+fun buildToken(username: String) &#123;
+    val now = Date()
+    val expiration = Date(now.time + EXPIRATION_TIME)
+ </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-07-31
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/jwt/">jwt</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2019/07/27/kode-gen/" target="_self">
+          <img src="/img/index/Kotlin.png" srcset="/img/loading.gif" alt="KodeGen Plugin Release">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2019/07/27/kode-gen/">KodeGen Plugin Release</a>
+
+      <a href="/2019/07/27/kode-gen/" class="index-excerpt">
+        
+        
+          
+        
+        <div>
+Install
+Search ‘KodeGen’ in Idea plugins
+Download Releases
+
+UsageThis plugin generates code from right click ‘Generate…’ menu while focused on a Kotlin class.
+The plugin support multiple class to gen</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-07-27
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Kotlin/">Kotlin</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/kotlin/">kotlin</a>
+            
+              <a href="/tags/IntelliJ-IDEA/">IntelliJ IDEA</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2019/07/22/kotlin-jackson-jsonproperty/" target="_self">
           <img src="/img/index/Kotlin.png" srcset="/img/loading.gif" alt="Jackson/FastJSON处理Kotlin Data Class字段别名">
         </a>
@@ -583,133 +690,11 @@ HTTPShttps://tools.ietf.org/html/rfc2817https://tools.ietf.org/</div>
     </div>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2016/06/13/python-quick-start/" target="_self">
-          <img src="/img/index/Python.png" srcset="/img/loading.gif" alt="Python 入门">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2016/06/13/python-quick-start/">Python 入门</a>
-
-      <a href="/2016/06/13/python-quick-start/" class="index-excerpt">
-        
-        
-          
-        
-        <div>注释# 这是注释
-
-算数运算符
-+
--
-*
-/
-%
-//    浮点除法（对结果四舍五入）
-**    乘方
-
-&gt;&gt;&gt; 10 / 1.2
-8.33333333333333...
-&gt;&gt;&gt; 10 // 1.2
-8
-&gt;&gt;&gt; 2 ** 2	#(2的平方)
-4
-&gt;&gt;&gt; 2 ** 3	#(2的3次方)
-8
-
-赋值运算符
-=
-+=
--=
-/</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2016-06-14
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Python/">Python</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/python/">python</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2015/05/21/mac-os-x-install-storm-0.9.0-wip16/">Mac OS X 10.10 安装 Storm-0.9.0-wip16</a>
-
-      <a href="/2015/05/21/mac-os-x-install-storm-0.9.0-wip16/" class="index-excerpt">
-        
-        
-          
-        
-        <div>Requirements// install brew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-// install build-tools
-brew install pkg-config 
-brew install automake
-brew instal</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2015-05-22
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/macOS/">macOS</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%B7%A5%E4%BD%9C%E9%9A%8F%E7%AC%94/">工作随笔</a>
-            
-              <a href="/tags/storm/">storm</a>
-            
-              <a href="/tags/zeromq/">zeromq</a>
-            
-              <a href="/tags/jqzm/">jqzm</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
