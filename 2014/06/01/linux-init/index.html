@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -19,26 +19,33 @@
   <meta name="keywords" content="">
   <title>Ubuntu 系统初始化 - Ely Xiao</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -46,8 +53,13 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.ely.me","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"51114b64bf5d1e52530373a80a94b9bc","google":"UA-123-12","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null},"tajs":null}};
+  </script>
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -153,8 +165,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -162,25 +180,28 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('/img/post_banner_common.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Ubuntu 系统初始化">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2014-06-02 00:00">
-      2014年6月2日 凌晨
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2014-06-02 00:00" pubdate>
+        2014年6月2日 凌晨
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
@@ -225,18 +246,20 @@
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Ubuntu 系统初始化</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：几秒前
+                  本文最后更新于：7 年前
                 
               </p>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <h2 id="系统初始化"><a href="#系统初始化" class="headerlink" title="系统初始化"></a>系统初始化</h2><h4 id="Terminal-Tab键忽略大小写自动补全"><a href="#Terminal-Tab键忽略大小写自动补全" class="headerlink" title="Terminal Tab键忽略大小写自动补全"></a>Terminal Tab键忽略大小写自动补全</h4><p>系统配置文件为/etc/inputrc<br>个人配置文件为~/.inputrc</p>
 <p>修改个人配置文件后, 重启终端:</p>
-<pre><code class="hljs sql">echo "<span class="hljs-keyword">set</span> completion-<span class="hljs-keyword">ignore</span>-<span class="hljs-keyword">case</span> <span class="hljs-keyword">on</span><span class="hljs-string">" &gt;&gt; ~/.inputrc</span></code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">echo &quot;<span class="hljs-keyword">set</span> completion-<span class="hljs-keyword">ignore</span>-<span class="hljs-keyword">case</span> <span class="hljs-keyword">on</span><span class="hljs-string">&quot; &gt;&gt; ~/.inputrc</span><br></code></pre></td></tr></table></figure>
 
 
 <h3 id="1-更新apt源"><a href="#1-更新apt源" class="headerlink" title="1. 更新apt源"></a>1. 更新apt源</h3><pre><code>$ apt-get update</code></pre><h3 id="2-安装add-apt-repository"><a href="#2-安装add-apt-repository" class="headerlink" title="2. 安装add-apt-repository"></a>2. 安装add-apt-repository</h3><pre><code>$ apt-get install software-properties-common python-software-properties
@@ -248,52 +271,9 @@ apt-get install python-software-properties</code></pre><h3 id="3-安装zip-unzip
 $ locale-gen</code></pre><h6 id="配置-ssh-免登陆访问"><a href="#配置-ssh-免登陆访问" class="headerlink" title="配置 ssh 免登陆访问"></a>配置 ssh 免登陆访问</h6><pre><code>$ vi .ssh/authorized_keys
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVR3kIcLZHBntZgMkpiLyl11NOglWUc95UvjWfiPmjFFMJbNAQtaXNqdNKj4R4gC3heVyvEWmaYoVxhzwiwNV2SWdRUUQzviA5MmxgLkoNTXldK50j3b/zK0mxnRl3PMiBl21XKzz2psu4t4zkW5CM0F3aRminwRANdUryB5c7K5jxVLidvdcokZb+eTViCe+wUmwHI2xwjjzTSnJ8zMFrPJuVe9+0ZFQX8/VW1rtbv8TK4+GbjrAnolSp1he7Ok6bI5B8aIu5Lb9U17ZU9xNu4RuTH3/sr8v9XTnCqvYD69JXHxAc7RGO4seLQIMzthxTxmGtTlQBGUr9/sop/gsx ely.xiao@qq.com</code></pre><h3 id="5-安装-Git"><a href="#5-安装-Git" class="headerlink" title="5. 安装 Git"></a>5. 安装 Git</h3><pre><code>$ add-apt-repository ppa:git-core/ppa
 $ apt-get update
-$ apt-get install git</code></pre><h3 id="6-zsh"><a href="#6-zsh" class="headerlink" title="6. zsh"></a>6. zsh</h3><pre><code class="hljs jboss-cli"><span class="hljs-comment"># 安装zsh</span>
-$ apt-get install zsh
+$ apt-get install git</code></pre><h3 id="6-zsh"><a href="#6-zsh" class="headerlink" title="6. zsh"></a>6. zsh</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># 安装zsh</span><br>$ apt-get install zsh<br><br><span class="hljs-comment"># 安装配置 oh-my-zsh</span><br>$ git clone git:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/robbyrussell/</span>oh-my-zsh.git ~/.oh-my-zsh<br>$ cp ~<span class="hljs-regexp">/.oh-my-zsh/</span>templates<span class="hljs-regexp">/zshrc.zsh-template ~/</span>.zshrc<br>$ chsh -s <span class="hljs-regexp">/bin/</span>zsh<br><br><span class="hljs-comment"># 安装配置 oh-my-zsh 的插件 - autojump</span><br>$ git clone git:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/joelthelion/</span>autojump.git &amp;&amp; cd autojump &amp;&amp; ./install.py<br><br>$ vi ~/.zshrc<br>    [[ -s <span class="hljs-regexp">/root/</span>.autojump<span class="hljs-regexp">/etc/</span>profile.d<span class="hljs-regexp">/autojump.sh ]] &amp;&amp; source /</span>root<span class="hljs-regexp">/.autojump/</span>etc<span class="hljs-regexp">/profile.d/</span>autojump.sh<br>    autoload -U compinit &amp;&amp; compinit -u<br><br>$ source ~/.zshrc<br><br><span class="hljs-comment"># 配置zsh主题</span><br>$ 参见 robbyrussell.zsh-theme.server<br>$ vi ~<span class="hljs-regexp">/.oh-my-zsh/</span>themes/robbyrussell.zsh-theme<br></code></pre></td></tr></table></figure>
 
-<span class="hljs-comment"># 安装配置 oh-my-zsh</span>
-$ git clone git:<span class="hljs-string">//github.com/robbyrussell/oh-my-zsh.git</span> ~<span class="hljs-string">/.oh-my-zsh</span>
-$ cp ~<span class="hljs-string">/.oh-my-zsh/templates/zshrc.zsh-template</span> ~<span class="hljs-string">/.zshrc</span>
-$ chsh -s <span class="hljs-string">/bin/zsh</span>
-
-<span class="hljs-comment"># 安装配置 oh-my-zsh 的插件 - autojump</span>
-$ git clone git:<span class="hljs-string">//github.com/joelthelion/autojump.git</span> &amp;&amp; <span class="hljs-keyword">cd</span> autojump &amp;&amp; <span class="hljs-string">./install.py</span>
-
-$ vi ~<span class="hljs-string">/.zshrc</span>
-    [[ -s <span class="hljs-string">/root/.autojump/etc/profile.d/autojump.sh</span> ]] &amp;&amp; source <span class="hljs-string">/root/.autojump/etc/profile.d/autojump.sh</span>
-    autoload -U compinit &amp;&amp; compinit -u
-
-$ source ~<span class="hljs-string">/.zshrc</span>
-
-<span class="hljs-comment"># 配置zsh主题</span>
-$ 参见 robbyrussell.zsh-theme.server
-$ vi ~<span class="hljs-string">/.oh-my-zsh/themes/robbyrussell.zsh-theme</span></code></pre>
-
-<h3 id="9-nginx"><a href="#9-nginx" class="headerlink" title="9.nginx"></a>9.nginx</h3><pre><code class="hljs dts"><span class="hljs-meta"># 安装</span>
-apt-add-repository ppa:nginx/stable
-apt-get update
-apt-get install nginx
-
-<span class="hljs-comment">// 卸载</span>
-<span class="hljs-meta"># apt-get remove nginx  <span class="hljs-comment">// 删除nginx，保留配置文件</span></span>
-<span class="hljs-meta"># rm -rf /etc/nginx     <span class="hljs-comment">// 手动删除配置文件</span></span>
-<span class="hljs-meta"># apt-get purge nginx   <span class="hljs-comment">// 删除nginx，连带配置文件</span></span>
-
-<span class="hljs-meta"># 配置nginx:</span>
-$ vi <span class="hljs-meta-keyword">/etc/</span>nginx/nginx.conf
-include <span class="hljs-meta-keyword">/etc/</span>nginx<span class="hljs-meta-keyword">/sites-enabled/</span>*; (将这行注释掉)
-
-$ vi <span class="hljs-meta-keyword">/etc/</span>nginx/conf.d/ely.conf
-<span class="hljs-class">server </span>&#123;
-    listen <span class="hljs-number">80</span>;
-    server_name www.ely.me;
-
-    location <span class="hljs-class">/ &#123;</span>
-<span class="hljs-class">        proxy_pass http:<span class="hljs-comment">//127.0.0.1:8080/;</span></span>
-<span class="hljs-class">    &#125;</span>
-<span class="hljs-class">&#125;</span>
-<span class="hljs-class"></span>
-<span class="hljs-class">$ service nginx restart</span></code></pre>
+<h3 id="9-nginx"><a href="#9-nginx" class="headerlink" title="9.nginx"></a>9.nginx</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># 安装</span><br>apt-add-repository ppa:nginx/stable<br>apt-get update<br>apt-get install nginx<br><br><span class="hljs-regexp">//</span> 卸载<br><span class="hljs-comment"># apt-get remove nginx  // 删除nginx，保留配置文件</span><br><span class="hljs-comment"># rm -rf /etc/nginx     // 手动删除配置文件</span><br><span class="hljs-comment"># apt-get purge nginx   // 删除nginx，连带配置文件</span><br><br><span class="hljs-comment"># 配置nginx:</span><br>$ vi <span class="hljs-regexp">/etc/</span>nginx/nginx.conf<br>include <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/sites-enabled/</span>*; (将这行注释掉)<br><br>$ vi <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/conf.d/</span>ely.conf<br>server &#123;<br>    listen <span class="hljs-number">80</span>;<br>    server_name www.ely.me;<br><br>    location / &#123;<br>        proxy_pass http:<span class="hljs-regexp">//</span><span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">8080</span>/;<br>    &#125;<br>&#125;<br><br>$ service nginx restart<br></code></pre></td></tr></table></figure>
 <h3 id="11-java"><a href="#11-java" class="headerlink" title="11. java"></a>11. java</h3><pre><code>$ add-apt-repository ppa:webupd8team/java
 $ apt-get update
 $ apt-get install oracle-java7-installer
@@ -305,50 +285,10 @@ $ vi /etc/php5/fpm/pool.d/www.conf
   &lt;? phpinfo();?&gt;
 
 service php5-fpm restart
-service nginx restart</code></pre><h3 id="nginx-conf-for-wordpress"><a href="#nginx-conf-for-wordpress" class="headerlink" title="nginx.conf for wordpress"></a>nginx.conf for wordpress</h3><pre><code class="hljs shell">server &#123;
-    listen 80;
-
-    root /var/www/wordpress;
-    index index.html index.htm index.php;
-    # Make site accessible from http://localhost/
-    server_name blog.ely.me;
-
-    location / &#123;
-            # First attempt to serve request as file, then
-            # as directory, then fall back to index.html
-            try_files $uri $uri/ /index.html;
-            # Uncomment to enable naxsi on this location
-            # include /etc/nginx/naxsi.rules
-            if (-f $request_filename/index.html)&#123;
-                    rewrite (.*) $1/index.html break;
-            &#125;
-
-            if (-f $request_filename/index.php)&#123;
-                    rewrite (.*) $1/index.php;
-            &#125;
-
-            if (!-f $request_filename)&#123;
-                    rewrite (.*) /index.php;
-            &#125;
-    &#125;
-
-    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #
-    location ~ \.php$ &#123;
-            fastcgi_split_path_info ^(.+\.php)(/.+)$;
-    #       # NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
-    #
-    #       # With php5-cgi alone:
-            fastcgi_pass 127.0.0.1:9000;
-    #       # With php5-fpm:
-    #       fastcgi_pass unix:/var/run/php5-fpm.sock;
-            fastcgi_index index.php;
-            include fastcgi_params;
-    &#125;
-&#125;</code></pre>
+service nginx restart</code></pre><h3 id="nginx-conf-for-wordpress"><a href="#nginx-conf-for-wordpress" class="headerlink" title="nginx.conf for wordpress"></a>nginx.conf for wordpress</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs shell">server &#123;<br>    listen 80;<br><br>    root /var/www/wordpress;<br>    index index.html index.htm index.php;<br>    # Make site accessible from http://localhost/<br>    server_name blog.ely.me;<br><br>    location / &#123;<br>            # First attempt to serve request as file, then<br>            # as directory, then fall back to index.html<br>            try_files $uri $uri/ /index.html;<br>            # Uncomment to enable naxsi on this location<br>            # include /etc/nginx/naxsi.rules<br>            if (-f $request_filename/index.html)&#123;<br>                    rewrite (.*) $1/index.html break;<br>            &#125;<br><br>            if (-f $request_filename/index.php)&#123;<br>                    rewrite (.*) $1/index.php;<br>            &#125;<br><br>            if (!-f $request_filename)&#123;<br>                    rewrite (.*) /index.php;<br>            &#125;<br>    &#125;<br><br>    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000<br>    #<br>    location ~ \.php$ &#123;<br>            fastcgi_split_path_info ^(.+\.php)(/.+)$;<br>    #       # NOTE: You should have &quot;cgi.fix_pathinfo = 0;&quot; in php.ini<br>    #<br>    #       # With php5-cgi alone:<br>            fastcgi_pass 127.0.0.1:9000;<br>    #       # With php5-fpm:<br>    #       fastcgi_pass unix:/var/run/php5-fpm.sock;<br>            fastcgi_index index.php;<br>            include fastcgi_params;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="16-配置环境变量"><a href="#16-配置环境变量" class="headerlink" title="16. 配置环境变量"></a>16. 配置环境变量</h3><pre><code>$ vi ~/.zshrc
-ALL_IP=$(ifconfig | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk &apos;{print $2}&apos; | tr -d &quot;addr:&quot;)
+ALL_IP=$(ifconfig | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk &apos;&#123;print $2&#125;&apos; | tr -d &quot;addr:&quot;)
 cat logo
 echo &quot;公网：$ALL_IP                                                   内网：xxx.xxx.xxx.xxx &quot;
 echo &quot;-------------------------------------------------------------------------------------------&quot;
@@ -377,115 +317,15 @@ export PATH=$GRADLE_HOME/bin:$PATH
 export TOMCAT_HOME=/root/sdk/apache-tomcat-6.0.43</code></pre><h3 id="19-服务器安全设置"><a href="#19-服务器安全设置" class="headerlink" title="19. 服务器安全设置"></a>19. 服务器安全设置</h3><h5 id="19-1-SSH-默认端口更改-修改完端口后，客户端需要配置ssh的config文件，指明端口"><a href="#19-1-SSH-默认端口更改-修改完端口后，客户端需要配置ssh的config文件，指明端口" class="headerlink" title="19.1 SSH 默认端口更改(修改完端口后，客户端需要配置ssh的config文件，指明端口)"></a>19.1 SSH 默认端口更改(修改完端口后，客户端需要配置ssh的config文件，指明端口)</h5><pre><code>$ vi /etc/ssh/sshd_config
 Port XXXX (将端口修改为自己想要的)
 
-$ service ssh restart</code></pre><h5 id="19-2-详情http-coralzd-blog-51cto-com"><a href="#19-2-详情http-coralzd-blog-51cto-com" class="headerlink" title="19.2 详情http://coralzd.blog.51cto.com/"></a>19.2 详情<a href="http://coralzd.blog.51cto.com/" target="_blank" rel="noopener">http://coralzd.blog.51cto.com/</a></h5><pre><code class="hljs routeros"><span class="hljs-comment">#!/bin/sh</span>
-<span class="hljs-comment"># desc: setup linux system security</span>
-<span class="hljs-comment"># author:coralzd</span>
-<span class="hljs-comment"># powered by www.freebsdsystem.org</span>
-<span class="hljs-comment"># version 0.1.2 written by 2011.05.03</span>
-<span class="hljs-comment">#account setup</span>
-
-passwd -l xfs
-passwd -l news
-passwd -l nscd
-passwd -l dbus
-passwd -l vcsa
-passwd -l games
-passwd -l nobody
-passwd -l avahi
-passwd -l haldaemon
-passwd -l gopher
-passwd -l ftp
-passwd -l mailnull
-passwd -l pcap
-passwd -l mail
-passwd -l shutdown
-passwd -l halt
-passwd -l uucp
-passwd -l operator
-passwd -l sync
-passwd -l adm
-passwd -l lp
-
-<span class="hljs-comment"># chattr /etc/passwd /etc/shadow</span>
-chattr +i /etc/passwd
-chattr +i /etc/shadow
-chattr +i /etc/group
-chattr +i /etc/gshadow
-<span class="hljs-comment"># add continue input failure 3 ,passwd unlock time 5 minite</span>
-sed -i <span class="hljs-string">'s#auth        required      pam_env.so#auth        required      pam_env.so\nauth       required       pam_tally.so  onerr=fail deny=3 unlock_time=300\nauth           required     /lib/security/$ISA/pam_tally.so onerr=fail deny=3 unlock_time=300#'</span> /etc/pam.d/system-auth
-<span class="hljs-comment"># system timeout 5 minite auto logout</span>
-echo <span class="hljs-string">"TMOUT=300"</span> &gt;&gt;/etc/profile
-
-<span class="hljs-comment"># will system save history command list to 10</span>
-sed -i <span class="hljs-string">"s/HISTSIZE=1000/HISTSIZE=10/"</span> /etc/profile
-
-<span class="hljs-comment"># enable /etc/profile go!</span>
-source /etc/profile
-
-<span class="hljs-comment"># add syncookie enable /etc/sysctl.conf</span>
-echo <span class="hljs-string">"net.ipv4.tcp_syncookies=1"</span> &gt;&gt; /etc/sysctl.conf
-
-sysctl -p # exec sysctl.conf enable
-<span class="hljs-comment"># optimizer sshd_config</span>
-
-sed -i <span class="hljs-string">"s/#MaxAuthTries 6/MaxAuthTries 6/"</span> /etc/ssh/sshd_config
-sed -i  <span class="hljs-string">"s/#UseDNS yes/UseDNS no/"</span> /etc/ssh/sshd_config
-
-<span class="hljs-comment"># limit chmod important commands</span>
-chmod 700 /bin/ping
-chmod 700 /usr/bin/finger
-chmod 700 /usr/bin/who
-chmod 700 /usr/bin/w
-chmod 700 /usr/bin/locate
-chmod 700 /usr/bin/whereis
-chmod 700 /sbin/ifconfig
-chmod 700 /usr/bin/pico
-chmod 700 /bin/vi
-chmod 700 /usr/bin/which
-chmod 700 /usr/bin/gcc
-chmod 700 /usr/bin/make
-chmod 700 /bin/rpm
-
-<span class="hljs-comment"># history security</span>
-
-chattr +a /root/.bash_history
-chattr +i /root/.bash_history
-
-<span class="hljs-comment"># write important command md5</span>
-    cat &gt; list &lt;&lt; <span class="hljs-string">"EOF"</span> &amp;&amp;
-    /bin/ping
-    /bin/finger
-    /usr/bin/who
-    /usr/bin/w
-    /usr/bin/locate
-    /usr/bin/whereis
-    /sbin/ifconfig
-    /bin/pico
-    /bin/vi
-    /usr/bin/vim
-    /usr/bin/which
-    /usr/bin/gcc
-    /usr/bin/make
-    /bin/rpm
-    EOF
-
-    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `cat list`
-    <span class="hljs-keyword">do</span>
-       <span class="hljs-keyword">if</span> [ ! -x <span class="hljs-variable">$i</span> ];then
-       echo <span class="hljs-string">"<span class="hljs-variable">$i</span> not found,no md5sum!"</span>
-      <span class="hljs-keyword">else</span>
-       md5sum <span class="hljs-variable">$i</span> &gt;&gt; /var/log/`hostname`.log
-      fi
-    done
-    rm -f list</code></pre>
+$ service ssh restart</code></pre><h5 id="19-2-详情http-coralzd-blog-51cto-com"><a href="#19-2-详情http-coralzd-blog-51cto-com" class="headerlink" title="19.2 详情http://coralzd.blog.51cto.com/"></a>19.2 详情<a target="_blank" rel="noopener" href="http://coralzd.blog.51cto.com/">http://coralzd.blog.51cto.com/</a></h5><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">#!/bin/sh</span><br><span class="hljs-comment"># desc: setup linux system security</span><br><span class="hljs-comment"># author:coralzd</span><br><span class="hljs-comment"># powered by www.freebsdsystem.org</span><br><span class="hljs-comment"># version 0.1.2 written by 2011.05.03</span><br><span class="hljs-comment">#account setup</span><br><br>passwd -l xfs<br>passwd -l news<br>passwd -l nscd<br>passwd -l dbus<br>passwd -l vcsa<br>passwd -l games<br>passwd -l nobody<br>passwd -l avahi<br>passwd -l haldaemon<br>passwd -l gopher<br>passwd -l ftp<br>passwd -l mailnull<br>passwd -l pcap<br>passwd -l mail<br>passwd -l shutdown<br>passwd -l halt<br>passwd -l uucp<br>passwd -l operator<br>passwd -l sync<br>passwd -l adm<br>passwd -l lp<br><br><span class="hljs-comment"># chattr /etc/passwd /etc/shadow</span><br>chattr +i <span class="hljs-regexp">/etc/</span>passwd<br>chattr +i <span class="hljs-regexp">/etc/</span>shadow<br>chattr +i <span class="hljs-regexp">/etc/g</span>roup<br>chattr +i <span class="hljs-regexp">/etc/g</span>shadow<br><span class="hljs-comment"># add continue input failure 3 ,passwd unlock time 5 minite</span><br>sed -i <span class="hljs-string">&#x27;s#auth        required      pam_env.so#auth        required      pam_env.so\nauth       required       pam_tally.so  onerr=fail deny=3 unlock_time=300\nauth           required     /lib/security/$ISA/pam_tally.so onerr=fail deny=3 unlock_time=300#&#x27;</span> <span class="hljs-regexp">/etc/</span>pam.d/system-auth<br><span class="hljs-comment"># system timeout 5 minite auto logout</span><br>echo <span class="hljs-string">&quot;TMOUT=300&quot;</span> &gt;&gt;<span class="hljs-regexp">/etc/</span>profile<br><br><span class="hljs-comment"># will system save history command list to 10</span><br>sed -i <span class="hljs-string">&quot;s/HISTSIZE=1000/HISTSIZE=10/&quot;</span> <span class="hljs-regexp">/etc/</span>profile<br><br><span class="hljs-comment"># enable /etc/profile go!</span><br>source <span class="hljs-regexp">/etc/</span>profile<br><br><span class="hljs-comment"># add syncookie enable /etc/sysctl.conf</span><br>echo <span class="hljs-string">&quot;net.ipv4.tcp_syncookies=1&quot;</span> &gt;&gt; <span class="hljs-regexp">/etc/</span>sysctl.conf<br><br>sysctl -p <span class="hljs-comment"># exec sysctl.conf enable</span><br><span class="hljs-comment"># optimizer sshd_config</span><br><br>sed -i <span class="hljs-string">&quot;s/#MaxAuthTries 6/MaxAuthTries 6/&quot;</span> <span class="hljs-regexp">/etc/</span>ssh/sshd_config<br>sed -i  <span class="hljs-string">&quot;s/#UseDNS yes/UseDNS no/&quot;</span> <span class="hljs-regexp">/etc/</span>ssh/sshd_config<br><br><span class="hljs-comment"># limit chmod important commands</span><br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/bin/</span>ping<br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/usr/</span>bin/finger<br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/usr/</span>bin/who<br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/usr/</span>bin/w<br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/usr/</span>bin/locate<br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/usr/</span>bin/whereis<br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/sbin/i</span>fconfig<br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/usr/</span>bin/pico<br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/bin/</span>vi<br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/usr/</span>bin/which<br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/usr/</span>bin/gcc<br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/usr/</span>bin/make<br>chmod <span class="hljs-number">700</span> <span class="hljs-regexp">/bin/</span>rpm<br><br><span class="hljs-comment"># history security</span><br><br>chattr +a <span class="hljs-regexp">/root/</span>.bash_history<br>chattr +i <span class="hljs-regexp">/root/</span>.bash_history<br><br><span class="hljs-comment"># write important command md5</span><br>    cat &gt; list &lt;&lt; <span class="hljs-string">&quot;EOF&quot;</span> &amp;&amp;<br>    <span class="hljs-regexp">/bin/</span>ping<br>    <span class="hljs-regexp">/bin/</span>finger<br>    <span class="hljs-regexp">/usr/</span>bin/who<br>    <span class="hljs-regexp">/usr/</span>bin/w<br>    <span class="hljs-regexp">/usr/</span>bin/locate<br>    <span class="hljs-regexp">/usr/</span>bin/whereis<br>    <span class="hljs-regexp">/sbin/i</span>fconfig<br>    <span class="hljs-regexp">/bin/</span>pico<br>    <span class="hljs-regexp">/bin/</span>vi<br>    <span class="hljs-regexp">/usr/</span>bin/vim<br>    <span class="hljs-regexp">/usr/</span>bin/which<br>    <span class="hljs-regexp">/usr/</span>bin/gcc<br>    <span class="hljs-regexp">/usr/</span>bin/make<br>    <span class="hljs-regexp">/bin/</span>rpm<br>    EOF<br><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `cat list`<br>    <span class="hljs-keyword">do</span><br>       <span class="hljs-keyword">if</span> [ ! -x <span class="hljs-variable">$i</span> ];then<br>       echo <span class="hljs-string">&quot;$i not found,no md5sum!&quot;</span><br>      <span class="hljs-keyword">else</span><br>       md5sum <span class="hljs-variable">$i</span> &gt;&gt; <span class="hljs-regexp">/var/</span>log/`hostname`.log<br>      fi<br>    done<br>    rm -f list<br><br></code></pre></td></tr></table></figure>
 
 
 <h2 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h2><ol>
-<li>如果提示 <code>The program ‘add-apt-repository’ is currently not installed. You can install it by typing: apt-get install python-software-properties</code> 执行: <pre><code class="hljs maxima">apt-<span class="hljs-built_in">get</span> install software-<span class="hljs-built_in">properties</span>-common python-software-<span class="hljs-built_in">properties</span></code></pre>
+<li>如果提示 <code>The program ‘add-apt-repository’ is currently not installed. You can install it by typing: apt-get install python-software-properties</code> 执行: <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">apt-<span class="hljs-built_in">get</span> install software-<span class="hljs-built_in">properties</span>-common python-software-<span class="hljs-built_in">properties</span><br></code></pre></td></tr></table></figure>
 </li>
 </ol>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -509,11 +349,11 @@ chattr +i /root/.bash_history
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2014/06/01/linux-custom/">
@@ -522,8 +362,8 @@ chattr +i /root/.bash_history
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2014/03/31/git-quick-start/">
@@ -532,43 +372,39 @@ chattr +i /root/.bash_history
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
                 
                 
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-      function loadDisqus() {
-        var disqus_config = function () {
-          this.page.url = 'http://blog.ely.me/2014/06/01/linux-init/';
-          this.page.identifier = '/2014/06/01/linux-init/';
-        };
-        (function () {
-          var d = document,
-            s = d.createElement('script');
-          s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      }
-      createObserver(loadDisqus, 'disqus_thread');
+      var disqus_config = function() {
+        this.page.url = 'http://blog.ely.me/2014/06/01/linux-init/';
+        this.page.identifier = '/2014/06/01/linux-init/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
     </script>
     <noscript>Please enable JavaScript to view the
-      <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
     </noscript>
   </div>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -576,7 +412,7 @@ chattr +i /root/.bash_history
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -588,16 +424,15 @@ chattr +i /root/.bash_history
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -618,21 +453,16 @@ chattr +i /root/.bash_history
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
   <div class="statistics">
     
     
@@ -658,17 +488,33 @@ chattr +i /root/.bash_history
   </div>
 
 
-    
+  
 
-    
-  </div>
+  
 </footer>
 
 <!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
@@ -679,8 +525,23 @@ chattr +i /root/.bash_history
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -689,95 +550,29 @@ chattr +i /root/.bash_history
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Ubuntu 系统初始化&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
       }
-    );
+    })()
   </script>
 
 
@@ -794,8 +589,8 @@ chattr +i /root/.bash_history
 
 
 
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 

@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -19,26 +19,33 @@
   <meta name="keywords" content="">
   <title>Elastic SQL Access - Ely Xiao</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -46,8 +53,13 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.ely.me","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"51114b64bf5d1e52530373a80a94b9bc","google":"UA-123-12","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null},"tajs":null}};
+  </script>
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -153,8 +165,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -162,32 +180,35 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('/img/post_banner_common.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Elastic SQL Access">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2019-11-03 07:57">
-      2019年11月3日 早上
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-11-03 07:57" pubdate>
+        2019年11月3日 早上
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      858 字
+      898 字
     </span>
   
 
@@ -197,7 +218,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      16
        分钟
     </span>
   
@@ -225,182 +246,64 @@
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Elastic SQL Access</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：几秒前
+                  本文最后更新于：1 年前
                 
               </p>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <blockquote>
 <p>想通过SQL语句查询ES, 遇到以下错误, 提示需要platinum许可(需要购买)<br>java.sql.SQLInvalidAuthorizationSpecException: current license is non-compliant for [jdbc] </p>
 </blockquote>
 <h2 id="Elastic-SQL-Access"><a href="#Elastic-SQL-Access" class="headerlink" title="Elastic SQL Access"></a>Elastic SQL Access</h2><h4 id="1-安装Elastic"><a href="#1-安装Elastic" class="headerlink" title="1. 安装Elastic"></a>1. 安装Elastic</h4><p>/Users/Ely/SDK/elasticsearch-7.4.0</p>
 <h4 id="2-篡改证书验证代码"><a href="#2-篡改证书验证代码" class="headerlink" title="2. 篡改证书验证代码"></a>2. 篡改证书验证代码</h4><p>a. Github源码</p>
 <ul>
-<li><a href="https://github.com/elastic/elasticsearch/blob/master/x-pack/plugin/core/src/main/java/org/elasticsearch/license/LicenseVerifier.java" target="_blank" rel="noopener">LicenseVerifier.java</a></li>
-<li><a href="https://github.com/elastic/elasticsearch/blob/master/x-pack/plugin/core/src/main/java/org/elasticsearch/xpack/core/XPackBuild.java" target="_blank" rel="noopener">XPackBuild.java</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/elastic/elasticsearch/blob/master/x-pack/plugin/core/src/main/java/org/elasticsearch/license/LicenseVerifier.java">LicenseVerifier.java</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/elastic/elasticsearch/blob/master/x-pack/plugin/core/src/main/java/org/elasticsearch/xpack/core/XPackBuild.java">XPackBuild.java</a></li>
 </ul>
 <p>b. 修改源码</p>
-<pre><code class="hljs java"><span class="hljs-comment">/*</span>
-<span class="hljs-comment"> * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one</span>
-<span class="hljs-comment"> * or more contributor license agreements. Licensed under the Elastic License;</span>
-<span class="hljs-comment"> * you may not use this file except in compliance with the Elastic License.</span>
-<span class="hljs-comment"> */</span>
-<span class="hljs-keyword">package</span> org.elasticsearch.license;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one</span><br><span class="hljs-comment"> * or more contributor license agreements. Licensed under the Elastic License;</span><br><span class="hljs-comment"> * you may not use this file except in compliance with the Elastic License.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">package</span> org.elasticsearch.license;<br><br><span class="hljs-keyword">import</span> org.apache.lucene.util.BytesRef;<br><span class="hljs-keyword">import</span> org.apache.lucene.util.BytesRefIterator;<br><span class="hljs-keyword">import</span> org.elasticsearch.common.bytes.BytesReference;<br><span class="hljs-keyword">import</span> org.elasticsearch.common.xcontent.ToXContent;<br><span class="hljs-keyword">import</span> org.elasticsearch.common.xcontent.XContentBuilder;<br><span class="hljs-keyword">import</span> org.elasticsearch.common.xcontent.XContentFactory;<br><span class="hljs-keyword">import</span> org.elasticsearch.common.xcontent.XContentType;<br><span class="hljs-keyword">import</span> org.elasticsearch.core.internal.io.Streams;<br><br><span class="hljs-keyword">import</span> java.io.ByteArrayOutputStream;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><span class="hljs-keyword">import</span> java.io.InputStream;<br><span class="hljs-keyword">import</span> java.nio.ByteBuffer;<br><span class="hljs-keyword">import</span> java.security.InvalidKeyException;<br><span class="hljs-keyword">import</span> java.security.NoSuchAlgorithmException;<br><span class="hljs-keyword">import</span> java.security.Signature;<br><span class="hljs-keyword">import</span> java.security.SignatureException;<br><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.Base64;<br><span class="hljs-keyword">import</span> java.util.Collections;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Responsible for verifying signed licenses</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LicenseVerifier</span> </span>&#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * verifies the license content with the signature using the packaged</span><br><span class="hljs-comment">     * public key</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> license to verify</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> true if valid, false otherwise</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">verifyLicense</span><span class="hljs-params">(<span class="hljs-keyword">final</span> License license, <span class="hljs-keyword">byte</span>[] publicKeyData)</span> </span>&#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">verifyLicense</span><span class="hljs-params">(<span class="hljs-keyword">final</span> License license)</span> </span>&#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<span class="hljs-keyword">import</span> org.apache.lucene.util.BytesRef;
-<span class="hljs-keyword">import</span> org.apache.lucene.util.BytesRefIterator;
-<span class="hljs-keyword">import</span> org.elasticsearch.common.bytes.BytesReference;
-<span class="hljs-keyword">import</span> org.elasticsearch.common.xcontent.ToXContent;
-<span class="hljs-keyword">import</span> org.elasticsearch.common.xcontent.XContentBuilder;
-<span class="hljs-keyword">import</span> org.elasticsearch.common.xcontent.XContentFactory;
-<span class="hljs-keyword">import</span> org.elasticsearch.common.xcontent.XContentType;
-<span class="hljs-keyword">import</span> org.elasticsearch.core.internal.io.Streams;
-
-<span class="hljs-keyword">import</span> java.io.ByteArrayOutputStream;
-<span class="hljs-keyword">import</span> java.io.IOException;
-<span class="hljs-keyword">import</span> java.io.InputStream;
-<span class="hljs-keyword">import</span> java.nio.ByteBuffer;
-<span class="hljs-keyword">import</span> java.security.InvalidKeyException;
-<span class="hljs-keyword">import</span> java.security.NoSuchAlgorithmException;
-<span class="hljs-keyword">import</span> java.security.Signature;
-<span class="hljs-keyword">import</span> java.security.SignatureException;
-<span class="hljs-keyword">import</span> java.util.Arrays;
-<span class="hljs-keyword">import</span> java.util.Base64;
-<span class="hljs-keyword">import</span> java.util.Collections;
-
-<span class="hljs-comment">/**</span>
-<span class="hljs-comment"> * Responsible for verifying signed licenses</span>
-<span class="hljs-comment"> */</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LicenseVerifier</span> </span>&#123;
-
-    <span class="hljs-comment">/**</span>
-<span class="hljs-comment">     * verifies the license content with the signature using the packaged</span>
-<span class="hljs-comment">     * public key</span>
-<span class="hljs-comment">     * <span class="hljs-doctag">@param</span> license to verify</span>
-<span class="hljs-comment">     * <span class="hljs-doctag">@return</span> true if valid, false otherwise</span>
-<span class="hljs-comment">     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">verifyLicense</span><span class="hljs-params">(<span class="hljs-keyword">final</span> License license, <span class="hljs-keyword">byte</span>[] publicKeyData)</span> </span>&#123;
-			<span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">verifyLicense</span><span class="hljs-params">(<span class="hljs-keyword">final</span> License license)</span> </span>&#123;
-			<span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-    &#125;
-&#125;</code></pre>
-
-<pre><code class="hljs java"><span class="hljs-comment">/*</span>
-<span class="hljs-comment"> * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one</span>
-<span class="hljs-comment"> * or more contributor license agreements. Licensed under the Elastic License;</span>
-<span class="hljs-comment"> * you may not use this file except in compliance with the Elastic License.</span>
-<span class="hljs-comment"> */</span>
-<span class="hljs-keyword">package</span> org.elasticsearch.xpack.core;
-
-<span class="hljs-keyword">import</span> org.elasticsearch.common.SuppressForbidden;
-<span class="hljs-keyword">import</span> org.elasticsearch.common.io.PathUtils;
-
-<span class="hljs-keyword">import</span> java.io.IOException;
-<span class="hljs-keyword">import</span> java.net.URISyntaxException;
-<span class="hljs-keyword">import</span> java.net.URL;
-<span class="hljs-keyword">import</span> java.nio.file.Files;
-<span class="hljs-keyword">import</span> java.nio.file.Path;
-<span class="hljs-keyword">import</span> java.util.jar.JarInputStream;
-<span class="hljs-keyword">import</span> java.util.jar.Manifest;
-
-<span class="hljs-comment">/**</span>
-<span class="hljs-comment"> * Information about the built version of x-pack that is running.</span>
-<span class="hljs-comment"> */</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">XPackBuild</span> </span>&#123;
-
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> XPackBuild CURRENT;
-
-    <span class="hljs-keyword">static</span> &#123;
-		<span class="hljs-keyword">final</span> Path path = getElasticsearchCodebase();
-        String shortHash = <span class="hljs-keyword">null</span>;
-        String date = <span class="hljs-keyword">null</span>;
-        Label_0157: &#123;
-            shortHash = <span class="hljs-string">"Unknown"</span>;
-            date = <span class="hljs-string">"Unknown"</span>;
-        &#125;
-        CURRENT = <span class="hljs-keyword">new</span> XPackBuild(shortHash, date);
-    &#125;
-
-    <span class="hljs-comment">/**</span>
-<span class="hljs-comment">     * Returns path to xpack codebase path</span>
-<span class="hljs-comment">     */</span>
-    <span class="hljs-meta">@SuppressForbidden</span>(reason = <span class="hljs-string">"looks up path of xpack.jar directly"</span>)
-    <span class="hljs-function"><span class="hljs-keyword">static</span> Path <span class="hljs-title">getElasticsearchCodebase</span><span class="hljs-params">()</span> </span>&#123;
-        URL url = XPackBuild<span class="hljs-class">.<span class="hljs-keyword">class</span>.<span class="hljs-title">getProtectionDomain</span>().<span class="hljs-title">getCodeSource</span>().<span class="hljs-title">getLocation</span>()</span>;
-        <span class="hljs-keyword">try</span> &#123;
-            <span class="hljs-keyword">return</span> PathUtils.get(url.toURI());
-        &#125; <span class="hljs-keyword">catch</span> (URISyntaxException bogus) &#123;
-            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(bogus);
-        &#125;
-    &#125;
-
-    <span class="hljs-keyword">private</span> String shortHash;
-    <span class="hljs-keyword">private</span> String date;
-
-    XPackBuild(String shortHash, String date) &#123;
-        <span class="hljs-keyword">this</span>.shortHash = shortHash;
-        <span class="hljs-keyword">this</span>.date = date;
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">shortHash</span><span class="hljs-params">()</span> </span>&#123;
-        <span class="hljs-keyword">return</span> shortHash;
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">date</span><span class="hljs-params">()</span> </span>&#123;
-        <span class="hljs-keyword">return</span> date;
-    &#125;
-&#125;</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one</span><br><span class="hljs-comment"> * or more contributor license agreements. Licensed under the Elastic License;</span><br><span class="hljs-comment"> * you may not use this file except in compliance with the Elastic License.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">package</span> org.elasticsearch.xpack.core;<br><br><span class="hljs-keyword">import</span> org.elasticsearch.common.SuppressForbidden;<br><span class="hljs-keyword">import</span> org.elasticsearch.common.io.PathUtils;<br><br><span class="hljs-keyword">import</span> java.io.IOException;<br><span class="hljs-keyword">import</span> java.net.URISyntaxException;<br><span class="hljs-keyword">import</span> java.net.URL;<br><span class="hljs-keyword">import</span> java.nio.file.Files;<br><span class="hljs-keyword">import</span> java.nio.file.Path;<br><span class="hljs-keyword">import</span> java.util.jar.JarInputStream;<br><span class="hljs-keyword">import</span> java.util.jar.Manifest;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Information about the built version of x-pack that is running.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">XPackBuild</span> </span>&#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> XPackBuild CURRENT;<br><br>    <span class="hljs-keyword">static</span> &#123;<br>		<span class="hljs-keyword">final</span> Path path = getElasticsearchCodebase();<br>        String shortHash = <span class="hljs-keyword">null</span>;<br>        String date = <span class="hljs-keyword">null</span>;<br>        Label_0157: &#123;<br>            shortHash = <span class="hljs-string">&quot;Unknown&quot;</span>;<br>            date = <span class="hljs-string">&quot;Unknown&quot;</span>;<br>        &#125;<br>        CURRENT = <span class="hljs-keyword">new</span> XPackBuild(shortHash, date);<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Returns path to xpack codebase path</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@SuppressForbidden(reason = &quot;looks up path of xpack.jar directly&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">static</span> Path <span class="hljs-title">getElasticsearchCodebase</span><span class="hljs-params">()</span> </span>&#123;<br>        URL url = XPackBuild.class.getProtectionDomain().getCodeSource().getLocation();<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-keyword">return</span> PathUtils.get(url.toURI());<br>        &#125; <span class="hljs-keyword">catch</span> (URISyntaxException bogus) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(bogus);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> String shortHash;<br>    <span class="hljs-keyword">private</span> String date;<br><br>    XPackBuild(String shortHash, String date) &#123;<br>        <span class="hljs-keyword">this</span>.shortHash = shortHash;<br>        <span class="hljs-keyword">this</span>.date = date;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">shortHash</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> shortHash;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">date</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> date;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>c. 编译源码</p>
-<pre><code class="hljs shell">javac -cp "./lib/lucene-core-8.2.0.jar:./lib/elasticsearch-7.4.0.jar:./lib/elasticsearch-core-7.4.0.jar:./lib/elasticsearch-x-content-7.4.0.jar:./modules/x-pack-core/x-pack-core-7.4.0.jar" LicenseVerifier.java
-javac -cp "./lib/lucene-core-8.2.0.jar:./lib/elasticsearch-7.4.0.jar:./lib/elasticsearch-core-7.4.0.jar:./lib/elasticsearch-x-content-7.4.0.jar:./modules/x-pack-core/x-pack-core-7.4.0.jar" XPackBuild.java</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">javac -cp &quot;./lib/lucene-core-8.2.0.jar:./lib/elasticsearch-7.4.0.jar:./lib/elasticsearch-core-7.4.0.jar:./lib/elasticsearch-x-content-7.4.0.jar:./modules/x-pack-core/x-pack-core-7.4.0.jar&quot; LicenseVerifier.java<br>javac -cp &quot;./lib/lucene-core-8.2.0.jar:./lib/elasticsearch-7.4.0.jar:./lib/elasticsearch-core-7.4.0.jar:./lib/elasticsearch-x-content-7.4.0.jar:./modules/x-pack-core/x-pack-core-7.4.0.jar&quot; XPackBuild.java<br></code></pre></td></tr></table></figure>
 
 <p>d. 替换源Jar包中的class文件</p>
-<pre><code class="hljs shell">cd $ES_HOME/modules/x-pack-core
-cp x-pack-core-7.4.0.jar x-pack-core-7.4.0.jar.bak // 备份
-
-// 把编译后的源码放入到
-<span class="hljs-meta">$</span><span class="bash">ES_HOME/modules/x-pack-core/org/elasticsearch/xpack/core/XPackBuild.class</span>
-<span class="hljs-meta">$</span><span class="bash">ES_HOME/modules/x-pack-core/org/elasticsearch/license/LicenseVerifier.class</span>
-
-// 替换jar包中的class (当前路径为$ES_HOME/modules/x-pack-core)
-jar uvf x-pack-core-7.4.0.jar org/elasticsearch/xpack/core/XPackBuild.class
-jar uvf x-pack-core-7.4.0.jar org/elasticsearch/license/LicenseVerifier.class</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd $ES_HOME/modules/x-pack-core<br>cp x-pack-core-7.4.0.jar x-pack-core-7.4.0.jar.bak // 备份<br><br>// 把编译后的源码放入到<br><span class="hljs-meta">$</span><span class="bash">ES_HOME/modules/x-pack-core/org/elasticsearch/xpack/core/XPackBuild.class</span><br><span class="hljs-meta">$</span><span class="bash">ES_HOME/modules/x-pack-core/org/elasticsearch/license/LicenseVerifier.class</span><br><br>// 替换jar包中的class (当前路径为$ES_HOME/modules/x-pack-core)<br>jar uvf x-pack-core-7.4.0.jar org/elasticsearch/xpack/core/XPackBuild.class<br>jar uvf x-pack-core-7.4.0.jar org/elasticsearch/license/LicenseVerifier.class<br></code></pre></td></tr></table></figure>
 
 <p>e. 重新启动elasticsearch</p>
 <h4 id="下载证书"><a href="#下载证书" class="headerlink" title="下载证书"></a>下载证书</h4><blockquote>
 <p>2种方式都行</p>
 </blockquote>
 <ol>
-<li>前往 <a href="https://license.elastic.co/registration" target="_blank" rel="noopener">https://license.elastic.co/registration</a> 注册一个免费的, 获取证书JSON(邮箱查收)</li>
+<li>前往 <a target="_blank" rel="noopener" href="https://license.elastic.co/registration">https://license.elastic.co/registration</a> 注册一个免费的, 获取证书JSON(邮箱查收)</li>
 <li>复制以下内容(这是我从上面这个网址注册的)</li>
 </ol>
-<pre><code class="hljs json">&#123;<span class="hljs-attr">"license"</span>:&#123;<span class="hljs-attr">"uid"</span>:<span class="hljs-string">"1a2bdedf-c99b-42af-8101-920e950287c0"</span>,<span class="hljs-attr">"type"</span>:<span class="hljs-string">"basic"</span>,<span class="hljs-attr">"issue_date_in_millis"</span>:<span class="hljs-number">1572739200000</span>,<span class="hljs-attr">"expiry_date_in_millis"</span>:<span class="hljs-number">1604447999999</span>,<span class="hljs-attr">"max_nodes"</span>:<span class="hljs-number">100</span>,<span class="hljs-attr">"issued_to"</span>:<span class="hljs-string">"Ely Xiao (ELY.ME)"</span>,<span class="hljs-attr">"issuer"</span>:<span class="hljs-string">"Web Form"</span>,<span class="hljs-attr">"signature"</span>:<span class="hljs-string">"AAAAAwAAAA36w4sLJgX5N9JBopEEAAABmC9ZN0hjZDBGYnVyRXpCOW5Bb3FjZDAxOWpSbTVoMVZwUzRxVk1PSmkxaktJRVl5MUYvUWh3bHZVUTllbXNPbzBUemtnbWpBbmlWRmRZb25KNFlBR2x0TXc2K2p1Y1VtMG1UQU9TRGZVSGRwaEJGUjE3bXd3LzRqZ05iLzRteWFNekdxRGpIYlFwYkJiNUs0U1hTVlJKNVlXekMrSlVUdFIvV0FNeWdOYnlESDc3MWhlY3hSQmdKSjJ2ZTcvYlBFOHhPQlV3ZHdDQ0tHcG5uOElCaDJ4K1hob29xSG85N0kvTWV3THhlQk9NL01VMFRjNDZpZEVXeUtUMXIyMlIveFpJUkk2WUdveEZaME9XWitGUi9WNTZVQW1FMG1DenhZU0ZmeXlZakVEMjZFT2NvOWxpZGlqVmlHNC8rWVVUYzMwRGVySHpIdURzKzFiRDl4TmM1TUp2VTBOUlJZUlAyV0ZVL2kvVk10L0NsbXNFYVZwT3NSU082dFNNa2prQ0ZsclZ4NTltbU1CVE5lR09Bck93V2J1Y3c9PQAAAQAJLS+Eh3LGnBI3TZF649WireO3M5sZ1t1LnIGAYBr3mNnNXv3snIsGK+2a9T3UfErf/L4y8ikx71pAVb8+KQM802fcHodNBmAQGnIOCeKwv5YqHfIUbF6di/zFYx6SZOATi/0r7eoJ4c8g46rTnf8x2ZLYhxryR9p1KDmS4cNE9X84SA8o8ixUn8vUx3vQg9hVF7uJ+KxiB5Me+W5dLW2UNfI1bAfKq5HFggepC/7+zystidatotnulohwJxWgJPlkO70ngGNV1a/tKoOI/YhXzlA841XjmSHLc7kTDdk/E/SQmYtFG+4cgaN9QbvTGDkhtTxm0sHwptYF4zs+IUsu"</span>,<span class="hljs-attr">"start_date_in_millis"</span>:<span class="hljs-number">1572739200000</span>&#125;&#125;</code></pre>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<span class="hljs-attr">&quot;license&quot;</span>:&#123;<span class="hljs-attr">&quot;uid&quot;</span>:<span class="hljs-string">&quot;1a2bdedf-c99b-42af-8101-920e950287c0&quot;</span>,<span class="hljs-attr">&quot;type&quot;</span>:<span class="hljs-string">&quot;basic&quot;</span>,<span class="hljs-attr">&quot;issue_date_in_millis&quot;</span>:<span class="hljs-number">1572739200000</span>,<span class="hljs-attr">&quot;expiry_date_in_millis&quot;</span>:<span class="hljs-number">1604447999999</span>,<span class="hljs-attr">&quot;max_nodes&quot;</span>:<span class="hljs-number">100</span>,<span class="hljs-attr">&quot;issued_to&quot;</span>:<span class="hljs-string">&quot;Ely Xiao (ELY.ME)&quot;</span>,<span class="hljs-attr">&quot;issuer&quot;</span>:<span class="hljs-string">&quot;Web Form&quot;</span>,<span class="hljs-attr">&quot;signature&quot;</span>:<span class="hljs-string">&quot;AAAAAwAAAA36w4sLJgX5N9JBopEEAAABmC9ZN0hjZDBGYnVyRXpCOW5Bb3FjZDAxOWpSbTVoMVZwUzRxVk1PSmkxaktJRVl5MUYvUWh3bHZVUTllbXNPbzBUemtnbWpBbmlWRmRZb25KNFlBR2x0TXc2K2p1Y1VtMG1UQU9TRGZVSGRwaEJGUjE3bXd3LzRqZ05iLzRteWFNekdxRGpIYlFwYkJiNUs0U1hTVlJKNVlXekMrSlVUdFIvV0FNeWdOYnlESDc3MWhlY3hSQmdKSjJ2ZTcvYlBFOHhPQlV3ZHdDQ0tHcG5uOElCaDJ4K1hob29xSG85N0kvTWV3THhlQk9NL01VMFRjNDZpZEVXeUtUMXIyMlIveFpJUkk2WUdveEZaME9XWitGUi9WNTZVQW1FMG1DenhZU0ZmeXlZakVEMjZFT2NvOWxpZGlqVmlHNC8rWVVUYzMwRGVySHpIdURzKzFiRDl4TmM1TUp2VTBOUlJZUlAyV0ZVL2kvVk10L0NsbXNFYVZwT3NSU082dFNNa2prQ0ZsclZ4NTltbU1CVE5lR09Bck93V2J1Y3c9PQAAAQAJLS+Eh3LGnBI3TZF649WireO3M5sZ1t1LnIGAYBr3mNnNXv3snIsGK+2a9T3UfErf/L4y8ikx71pAVb8+KQM802fcHodNBmAQGnIOCeKwv5YqHfIUbF6di/zFYx6SZOATi/0r7eoJ4c8g46rTnf8x2ZLYhxryR9p1KDmS4cNE9X84SA8o8ixUn8vUx3vQg9hVF7uJ+KxiB5Me+W5dLW2UNfI1bAfKq5HFggepC/7+zystidatotnulohwJxWgJPlkO70ngGNV1a/tKoOI/YhXzlA841XjmSHLc7kTDdk/E/SQmYtFG+4cgaN9QbvTGDkhtTxm0sHwptYF4zs+IUsu&quot;</span>,<span class="hljs-attr">&quot;start_date_in_millis&quot;</span>:<span class="hljs-number">1572739200000</span>&#125;&#125;<br></code></pre></td></tr></table></figure>
 
 <h4 id="修改证书"><a href="#修改证书" class="headerlink" title="修改证书"></a>修改证书</h4><p>修改上述步骤中JSON内容<code>&quot;type&quot;:&quot;platinum&quot;</code>, <code>&quot;expiry_date_in_millis&quot;:3107746200000</code></p>
-<h4 id="上传证书"><a href="#上传证书" class="headerlink" title="上传证书"></a>上传证书</h4><p>curl -XPUT   ‘<a href="http://127.0.0.1:9200/_xpack/license?acknowledge=true&#39;" target="_blank" rel="noopener">http://127.0.0.1:9200/_xpack/license?acknowledge=true&#39;</a> -d @license.json</p>
-<h4 id="查看证书"><a href="#查看证书" class="headerlink" title="查看证书"></a>查看证书</h4><p><a href="http://127.0.0.1:9200/_license" target="_blank" rel="noopener">http://127.0.0.1:9200/_license</a></p>
+<h4 id="上传证书"><a href="#上传证书" class="headerlink" title="上传证书"></a>上传证书</h4><p>curl -XPUT   ‘<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/_xpack/license?acknowledge=true&#39;">http://127.0.0.1:9200/_xpack/license?acknowledge=true&#39;</a> -d @license.json</p>
+<h4 id="查看证书"><a href="#查看证书" class="headerlink" title="查看证书"></a>查看证书</h4><p><a target="_blank" rel="noopener" href="http://127.0.0.1:9200/_license">http://127.0.0.1:9200/_license</a></p>
 <h4 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h4><ol>
 <li><p>关闭认证</p>
 <p> 编辑 config/elasticsearch.yml</p>
 </li>
 </ol>
-<pre><code class="hljs yaml"><span class="hljs-attr">xpack.security.enabled:</span> <span class="hljs-literal">false</span></code></pre>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">xpack.security.enabled:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>开启认证, 则要设置密码</li>
 </ol>
-<pre><code class="hljs angelscript">bin/elasticsearch-setup-passwords <span class="hljs-built_in">auto</span>|<span class="hljs-built_in">int</span>eractive</code></pre>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">bin/elasticsearch-<span class="hljs-built_in">setup</span>-passwords <span class="hljs-keyword">auto</span>|interactive<br></code></pre></td></tr></table></figure>
 
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -422,11 +325,11 @@ jar uvf x-pack-core-7.4.0.jar org/elasticsearch/license/LicenseVerifier.class</c
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/07/22/python-http-server/">
@@ -435,8 +338,8 @@ jar uvf x-pack-core-7.4.0.jar org/elasticsearch/license/LicenseVerifier.class</c
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2019/09/23/safari-ios/">
@@ -445,43 +348,39 @@ jar uvf x-pack-core-7.4.0.jar org/elasticsearch/license/LicenseVerifier.class</c
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
                 
                 
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-      function loadDisqus() {
-        var disqus_config = function () {
-          this.page.url = 'http://blog.ely.me/2019/11/02/elastic-sql-access-crack/';
-          this.page.identifier = '/2019/11/02/elastic-sql-access-crack/';
-        };
-        (function () {
-          var d = document,
-            s = d.createElement('script');
-          s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      }
-      createObserver(loadDisqus, 'disqus_thread');
+      var disqus_config = function() {
+        this.page.url = 'http://blog.ely.me/2019/11/02/elastic-sql-access-crack/';
+        this.page.identifier = '/2019/11/02/elastic-sql-access-crack/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
     </script>
     <noscript>Please enable JavaScript to view the
-      <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
     </noscript>
   </div>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -489,7 +388,7 @@ jar uvf x-pack-core-7.4.0.jar org/elasticsearch/license/LicenseVerifier.class</c
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -501,16 +400,15 @@ jar uvf x-pack-core-7.4.0.jar org/elasticsearch/license/LicenseVerifier.class</c
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -531,21 +429,16 @@ jar uvf x-pack-core-7.4.0.jar org/elasticsearch/license/LicenseVerifier.class</c
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
   <div class="statistics">
     
     
@@ -571,17 +464,33 @@ jar uvf x-pack-core-7.4.0.jar org/elasticsearch/license/LicenseVerifier.class</c
   </div>
 
 
-    
+  
 
-    
-  </div>
+  
 </footer>
 
 <!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
@@ -592,8 +501,23 @@ jar uvf x-pack-core-7.4.0.jar org/elasticsearch/license/LicenseVerifier.class</c
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -602,95 +526,29 @@ jar uvf x-pack-core-7.4.0.jar org/elasticsearch/license/LicenseVerifier.class</c
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Elastic SQL Access&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
       }
-    );
+    })()
   </script>
 
 
@@ -707,8 +565,8 @@ jar uvf x-pack-core-7.4.0.jar org/elasticsearch/license/LicenseVerifier.class</c
 
 
 
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 

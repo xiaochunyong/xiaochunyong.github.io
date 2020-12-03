@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -19,26 +19,33 @@
   <meta name="keywords" content="">
   <title>Mackup 备份macOS/Linux应用配置, 并同步 - Ely Xiao</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -46,8 +53,13 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.ely.me","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"51114b64bf5d1e52530373a80a94b9bc","google":"UA-123-12","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null},"tajs":null}};
+  </script>
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -153,8 +165,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -162,25 +180,28 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('/img/post_banner_common.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Mackup Backup/Restore macOS/Linux Apps Config and Sync">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2019-07-21 09:27">
-      2019年7月21日 上午
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-07-21 09:27" pubdate>
+        2019年7月21日 上午
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
@@ -225,70 +246,38 @@
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Mackup Backup/Restore macOS/Linux Apps Config and Sync</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：几秒前
+                  本文最后更新于：1 年前
                 
               </p>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <blockquote>
-<p><a href="https://github.com/lra/mackup" target="_blank" rel="noopener">Mackup</a> - Keep your application settings in sync (OS X/Linux)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lra/mackup">Mackup</a> - Keep your application settings in sync (OS X/Linux)</p>
 </blockquote>
 <h2 id="backup-restore-uninstall-3个操作做了什么-经常混淆"><a href="#backup-restore-uninstall-3个操作做了什么-经常混淆" class="headerlink" title="backup/restore/uninstall 3个操作做了什么? 经常混淆"></a>backup/restore/uninstall 3个操作做了什么? 经常混淆</h2><h2 id="Backup"><a href="#Backup" class="headerlink" title="Backup"></a>Backup</h2><blockquote>
 <p>home/realfile  copy to backup/file and generate home/linkfile</p>
 </blockquote>
-<pre><code class="hljs sql"><span class="hljs-keyword">Backup</span> the application config files.
-
-        Algorithm:
-            <span class="hljs-keyword">if</span> <span class="hljs-keyword">exists</span> home/<span class="hljs-keyword">file</span>
-              <span class="hljs-keyword">if</span> home/<span class="hljs-keyword">file</span> <span class="hljs-keyword">is</span> a <span class="hljs-built_in">real</span> <span class="hljs-keyword">file</span>
-                <span class="hljs-keyword">if</span> <span class="hljs-keyword">exists</span> mackup/<span class="hljs-keyword">file</span>
-                  <span class="hljs-keyword">are</span> you sure ?
-                  <span class="hljs-keyword">if</span> sure
-                    rm mackup/<span class="hljs-keyword">file</span>
-                    mv home/<span class="hljs-keyword">file</span> mackup/<span class="hljs-keyword">file</span>
-                    <span class="hljs-keyword">link</span> mackup/<span class="hljs-keyword">file</span> home/<span class="hljs-keyword">file</span>
-                <span class="hljs-keyword">else</span>
-                  mv home/<span class="hljs-keyword">file</span> mackup/<span class="hljs-keyword">file</span>
-                  <span class="hljs-keyword">link</span> mackup/<span class="hljs-keyword">file</span> home/<span class="hljs-keyword">file</span></code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">Backup</span> the application config files.<br><br>        Algorithm:<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">exists</span> home/<span class="hljs-keyword">file</span><br>              <span class="hljs-keyword">if</span> home/<span class="hljs-keyword">file</span> <span class="hljs-keyword">is</span> a <span class="hljs-built_in">real</span> <span class="hljs-keyword">file</span><br>                <span class="hljs-keyword">if</span> <span class="hljs-keyword">exists</span> mackup/<span class="hljs-keyword">file</span><br>                  <span class="hljs-keyword">are</span> you sure ?<br>                  <span class="hljs-keyword">if</span> sure<br>                    rm mackup/<span class="hljs-keyword">file</span><br>                    mv home/<span class="hljs-keyword">file</span> mackup/<span class="hljs-keyword">file</span><br>                    <span class="hljs-keyword">link</span> mackup/<span class="hljs-keyword">file</span> home/<span class="hljs-keyword">file</span><br>                <span class="hljs-keyword">else</span><br>                  mv home/<span class="hljs-keyword">file</span> mackup/<span class="hljs-keyword">file</span><br>                  <span class="hljs-keyword">link</span> mackup/<span class="hljs-keyword">file</span> home/<span class="hljs-keyword">file</span><br></code></pre></td></tr></table></figure>
 
 
 
 <h2 id="Restore"><a href="#Restore" class="headerlink" title="Restore"></a>Restore</h2><blockquote>
 <p>mackup/file generate linkfile to replace home/file</p>
 </blockquote>
-<pre><code class="hljs sql"><span class="hljs-keyword">Restore</span> the application config files.
-
-        Algorithm:
-            <span class="hljs-keyword">if</span> <span class="hljs-keyword">exists</span> mackup/<span class="hljs-keyword">file</span>
-              <span class="hljs-keyword">if</span> <span class="hljs-keyword">exists</span> home/<span class="hljs-keyword">file</span>
-                <span class="hljs-keyword">are</span> you sure ?
-                <span class="hljs-keyword">if</span> sure
-                  rm home/<span class="hljs-keyword">file</span>
-                  <span class="hljs-keyword">link</span> mackup/<span class="hljs-keyword">file</span> home/<span class="hljs-keyword">file</span>
-              <span class="hljs-keyword">else</span>
-                <span class="hljs-keyword">link</span> mackup/<span class="hljs-keyword">file</span> home/<span class="hljs-keyword">file</span></code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">Restore</span> the application config files.<br><br>        Algorithm:<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">exists</span> mackup/<span class="hljs-keyword">file</span><br>              <span class="hljs-keyword">if</span> <span class="hljs-keyword">exists</span> home/<span class="hljs-keyword">file</span><br>                <span class="hljs-keyword">are</span> you sure ?<br>                <span class="hljs-keyword">if</span> sure<br>                  rm home/<span class="hljs-keyword">file</span><br>                  <span class="hljs-keyword">link</span> mackup/<span class="hljs-keyword">file</span> home/<span class="hljs-keyword">file</span><br>              <span class="hljs-keyword">else</span><br>                <span class="hljs-keyword">link</span> mackup/<span class="hljs-keyword">file</span> home/<span class="hljs-keyword">file</span><br></code></pre></td></tr></table></figure>
 
 <h2 id="Uninstall"><a href="#Uninstall" class="headerlink" title="Uninstall"></a>Uninstall</h2><blockquote>
 <p>mackup/file  back to home/realfile</p>
 </blockquote>
-<pre><code class="hljs sql"><span class="hljs-keyword">Uninstall</span> Mackup.
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">Uninstall</span> Mackup.<br><br>        <span class="hljs-keyword">Restore</span> <span class="hljs-keyword">any</span> <span class="hljs-keyword">file</span> <span class="hljs-keyword">where</span> it was <span class="hljs-keyword">before</span> the <span class="hljs-number">1</span>st Mackup backup.<br><br>        Algorithm:<br>            <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> <span class="hljs-keyword">file</span> <span class="hljs-keyword">in</span> config<br>                <span class="hljs-keyword">if</span> mackup/<span class="hljs-keyword">file</span> <span class="hljs-keyword">exists</span><br>                    <span class="hljs-keyword">if</span> home/<span class="hljs-keyword">file</span> <span class="hljs-keyword">exists</span><br>                        <span class="hljs-keyword">delete</span> home/<span class="hljs-keyword">file</span><br>                    copy mackup/<span class="hljs-keyword">file</span> home/<span class="hljs-keyword">file</span><br>            <span class="hljs-keyword">delete</span> the mackup folder<br>            print how <span class="hljs-keyword">to</span> <span class="hljs-keyword">delete</span> mackup<br></code></pre></td></tr></table></figure>
 
-        <span class="hljs-keyword">Restore</span> <span class="hljs-keyword">any</span> <span class="hljs-keyword">file</span> <span class="hljs-keyword">where</span> it was <span class="hljs-keyword">before</span> the <span class="hljs-number">1</span>st Mackup backup.
-
-        Algorithm:
-            <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> <span class="hljs-keyword">file</span> <span class="hljs-keyword">in</span> config
-                <span class="hljs-keyword">if</span> mackup/<span class="hljs-keyword">file</span> <span class="hljs-keyword">exists</span>
-                    <span class="hljs-keyword">if</span> home/<span class="hljs-keyword">file</span> <span class="hljs-keyword">exists</span>
-                        <span class="hljs-keyword">delete</span> home/<span class="hljs-keyword">file</span>
-                    copy mackup/<span class="hljs-keyword">file</span> home/<span class="hljs-keyword">file</span>
-            <span class="hljs-keyword">delete</span> the mackup folder
-            print how <span class="hljs-keyword">to</span> <span class="hljs-keyword">delete</span> mackup</code></pre>
-
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -312,11 +301,11 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2019/07/22/kotlin-jackson-jsonproperty/">
@@ -325,8 +314,8 @@
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2019/07/16/mac-apps/">
@@ -335,43 +324,39 @@
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
                 
                 
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-      function loadDisqus() {
-        var disqus_config = function () {
-          this.page.url = 'http://blog.ely.me/2019/07/21/mackup/';
-          this.page.identifier = '/2019/07/21/mackup/';
-        };
-        (function () {
-          var d = document,
-            s = d.createElement('script');
-          s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      }
-      createObserver(loadDisqus, 'disqus_thread');
+      var disqus_config = function() {
+        this.page.url = 'http://blog.ely.me/2019/07/21/mackup/';
+        this.page.identifier = '/2019/07/21/mackup/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
     </script>
     <noscript>Please enable JavaScript to view the
-      <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
     </noscript>
   </div>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -379,7 +364,7 @@
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -391,16 +376,15 @@
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -421,21 +405,16 @@
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
   <div class="statistics">
     
     
@@ -461,17 +440,33 @@
   </div>
 
 
-    
+  
 
-    
-  </div>
+  
 </footer>
 
 <!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
@@ -482,8 +477,23 @@
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -492,95 +502,29 @@
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Mackup Backup/Restore macOS/Linux Apps Config and Sync&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
       }
-    );
+    })()
   </script>
 
 
@@ -597,8 +541,8 @@
 
 
 
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 

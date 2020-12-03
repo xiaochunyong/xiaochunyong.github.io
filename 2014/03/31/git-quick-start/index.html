@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -19,26 +19,33 @@
   <meta name="keywords" content="">
   <title>Git 快速入门 - Ely Xiao</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -46,8 +53,13 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.ely.me","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"51114b64bf5d1e52530373a80a94b9bc","google":"UA-123-12","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null},"tajs":null}};
+  </script>
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -153,8 +165,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -162,25 +180,28 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('/img/post_banner_common.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Git 快速入门">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2014-04-01 00:00">
-      2014年4月1日 凌晨
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2014-04-01 00:00" pubdate>
+        2014年4月1日 凌晨
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
@@ -225,25 +246,21 @@
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Git 快速入门</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：几秒前
+                  本文最后更新于：7 年前
                 
               </p>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <blockquote>
 <p>Updated by 2019-08-21 15:51</p>
 </blockquote>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code class="hljs smali">// Ubuntu
-$<span class="hljs-built_in"> add-apt-repository </span>ppa:git-core/ppa
-$ apt-get update
-$ apt-get install git
-
-// macOS
-$ brew install git</code></pre>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs smali">// Ubuntu<br>$<span class="hljs-built_in"> add-apt-repository </span>ppa:git-core/ppa<br>$ apt-get update<br>$ apt-get install git<br><br>// macOS<br>$ brew install git<br></code></pre></td></tr></table></figure>
 
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="回收站-stash"><a href="#回收站-stash" class="headerlink" title="回收站(stash)"></a>回收站(stash)</h3><blockquote>
 <p>我是觉得停像回收站的,其实大家每天都有用到.   如果你已经修改了某几个文件(这几个文件已经被git管理了)  这时候你要执行git pull,  图形客户端,可能会提示你要stash<br>    git stash 命令会将你所做的修改,暂存区的内容 全部扔到stash 区, 把你的工作区和暂存区还原到上一次push完后的样子,当你pull完成后, git stash pop又可以将你<br>    之前的修改还     原到工作区和暂存区 </p>
@@ -257,40 +274,27 @@ $ brew install git</code></pre>
 <h3 id="本地版本库-local-repository"><a href="#本地版本库-local-repository" class="headerlink" title="本地版本库(local repository)"></a>本地版本库(local repository)</h3><h3 id="远程版本库-remote-repository"><a href="#远程版本库-remote-repository" class="headerlink" title="远程版本库(remote repository)"></a>远程版本库(remote repository)</h3><blockquote>
 <p>origin : origin 是 remote 的一个短名称,在执行 git remote add origin <a href="mailto:git@github.com">git@github.com</a>:xxxx/xx.git<br>    master : 主分支 与我们自己创建的分支没有什么不同,只是约定俗称的把它当主分支而已.<br>    HEAD : 永远指向当前分支,其实是  .git/HEAD文件<br>    .gitignore : 大家都不希望被git管理的文件可以写在这个文件里面<br>    .git/info/exclude : “我”不希望被git管理的文件可以写在这个文件里面</p>
 </blockquote>
-<h2 id="Git-常用操作"><a href="#Git-常用操作" class="headerlink" title="Git 常用操作"></a>Git 常用操作</h2><h6 id="discard-撤销已经修改的文件"><a href="#discard-撤销已经修改的文件" class="headerlink" title="discard 撤销已经修改的文件"></a>discard 撤销已经修改的文件</h6><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>git checkout -- &lt;file&gt;              <span class="hljs-comment"># 撤消指定的未暂存文件的修改内容</span>
-<span class="hljs-variable">$ </span>git checkout HEAD &lt;file&gt;            <span class="hljs-comment"># 撤消指定的未提交文件的修改内容</span>
-<span class="hljs-variable">$ </span>git reset --hard HEAD             <span class="hljs-comment"># 撤消工作目录中所有未提交文件的修改内容</span></code></pre>
+<h2 id="Git-常用操作"><a href="#Git-常用操作" class="headerlink" title="Git 常用操作"></a>Git 常用操作</h2><h6 id="discard-撤销已经修改的文件"><a href="#discard-撤销已经修改的文件" class="headerlink" title="discard 撤销已经修改的文件"></a>discard 撤销已经修改的文件</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git checkout -- &lt;file&gt;              <span class="hljs-comment"># 撤消指定的未暂存文件的修改内容</span></span><br><span class="hljs-meta">$</span><span class="bash"> git checkout HEAD &lt;file&gt;            <span class="hljs-comment"># 撤消指定的未提交文件的修改内容</span></span><br><span class="hljs-meta">$</span><span class="bash"> git reset --hard HEAD             <span class="hljs-comment"># 撤消工作目录中所有未提交文件的修改内容</span></span><br></code></pre></td></tr></table></figure>
 
-<h6 id="stage"><a href="#stage" class="headerlink" title="stage"></a>stage</h6><pre><code class="hljs dockerfile">$ git <span class="hljs-keyword">add</span><span class="bash"> .</span>
-$ git <span class="hljs-keyword">add</span><span class="bash"> *</span>
-$ git <span class="hljs-keyword">add</span><span class="bash"> -A</span>
-$ git <span class="hljs-keyword">add</span><span class="bash"> &lt;file/dir&gt;</span></code></pre>
-<h6 id="unstage"><a href="#unstage" class="headerlink" title="unstage"></a>unstage</h6><pre><code class="hljs sql">$ git <span class="hljs-keyword">reset</span> <span class="hljs-keyword">HEAD</span> &lt;<span class="hljs-keyword">file</span>&gt;...</code></pre>
-<h6 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h6><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>git commit -m <span class="hljs-string">"comment"</span></code></pre>
-<h6 id="stage-amp-commit"><a href="#stage-amp-commit" class="headerlink" title="stage &amp; commit"></a>stage &amp; commit</h6><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>git commit -a -m <span class="hljs-string">"comment"</span></code></pre>
-<h6 id="amend-commit-修正commit"><a href="#amend-commit-修正commit" class="headerlink" title="amend commit (修正commit)"></a>amend commit (修正commit)</h6><pre><code class="hljs dsconfig">$ <span class="hljs-string">git </span><span class="hljs-string">commit </span><span class="hljs-built_in">--amend</span> -m <span class="hljs-string">"new commit message"</span></code></pre>
-<h6 id="rollback-commit"><a href="#rollback-commit" class="headerlink" title="rollback commit"></a>rollback commit</h6><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>git reset --soft HEAD^                <span class="hljs-comment"># 回到最新的提交之前,文件将回到暂存区</span>
-
-<span class="hljs-variable">$ </span>git push origin master                <span class="hljs-comment"># 上传代码到远程版本库</span></code></pre>
+<h6 id="stage"><a href="#stage" class="headerlink" title="stage"></a>stage</h6><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">$ git <span class="hljs-keyword">add</span><span class="bash"> .</span><br>$ git <span class="hljs-keyword">add</span><span class="bash"> *</span><br>$ git <span class="hljs-keyword">add</span><span class="bash"> -A</span><br>$ git <span class="hljs-keyword">add</span><span class="bash"> &lt;file/dir&gt;</span><br></code></pre></td></tr></table></figure>
+<h6 id="unstage"><a href="#unstage" class="headerlink" title="unstage"></a>unstage</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">$ git <span class="hljs-keyword">reset</span> <span class="hljs-keyword">HEAD</span> &lt;<span class="hljs-keyword">file</span>&gt;...<br></code></pre></td></tr></table></figure>
+<h6 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h6><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>git commit -m <span class="hljs-string">&quot;comment&quot;</span><br></code></pre></td></tr></table></figure>
+<h6 id="stage-amp-commit"><a href="#stage-amp-commit" class="headerlink" title="stage &amp; commit"></a>stage &amp; commit</h6><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">$ git <span class="hljs-keyword">commit</span> -a -m &quot;comment&quot;<br></code></pre></td></tr></table></figure>
+<h6 id="amend-commit-修正commit"><a href="#amend-commit-修正commit" class="headerlink" title="amend commit (修正commit)"></a>amend commit (修正commit)</h6><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">$ git commit <span class="hljs-params">--amend</span> -m <span class="hljs-string">&quot;new commit message&quot;</span><br></code></pre></td></tr></table></figure>
+<h6 id="rollback-commit"><a href="#rollback-commit" class="headerlink" title="rollback commit"></a>rollback commit</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql">$ git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--soft HEAD^                # 回到最新的提交之前,文件将回到暂存区</span><br><br>$ git push origin <span class="hljs-keyword">master</span>                <span class="hljs-comment"># 上传代码到远程版本库</span><br></code></pre></td></tr></table></figure>
 
 <h6 id="rollback-push-还没测试"><a href="#rollback-push-还没测试" class="headerlink" title="rollback push (还没测试)"></a>rollback push (还没测试)</h6><p>今天因为某些尚不明了的问题导致，博客的Git pages始终构建失败，于是想在远程版本库中删除前几次提交。在该网页上找到了解决方案：</p>
-<pre><code class="hljs brainfuck"><span class="hljs-comment">$</span> <span class="hljs-comment">git</span> <span class="hljs-comment">reset</span> --<span class="hljs-comment">hard</span> &lt;<span class="hljs-comment">commit</span> <span class="hljs-comment">id</span>&gt;    <span class="hljs-comment">#</span> <span class="hljs-comment">本地回退到指定commit</span> <span class="hljs-comment">id</span><span class="hljs-string">,</span> --<span class="hljs-comment">hard</span> <span class="hljs-comment">抛弃当前工作区的修改</span><span class="hljs-string">,</span> --<span class="hljs-comment">soft</span> <span class="hljs-comment">保留当前工作区的修改</span> 
-<span class="hljs-comment">$</span> <span class="hljs-comment">git</span> <span class="hljs-comment">push</span> --<span class="hljs-comment">force</span> <span class="hljs-comment">#</span> <span class="hljs-comment">强制提交到远程版本库，覆盖提交记录</span></code></pre>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">$ git reset <span class="hljs-params">--hard</span> &lt;commit id&gt;    <span class="hljs-comment"># 本地回退到指定commit id, --hard 抛弃当前工作区的修改, --soft 保留当前工作区的修改 </span><br>$ git push <span class="hljs-params">--force</span> <span class="hljs-comment"># 强制提交到远程版本库，覆盖提交记录</span><br></code></pre></td></tr></table></figure>
 
-<h6 id="delete-untracked-files"><a href="#delete-untracked-files" class="headerlink" title="delete untracked files"></a>delete untracked files</h6><pre><code class="hljs powershell"><span class="hljs-variable">$</span> git clean <span class="hljs-operator">-f</span></code></pre>
-<h6 id="delete-untracked-files-and-dirs"><a href="#delete-untracked-files-and-dirs" class="headerlink" title="delete untracked files and dirs"></a>delete untracked files and dirs</h6><pre><code class="hljs clean">$ git clean -fd
-``` 
-###### 连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）</code></pre>
+<h6 id="delete-untracked-files"><a href="#delete-untracked-files" class="headerlink" title="delete untracked files"></a>delete untracked files</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> git clean <span class="hljs-operator">-f</span><br></code></pre></td></tr></table></figure>
+<h6 id="delete-untracked-files-and-dirs"><a href="#delete-untracked-files-and-dirs" class="headerlink" title="delete untracked files and dirs"></a>delete untracked files and dirs</h6><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clean">$ git clean -fd<br>``` <br>###### 连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）<br></code></pre></td></tr></table></figure>
 <p>$ git clean -xfd</p>
-<pre><code class="hljs clean">###### 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删</code></pre>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean">###### 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删<br></code></pre></td></tr></table></figure>
 <p>$ git clean -nxfd<br>$ git clean -nf<br>$ git clean -nfd</p>
-<pre><code class="hljs clean">### 其它操作</code></pre>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean">### 其它操作<br></code></pre></td></tr></table></figure>
 <p>$ git status<br>$ git status -s<br>$ git diff              # 查看变更内容 工作区与暂存区比较<br>$ git diff HEAD             # 查看变更内容 工作区与本地版本库比较<br>$ git diff –cached             # 查看变更内容 暂存区与本地版本库比较<br>$ git mv <old> <new>            # 文件改名<br>$ git rm <file>               # 删除文件<br>$ git rm –cached <file>          # 停止跟踪文件但不删除</p>
-<pre><code class="hljs">
-
-### Tag &amp; Branch
-###### 标签</code></pre>
-<p>$ git tag           # 列出所有本地标签<br>$ git tag <tagname>           # 基于最新提交创建标签<br>$ git tag -d <tagname>            # 删除标签<br>$ git push –tags           # 上传所有标签<br> <pre><code class="hljs clean">###### 分支</code></pre></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs"><br><br>### Tag &amp; Branch<br>###### 标签<br></code></pre></td></tr></table></figure>
+<p>$ git tag           # 列出所有本地标签<br>$ git tag <tagname>           # 基于最新提交创建标签<br>$ git tag -d <tagname>            # 删除标签<br>$ git push –tags           # 上传所有标签<br> <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean">###### 分支<br></code></pre></td></tr></table></figure></p>
 <h1 id="显示所有本地分支"><a href="#显示所有本地分支" class="headerlink" title="显示所有本地分支"></a>显示所有本地分支</h1><p>$ git branch</p>
 <h1 id="显示所有远程分支"><a href="#显示所有远程分支" class="headerlink" title="显示所有远程分支"></a>显示所有远程分支</h1><p>$ git branch -r         </p>
 <h1 id="显示所有分支"><a href="#显示所有分支" class="headerlink" title="显示所有分支"></a>显示所有分支</h1><p>$ git branch -a         </p>
@@ -303,43 +307,25 @@ $ git <span class="hljs-keyword">add</span><span class="bash"> &lt;file/dir&gt;<
 <h1 id="强制删除本地分支"><a href="#强制删除本地分支" class="headerlink" title="强制删除本地分支"></a>强制删除本地分支</h1><p>$ git branch -D <branch> </p>
 <h1 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h1><p>$ git branch -r -d origin/branch-name<br>$ git push origin :branch-name</p>
 <h1 id="实例-删除uat分支"><a href="#实例-删除uat分支" class="headerlink" title="实例(删除uat分支):"></a>实例(删除uat分支):</h1><p>$ git branch -D uat<br>$ git branch -r -d origin/uat<br>$ git push origin :uat</p>
-<pre><code class="hljs clean">	
- 
- 
-###### 分支的相关操作</code></pre>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs clean">	<br> <br> <br>###### 分支的相关操作<br></code></pre></td></tr></table></figure>
 <p>$ git cherry-pick <commit_id>         # 挑选某个commit进行合并<br>$ git merge <branch>          #合并指定分支到当前分支<br>$ git rebase <branch>         #衍合指定分支到当前分支</p>
-<pre><code class="hljs">
-
-
-### Log</code></pre>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs"><br><br><br>### Log<br></code></pre></td></tr></table></figure>
 <p>$ git log           # 查看提交历史<br>$ git log -n            # 查看最近n次提交历史<br>$ git log -p            # 查看提交历史,以patch形式显示<br>$ git log filename          # 查看指定文件的提交历史<br>$ git log –graph<br>$ git log –oneline                                                     # 等价于 git log –pretty=oneline –abbrev-commit<br>$ git log –pretty=oneline<br>$ git log –pretty=format:”%h - %an, %ar : %s”<br>$ git blame <file>  #以列表方式查看指定文件的提交历史(通过这个,可以看到每一行是谁改的)</p>
-<pre><code class="hljs clean"> 
-### 常用组合命令</code></pre>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean"> <br>### 常用组合命令<br></code></pre></td></tr></table></figure>
 <p>$ git log <commit_id> -p –stat               #以补丁形式 &amp; 统计形式  查看指定提交<br>$ git log <file> -n -p –stat                     #以补丁形式 &amp; 统计形式  查看指定文件 最近n次提交</p>
 <p>$ git log  -n -p –stat                             #以补丁形式 &amp; 统计形式  查看最近n次提交</p>
-<pre><code class="hljs">
-
-
-### Stash</code></pre>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs"><br><br><br>### Stash<br></code></pre></td></tr></table></figure>
 <p>$ git stash                                                                             # 保存进度 默认相当于 git stash save<br>$ git stash [save [–patch] [-k|–[no-]keep-index] [-q|–quiet] [<message>]]<br>$ git stash list                                                                        # 列出进度<br>$ git stash pop [–index] [<stash>]                                                       # 恢复进度,如果指定了–index,将尝试恢复暂存区,并将恢复的进度从存储的工作进度列表中删除<br>$ git stash apply [–index] [<stash>]                                                 # 恢复进度,如果指定了–index,将尝试恢复暂存区,不删除<br>$ git stash drop [<stash>]<br>$ git stash clear<br>$ git stash branch <branchname> <stash></p>
 <p>例:</p>
 <p>$ git stash save “stash for pull”<br>$ git stash pop stash@{0}</p>
-<pre><code class="hljs">
-
-### Git 初始化
-###### 路线一</code></pre>
-<p>$ mkdir app<br>$ cd app<br>$ git init<br>$ git remote add origin <a href="mailto:git@github.com">git@github.com</a>:xxx/app.git<br> <pre><code class="hljs clean">###### 路线二</code></pre><br>$ git clone <a href="mailto:git@github.com">git@github.com</a>:xxx/app.git<br> <pre><code class="hljs clean">###### git remote 相关操作</code></pre><br>$ git remote<br>$ git remote -v<br>$ git remote show origin<br>$ git remote rename origin <newname><br>$ git remote rm origin</p>
-<pre><code class="hljs">
-
-
-### 附录：dff 详解</code></pre>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs"><br><br>### Git 初始化<br>###### 路线一<br></code></pre></td></tr></table></figure>
+<p>$ mkdir app<br>$ cd app<br>$ git init<br>$ git remote add origin <a href="mailto:git@github.com">git@github.com</a>:xxx/app.git<br> <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean">###### 路线二<br></code></pre></td></tr></table></figure><br>$ git clone <a href="mailto:git@github.com">git@github.com</a>:xxx/app.git<br> <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean">###### git remote 相关操作<br></code></pre></td></tr></table></figure><br>$ git remote<br>$ git remote -v<br>$ git remote show origin<br>$ git remote rename origin <newname><br>$ git remote rm origin</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs"><br><br><br>### 附录：dff 详解<br></code></pre></td></tr></table></figure>
 <p>$ diff -u hello world &gt; diff.txt<br>–beginoutput<br> hello   2014-04-11 10:43:27.642739542 +0800     #表示原始文件名 &amp; 时间戳<br>+++ world   2014-04-11 10:45:55.038735015 +0800     #+++表示目标文件名 &amp; 时间戳<br>@@ -1,4 +1,4 @@                         #差异小节-差异定位语句(前后用两个@进行标识) -1,4表示原始文件中的第一行开始的4行<br>-应该杜绝文章中的错别字.                            #以-号开始的行是只出现在原始文件中的行<br>+应该杜绝文章中的错别子.                            #以+号开始的行是只出现在目标文件中的行</p>
 <p> 但是无论使用                                       #以空格开始的行是在原始文件与目标文件都出现的行<br>@@ -7,6 +7,7 @@<br> 是人就有可能犯错,软件更是如此.<br>-犯了错,就要扣工资!<br>-<br> 改正的成本可能会很高.<br>+<br>+但是”只要眼球足够多,所有BUg都好捉”,<br>+这就是开源的哲学之一.</p>
-<pre><code class="hljs vim">
-Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span class="hljs-keyword">mode</span> &amp; <span class="hljs-keyword">new</span> <span class="hljs-keyword">mode</span></code></pre>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vim"><br>Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span class="hljs-keyword">mode</span> &amp; <span class="hljs-keyword">new</span> <span class="hljs-keyword">mode</span><br><br></code></pre></td></tr></table></figure>
 <p>old mode 100755<br>new mode 100644</p>
-<pre><code class="hljs avrasm">
-<span class="hljs-symbol">Solution:</span></code></pre>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><br><span class="hljs-symbol">Solution:</span><br></code></pre></td></tr></table></figure>
 <p>git config core.filemode false</p>
 <pre><code>详情:[http://stackoverflow.com/questions/1257592/how-do-i-remove-files-saying-old-mode-100755-new-mode-100644-from-unstaged-cha](http://stackoverflow.com/questions/1257592/how-do-i-remove-files-saying-old-mode-100755-new-mode-100644-from-unstaged-cha)
 
@@ -391,7 +377,7 @@ Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span cl
 
 [http://ndpsoftware.com/git-cheatsheet.html](http://ndpsoftware.com/git-cheatsheet.html)
 </code></pre>
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -413,11 +399,11 @@ Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span cl
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2014/06/01/linux-init/">
@@ -426,8 +412,8 @@ Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span cl
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2013/11/27/hello/">
@@ -436,43 +422,39 @@ Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span cl
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
                 
                 
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-      function loadDisqus() {
-        var disqus_config = function () {
-          this.page.url = 'http://blog.ely.me/2014/03/31/git-quick-start/';
-          this.page.identifier = '/2014/03/31/git-quick-start/';
-        };
-        (function () {
-          var d = document,
-            s = d.createElement('script');
-          s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      }
-      createObserver(loadDisqus, 'disqus_thread');
+      var disqus_config = function() {
+        this.page.url = 'http://blog.ely.me/2014/03/31/git-quick-start/';
+        this.page.identifier = '/2014/03/31/git-quick-start/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
     </script>
     <noscript>Please enable JavaScript to view the
-      <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
     </noscript>
   </div>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -480,7 +462,7 @@ Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span cl
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -492,16 +474,15 @@ Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span cl
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -522,21 +503,16 @@ Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span cl
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
   <div class="statistics">
     
     
@@ -562,17 +538,33 @@ Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span cl
   </div>
 
 
-    
+  
 
-    
-  </div>
+  
 </footer>
 
 <!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
@@ -583,8 +575,23 @@ Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span cl
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -593,95 +600,29 @@ Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span cl
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Git 快速入门&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
       }
-    );
+    })()
   </script>
 
 
@@ -698,8 +639,8 @@ Question <span class="hljs-number">1</span>: 执行 git diff 提示 old <span cl
 
 
 
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 

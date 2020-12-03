@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -19,17 +19,17 @@
   <meta name="keywords" content="">
   <title>Ely Xiao</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -37,8 +37,13 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.ely.me","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"51114b64bf5d1e52530373a80a94b9bc","google":"UA-123-12","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null},"tajs":null}};
+  </script>
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -144,8 +149,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -153,13 +164,13 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('https://rmt.dogedoge.com/fetch/fluid/storage/bg/vdysjx.png?w=1920&fmt=webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="我的才华...配不上你的野心">
               
             </span>
 
@@ -197,28 +208,32 @@
         </a>
       </div>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/07/30/jwt-issue/">JWT 时间类型问题</a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/07/30/jwt-issue/">JWT 时间类型问题</a>
+      </h1>
 
-      <a href="/2019/07/30/jwt-issue/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/07/30/jwt-issue/">
           
-        
-        <div>
+          
+            
+          
+          
 最近在Web应用中, 集成JWT的时候, 遇到一个坑. 在设置token的exp(过期时间)字段后, 解析Token取得exp字段变成了52556年
 
-// 简略版
-fun buildToken(username: String) &#123;
-    val now = Date()
-    val expiration = Date(now.time + EXPIRATION_TIME)
- </div>
-      </a>
+12345678910111213141516171819202122232425262728// 简略版fun buildToken(username: String) &#123;    val now = Date()    val exp
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-07-31
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-07-31 02:44" pubdate>
+              2019-07-31
+            </time>
           </div>
         
         
@@ -238,7 +253,7 @@ fun buildToken(username: String) &#123;
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
@@ -250,27 +265,35 @@ fun buildToken(username: String) &#123;
         </a>
       </div>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/07/27/kode-gen/">KodeGen Plugin Release</a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/07/27/kode-gen/">KodeGen Plugin Release</a>
+      </h1>
 
-      <a href="/2019/07/27/kode-gen/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/07/27/kode-gen/">
           
-        
-        <div>
+          
+            
+          
+          
 Install
 Search ‘KodeGen’ in Idea plugins
 Download Releases
 
 UsageThis plugin generates code from right click ‘Generate…’ menu while focused on a Kotlin class.
-The plugin support multiple class to gen</div>
-      </a>
+The plugin support multiple class to gen
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-07-27
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-07-27 08:26" pubdate>
+              2019-07-27
+            </time>
           </div>
         
         
@@ -292,7 +315,7 @@ The plugin support multiple class to gen</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
@@ -304,26 +327,32 @@ The plugin support multiple class to gen</div>
         </a>
       </div>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/07/22/kotlin-jackson-jsonproperty/">Jackson/FastJSON处理Kotlin Data Class字段别名</a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/07/22/kotlin-jackson-jsonproperty/">Jackson/FastJSON处理Kotlin Data Class字段别名</a>
+      </h1>
 
-      <a href="/2019/07/22/kotlin-jackson-jsonproperty/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/07/22/kotlin-jackson-jsonproperty/">
           
-        
-        <div>问题Jackson/FastJSON 处理 Kotlin Data Class时, JsonProperty/JSONField没有正常工作
+          
+            
+          
+          问题Jackson/FastJSON 处理 Kotlin Data Class时, JsonProperty/JSONField没有正常工作
 Jackson/FastJSON 在处理 Kotlin Data Class 时, 如果需要别名, 直接使用@JsonProperty是不行的.
 
-data class User(
-    val id: Int,
-    val name: String,</div>
-      </a>
+12345data class User(    val id: Int,    val name: Stri
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-07-23
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-07-23 04:05" pubdate>
+              2019-07-23
+            </time>
           </div>
         
         
@@ -347,33 +376,41 @@ data class User(
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/07/21/mackup/">Mackup 备份macOS/Linux应用配置, 并同步</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/07/21/mackup/">Mackup 备份macOS/Linux应用配置, 并同步</a>
+      </h1>
 
-      <a href="/2019/07/21/mackup/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/07/21/mackup/">
           
-        
-        <div>
+          
+            
+          
+          
 Mackup - Keep your application settings in sync (OS X/Linux)
 
 backup/restore/uninstall 3个操作做了什么? 经常混淆Backup
 home/realfile  copy to backup/file and generate home/linkfile
 
-Backup the application confi</div>
-      </a>
+1234567891011121314Backup th
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-07-21
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-07-21 09:27" pubdate>
+              2019-07-21
+            </time>
           </div>
         
         
@@ -395,7 +432,7 @@ Backup the application confi</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
@@ -407,15 +444,19 @@ Backup the application confi</div>
         </a>
       </div>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/07/16/mac-apps/">用过的 macOS Apps</a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/07/16/mac-apps/">用过的 macOS Apps</a>
+      </h1>
 
-      <a href="/2019/07/16/mac-apps/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/07/16/mac-apps/">
           
-        
-        <div>开发工具
+          
+            
+          
+          开发工具
 Visual Studio Code
 JetBrains Toolbox
 IntelliJ IDEA
@@ -425,13 +466,17 @@ GoLand
 AndroidStudio
 DataGrip 
 Robot 3T / Studio 3T (MongoDB客户端 免费&amp;收费版)
-NoSQLBooster for MongoDB (史上最好MongoDB 客户端, 但是要收费) 用</div>
-      </a>
+NoSQLBooster for MongoDB (史上最好MongoDB 客户端, 但是要收费) 用
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-07-16
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-07-16 11:41" pubdate>
+              2019-07-16
+            </time>
           </div>
         
         
@@ -451,28 +496,36 @@ NoSQLBooster for MongoDB (史上最好MongoDB 客户端, 但是要收费) 用</d
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/06/24/exception-of-encode/">数据录入格式错误问题-u202c</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/06/24/exception-of-encode/">数据录入格式错误问题-u202c</a>
+      </h1>
 
-      <a href="/2019/06/24/exception-of-encode/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/06/24/exception-of-encode/">
           
-        
-        <div>数据录入问题同事在录数据的时候表示无法提交, 报错了.  错误日志如下
-报错提示:&#123;"timestamp":"2019-06-11 12:22:15","status":400,"error":"Bad Request","message":"JSON parse error: Cannot deserialize value of type `java.lang.Integer` fr</div>
-      </a>
+          
+            
+          
+          数据录入问题同事在录数据的时候表示无法提交, 报错了.  错误日志如下
+报错提示:1&#123;&quot;timestamp&quot;:&quot;2019-06-11 12:22:15&quot;,&quot;status&quot;:400,&quot;error&quot;:&quot;Bad Request&quot;,&quot;message&quot;:&quot;JSON pa
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-06-24
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-06-24 18:53" pubdate>
+              2019-06-24
+            </time>
           </div>
         
         
@@ -492,7 +545,7 @@ NoSQLBooster for MongoDB (史上最好MongoDB 客户端, 但是要收费) 用</d
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
@@ -504,26 +557,31 @@ NoSQLBooster for MongoDB (史上最好MongoDB 客户端, 但是要收费) 用</d
         </a>
       </div>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/05/28/Docker-for-Mac/">macOS 安装Docker</a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/05/28/Docker-for-Mac/">macOS 安装Docker</a>
+      </h1>
 
-      <a href="/2019/05/28/Docker-for-Mac/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/05/28/Docker-for-Mac/">
           
-        
-        <div>QA1. Kubernetes is Starting…解决方法1:rm -rf ~/.kube
-open global vpn, fq,
-then reset Kubernetes cluster
-Waiting 2-5 minutes
+          
+            
+          
+          QA1. Kubernetes is Starting…解决方法1:1234rm -rf ~/.kubeopen global vpn, fq,then reset Kubernetes clusterWaiting 2-5 minutes
 
-解决方法2:1. Preferences -&gt; Reset -&gt; Reset to factory defaults2. Daemonhttps:</div>
-      </a>
+解决方法2:1. Preferences -&gt; Reset -&gt; Reset to factory defaults2. Daemonhttps
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-05-28
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-05-28 18:53" pubdate>
+              2019-05-28
+            </time>
           </div>
         
         
@@ -543,7 +601,7 @@ Waiting 2-5 minutes
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
@@ -555,26 +613,29 @@ Waiting 2-5 minutes
         </a>
       </div>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/02/25/Git-Advance/">Git 高级教程</a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/02/25/Git-Advance/">Git 高级教程</a>
+      </h1>
 
-      <a href="/2019/02/25/Git-Advance/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/02/25/Git-Advance/">
           
-        
-        <div>优雅的删除子模块MOD_NAME=xxx
-# 逆初始化模块，其中&#123;MOD_NAME&#125;为模块目录，执行后可发现模块目录被清空
-git submodule deinit $MOD_NAME
-# 删除.gitmodules中记录的模块信息（--cached选项清除.git/modules中的缓存）
-git rm --cached $MOD_NAME
-# 删除.gitmodules文件</div>
-      </a>
+          
+            
+          
+          优雅的删除子模块123456789MOD_NAME=xxx# 逆初始化模块，其中&#123;MOD_NAME&#125;为模块目录，执行后可发现模块目录被清空git submodule deinit $MOD_NAME# 删除.gitmodules中记录的模块信息（--cached选项清除.git/modules中的缓存）git rm --cached $MOD_NAME# 删除.gitmodul
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-02-26
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-02-26 00:00" pubdate>
+              2019-02-26
+            </time>
           </div>
         
         
@@ -594,7 +655,7 @@ git rm --cached $MOD_NAME
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
@@ -606,25 +667,33 @@ git rm --cached $MOD_NAME
         </a>
       </div>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2018/10/14/blockchain/">区块链分享</a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2018/10/14/blockchain/">区块链分享</a>
+      </h1>
 
-      <a href="/2018/10/14/blockchain/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2018/10/14/blockchain/">
           
-        
-        <div>
+          
+            
+          
+          
 TODO 待完善
 
 区块链概念女巫攻击(Sybil Attack)拜占庭将军问题扩容分叉51%算力攻击Merkle Tree/MerkleRoot双重支付: 通过共识算法来解决双重支付问题, 当一笔交易成功后(大家对这笔交易的结果达成了共识, 想重复交易就会被拒绝)挖矿UTXO(Unspent Transaction output): 未被使用的交易输出
-数字签名: 用来保证交易出自本人, 防止</div>
-      </a>
+数字签名: 用来保证交易出自本人, 防止
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2018-10-15
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-10-15 02:34" pubdate>
+              2018-10-15
+            </time>
           </div>
         
         
@@ -646,28 +715,36 @@ TODO 待完善
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2016/12/04/Protocol-RFCs/">常见协议及其RFC文档链接</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2016/12/04/Protocol-RFCs/">常见协议及其RFC文档链接</a>
+      </h1>
 
-      <a href="/2016/12/04/Protocol-RFCs/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2016/12/04/Protocol-RFCs/">
           
-        
-        <div>HTTPHTTP 1.0 https://tools.ietf.org/html/rfc1945HTTP 1.1 https://tools.ietf.org/html/rfc2616HTTP 2.0 https://tools.ietf.org/html/rfc7540
-HTTPShttps://tools.ietf.org/html/rfc2817https://tools.ietf.org/</div>
-      </a>
+          
+            
+          
+          HTTPHTTP 1.0 https://tools.ietf.org/html/rfc1945HTTP 1.1 https://tools.ietf.org/html/rfc2616HTTP 2.0 https://tools.ietf.org/html/rfc7540
+HTTPShttps://tools.ietf.org/html/rfc2817https://tools.ietf.org/
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2016-12-05
+            <i class="iconfont icon-date"></i>
+            <time datetime="2016-12-05 00:00" pubdate>
+              2016-12-05
+            </time>
           </div>
         
         
@@ -687,7 +764,7 @@ HTTPShttps://tools.ietf.org/html/rfc2817https://tools.ietf.org/</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
 
@@ -712,16 +789,15 @@ HTTPShttps://tools.ietf.org/html/rfc2817https://tools.ietf.org/</div>
         </div>
       </div>
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -742,21 +818,16 @@ HTTPShttps://tools.ietf.org/html/rfc2817https://tools.ietf.org/</div>
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
   <div class="statistics">
     
     
@@ -782,17 +853,33 @@ HTTPShttps://tools.ietf.org/html/rfc2817https://tools.ietf.org/</div>
   </div>
 
 
-    
+  
 
-    
-  </div>
+  
 </footer>
 
 <!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
@@ -803,8 +890,17 @@ HTTPShttps://tools.ietf.org/html/rfc2817https://tools.ietf.org/</div>
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -813,39 +909,29 @@ HTTPShttps://tools.ietf.org/html/rfc2817https://tools.ietf.org/</div>
 
 
 
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "我的才华...配不上你的野心&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
   </script>
-
-
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
   </script>
 
 
@@ -862,10 +948,8 @@ HTTPShttps://tools.ietf.org/html/rfc2817https://tools.ietf.org/</div>
 
 
 
-
-
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 

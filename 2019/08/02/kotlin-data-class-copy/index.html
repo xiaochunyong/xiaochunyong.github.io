@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -19,26 +19,33 @@
   <meta name="keywords" content="">
   <title>Kotlin 数据类Merge其它对象的属性 - Ely Xiao</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -46,8 +53,13 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.ely.me","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"51114b64bf5d1e52530373a80a94b9bc","google":"UA-123-12","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null},"tajs":null}};
+  </script>
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -153,8 +165,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -162,25 +180,28 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('/img/post_banner_common.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Kotlin data class merge properties from another object">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2019-08-02 15:58">
-      2019年8月2日 下午
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-08-02 15:58" pubdate>
+        2019年8月2日 下午
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
@@ -225,139 +246,41 @@
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Kotlin data class merge properties from another object</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：几秒前
+                  本文最后更新于：1 年前
                 
               </p>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <blockquote>
 <p>在使用Kotlin + SpringBoot做Web项目时, 需要将前端传来的数据塞到新创建的实体类对象中. 先看类的结构:</p>
 </blockquote>
-<pre><code class="hljs kotlin"><span class="hljs-meta">@MappedSuperclass</span>
-<span class="hljs-keyword">open</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BaseEntity</span> </span>&#123;
-
-    <span class="hljs-meta">@Id</span>
-    <span class="hljs-meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span>
-    <span class="hljs-keyword">var</span> id: <span class="hljs-built_in">Long</span>? = <span class="hljs-literal">null</span>  <span class="hljs-comment">//主键</span>
-
-    <span class="hljs-comment">/**</span>
-<span class="hljs-comment">     * 创建时间</span>
-<span class="hljs-comment">     */</span>
-    <span class="hljs-meta">@field:CreationTimestamp</span>
-    <span class="hljs-meta">@Column(name = <span class="hljs-meta-string">"create_dt"</span>, nullable = false, updatable = false)</span>
-    <span class="hljs-keyword">var</span> createDt: Date = Date() <span class="hljs-comment">// 默认值在做插入时会被覆盖</span>
-
-    <span class="hljs-comment">/**</span>
-<span class="hljs-comment">     * 更新时间</span>
-<span class="hljs-comment">     */</span>
-    <span class="hljs-meta">@field:UpdateTimestamp</span>
-    <span class="hljs-meta">@Column(name = <span class="hljs-meta-string">"update_dt"</span>, nullable = false)</span>
-    <span class="hljs-keyword">var</span> updateDt: Date = Date()
-
-    <span class="hljs-comment">/**</span>
-<span class="hljs-comment">     * 逻辑删除标记</span>
-<span class="hljs-comment">     */</span>
-    <span class="hljs-keyword">var</span> deleted: <span class="hljs-built_in">Boolean</span> = <span class="hljs-literal">false</span>
-
-    <span class="hljs-comment">/**</span>
-<span class="hljs-comment">     * 乐观锁版本号</span>
-<span class="hljs-comment">     */</span>
-    <span class="hljs-meta">@Version</span>
-    <span class="hljs-keyword">var</span> version: <span class="hljs-built_in">Long</span> = <span class="hljs-number">0</span>
-&#125;
-
-
-<span class="hljs-meta">@Entity</span>
-<span class="hljs-meta">@Table(name = <span class="hljs-meta-string">"user"</span>)</span>
-<span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>(
-        <span class="hljs-keyword">var</span> username: String,
-        <span class="hljs-keyword">val</span> password: String,
-        <span class="hljs-keyword">val</span> nickname: String,
-        <span class="hljs-keyword">val</span> mobile: String,
-        <span class="hljs-keyword">val</span> status: <span class="hljs-built_in">Int</span>
-) : BaseEntity()
-
-<span class="hljs-comment">// 创建时前端传过来的数据类</span>
-<span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserCreateRequestModel</span></span>(
-        <span class="hljs-keyword">val</span> username: String,
-        <span class="hljs-keyword">val</span> password: String,
-        <span class="hljs-keyword">val</span> nickname: String,
-        <span class="hljs-keyword">val</span> mobile: String,
-        <span class="hljs-keyword">val</span> version: <span class="hljs-built_in">Int</span>
-)
-<span class="hljs-comment">// 修改时前端传过来的数据类</span>
-<span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserUpdateRequestModel</span> </span>(
-        <span class="hljs-keyword">val</span> username: String,
-        <span class="hljs-keyword">val</span> nickname: String,
-        <span class="hljs-keyword">val</span> mobile: String
-)</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-meta">@MappedSuperclass</span><br><span class="hljs-keyword">open</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BaseEntity</span> </span>&#123;<br><br>    <span class="hljs-meta">@Id</span><br>    <span class="hljs-meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span><br>    <span class="hljs-keyword">var</span> id: <span class="hljs-built_in">Long</span>? = <span class="hljs-literal">null</span>  <span class="hljs-comment">//主键</span><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 创建时间</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@field:CreationTimestamp</span><br>    <span class="hljs-meta">@Column(name = <span class="hljs-meta-string">&quot;create_dt&quot;</span>, nullable = false, updatable = false)</span><br>    <span class="hljs-keyword">var</span> createDt: Date = Date() <span class="hljs-comment">// 默认值在做插入时会被覆盖</span><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 更新时间</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@field:UpdateTimestamp</span><br>    <span class="hljs-meta">@Column(name = <span class="hljs-meta-string">&quot;update_dt&quot;</span>, nullable = false)</span><br>    <span class="hljs-keyword">var</span> updateDt: Date = Date()<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 逻辑删除标记</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">var</span> deleted: <span class="hljs-built_in">Boolean</span> = <span class="hljs-literal">false</span><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 乐观锁版本号</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Version</span><br>    <span class="hljs-keyword">var</span> version: <span class="hljs-built_in">Long</span> = <span class="hljs-number">0</span><br>&#125;<br><br><br><span class="hljs-meta">@Entity</span><br><span class="hljs-meta">@Table(name = <span class="hljs-meta-string">&quot;user&quot;</span>)</span><br><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>(<br>        <span class="hljs-keyword">var</span> username: String,<br>        <span class="hljs-keyword">val</span> password: String,<br>        <span class="hljs-keyword">val</span> nickname: String,<br>        <span class="hljs-keyword">val</span> mobile: String,<br>        <span class="hljs-keyword">val</span> status: <span class="hljs-built_in">Int</span><br>) : BaseEntity()<br><br><span class="hljs-comment">// 创建时前端传过来的数据类</span><br><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserCreateRequestModel</span></span>(<br>        <span class="hljs-keyword">val</span> username: String,<br>        <span class="hljs-keyword">val</span> password: String,<br>        <span class="hljs-keyword">val</span> nickname: String,<br>        <span class="hljs-keyword">val</span> mobile: String,<br>        <span class="hljs-keyword">val</span> version: <span class="hljs-built_in">Int</span><br>)<br><span class="hljs-comment">// 修改时前端传过来的数据类</span><br><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserUpdateRequestModel</span> </span>(<br>        <span class="hljs-keyword">val</span> username: String,<br>        <span class="hljs-keyword">val</span> nickname: String,<br>        <span class="hljs-keyword">val</span> mobile: String<br>)<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>最开始的写法是这样的</p>
 </blockquote>
-<pre><code class="hljs kotlin"><span class="hljs-meta">@PostMapping(<span class="hljs-meta-string">"/"</span>)</span>
-<span class="hljs-meta">@ApiOperation(nickname = <span class="hljs-meta-string">"CreateUser"</span>, value = <span class="hljs-meta-string">"Create User"</span>)</span>
-<span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">create</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> model: <span class="hljs-type">UserCreateRequestModel</span>)</span></span>: SimpleResponse &#123;
-    logger.info(<span class="hljs-string">"create user params: <span class="hljs-variable">$model</span>"</span>)
-    userService.save(User(
-        username = model.username, 
-        password = model.password,
-        nickname = model.nickname,
-        mobile = model.mobile
-    ))
-    <span class="hljs-keyword">return</span> ResponseCode.SUCCESS.toResponse()
-&#125;
-
-<span class="hljs-meta">@PutMapping(<span class="hljs-meta-string">"&#123;id&#125;"</span>)</span>
-<span class="hljs-meta">@ApiOperation(nickname = <span class="hljs-meta-string">"UpdateUser"</span>, value = <span class="hljs-meta-string">"Update User"</span>)</span>    
-<span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> id: <span class="hljs-type">Long</span>, <span class="hljs-meta">@RequestBody</span> model: <span class="hljs-type">UserUpdateRequestModel</span>)</span></span>: SimpleResponse &#123;
-    logger.info(<span class="hljs-string">"update user params: <span class="hljs-variable">$id</span> - <span class="hljs-variable">$model</span>"</span>)
-    <span class="hljs-keyword">val</span> opt = userService.findById(id)
-    <span class="hljs-keyword">if</span> (opt.isPresent) &#123;
-        <span class="hljs-keyword">val</span> item = opt.<span class="hljs-keyword">get</span>()
-        userService.save(item.copy(
-            username = model.username,
-            nickname = model.nickname,
-            mobile = model.mobile
-        ))
-        <span class="hljs-keyword">return</span> ResponseCode.SUCCESS.toResponse()
-    &#125;
-    <span class="hljs-keyword">return</span> ResponseCode.NOT_FOUND.toResponse()
-&#125;</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-meta">@PostMapping(<span class="hljs-meta-string">&quot;/&quot;</span>)</span><br><span class="hljs-meta">@ApiOperation(nickname = <span class="hljs-meta-string">&quot;CreateUser&quot;</span>, value = <span class="hljs-meta-string">&quot;Create User&quot;</span>)</span><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">create</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> model: <span class="hljs-type">UserCreateRequestModel</span>)</span></span>: SimpleResponse &#123;<br>    logger.info(<span class="hljs-string">&quot;create user params: <span class="hljs-variable">$model</span>&quot;</span>)<br>    userService.save(User(<br>        username = model.username, <br>        password = model.password,<br>        nickname = model.nickname,<br>        mobile = model.mobile<br>    ))<br>    <span class="hljs-keyword">return</span> ResponseCode.SUCCESS.toResponse()<br>&#125;<br><br><span class="hljs-meta">@PutMapping(<span class="hljs-meta-string">&quot;&#123;id&#125;&quot;</span>)</span><br><span class="hljs-meta">@ApiOperation(nickname = <span class="hljs-meta-string">&quot;UpdateUser&quot;</span>, value = <span class="hljs-meta-string">&quot;Update User&quot;</span>)</span>    <br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> id: <span class="hljs-type">Long</span>, <span class="hljs-meta">@RequestBody</span> model: <span class="hljs-type">UserUpdateRequestModel</span>)</span></span>: SimpleResponse &#123;<br>    logger.info(<span class="hljs-string">&quot;update user params: <span class="hljs-variable">$id</span> - <span class="hljs-variable">$model</span>&quot;</span>)<br>    <span class="hljs-keyword">val</span> opt = userService.findById(id)<br>    <span class="hljs-keyword">if</span> (opt.isPresent) &#123;<br>        <span class="hljs-keyword">val</span> item = opt.<span class="hljs-keyword">get</span>()<br>        userService.save(item.copy(<br>            username = model.username,<br>            nickname = model.nickname,<br>            mobile = model.mobile<br>        ))<br>        <span class="hljs-keyword">return</span> ResponseCode.SUCCESS.toResponse()<br>    &#125;<br>    <span class="hljs-keyword">return</span> ResponseCode.NOT_FOUND.toResponse()<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>代码量特多, 还尽是一些重复劳动, 还容易漏写出错. 然后我想到了Java中的BeanUtils, 动手写个扩展函数~</p>
 </blockquote>
-<pre><code class="hljs kotlin"><span class="hljs-comment">// v1: 使用了Spring BeanUtils</span>
-<span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T : Any&gt;</span> T.<span class="hljs-title">merge</span><span class="hljs-params">(source: <span class="hljs-type">Any</span>)</span></span>: T &#123;
-    BeanUtils.copyProperties(source, <span class="hljs-keyword">this</span>)
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
-&#125;
-
-<span class="hljs-comment">// Update方法改为</span>
-userService.save(item.merge(model))
-
-<span class="hljs-comment">// Create 方法改为</span>
-userService.save(User().merge(model)) <span class="hljs-comment">// Error, 编译不通过!, 因为User是数据类, 必须给每个参数赋值(即使使用no-arg编译器插件, 运行时才会有无参构造, 无法通过编译器)</span></code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// v1: 使用了Spring BeanUtils</span><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T : Any&gt;</span> T.<span class="hljs-title">merge</span><span class="hljs-params">(source: <span class="hljs-type">Any</span>)</span></span>: T &#123;<br>    BeanUtils.copyProperties(source, <span class="hljs-keyword">this</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span><br>&#125;<br><br><span class="hljs-comment">// Update方法改为</span><br>userService.save(item.merge(model))<br><br><span class="hljs-comment">// Create 方法改为</span><br>userService.save(User().merge(model)) <span class="hljs-comment">// Error, 编译不通过!, 因为User是数据类, 必须给每个参数赋值(即使使用no-arg编译器插件, 运行时才会有无参构造, 无法通过编译器)</span><br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>由于无法直接通过字面量写法User()直接对象, 想到编译器是有无参构造的, 于是再加一个辅助扩展函数new~</p>
 </blockquote>
-<pre><code class="hljs kotlin"><span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;<span class="hljs-keyword">reified</span> T: Any&gt;</span> <span class="hljs-title">new</span><span class="hljs-params">()</span></span>: T &#123;
-    <span class="hljs-keyword">return</span> T::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>.<span class="hljs-title">getDeclaredConstructor</span></span>().newInstance()
-&#125;</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;<span class="hljs-keyword">reified</span> T: Any&gt;</span> <span class="hljs-title">new</span><span class="hljs-params">()</span></span>: T &#123;<br>    <span class="hljs-keyword">return</span> T::<span class="hljs-keyword">class</span>.java.getDeclaredConstructor().newInstance()<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>有了new()这个扩展函数后,  create方法就可以这么写了~</p>
 </blockquote>
-<pre><code class="hljs kotlin"><span class="hljs-comment">// create</span>
-userService.save(new&lt;User&gt;().merge(model))
-<span class="hljs-comment">// update</span>
-userService.save(item.merge(model))</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// create</span><br>userService.save(new&lt;User&gt;().merge(model))<br><span class="hljs-comment">// update</span><br>userService.save(item.merge(model))<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>运行完后…又遇到另一个问题…model中的属性并没有复制到User对象中去, 这是为什么呢???<br>查看BeanUtils源码+调试后发现由于User类各属性的writeMethod为null导致….想到User类的属性都是val定义…</p>
@@ -370,18 +293,7 @@ userService.save(item.merge(model))</code></pre>
 <blockquote>
 <p>查了一番资料, 没有看到如何直接读写属性的(又或者因为是final的, 即使可以, 也无法读写),  看了kotlin数据类copy()方法的原理后, 决定自己写一个<br>为了描述方便, 在代码<code>a.merge(b)</code>中a为target, b为source</p>
 </blockquote>
-<pre><code class="hljs kotlin"><span class="hljs-comment">// v2: 通过反射target的类型, 获取主构造函数, 合并source的属性. 重新创建一个target对象</span>
-<span class="hljs-keyword">inline</span> <span class="hljs-keyword">infix</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;<span class="hljs-keyword">reified</span> T : Any, <span class="hljs-keyword">reified</span> S : Any&gt;</span> T.<span class="hljs-title">merge</span><span class="hljs-params">(source: <span class="hljs-type">S</span>)</span></span>: T &#123;
-    <span class="hljs-keyword">val</span> nameToPropertySource = S::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">memberProperties</span>.<span class="hljs-title">associateBy</span> </span>&#123; it.name &#125;
-    <span class="hljs-keyword">val</span> nameToPropertyTarget = T::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">memberProperties</span>.<span class="hljs-title">associateBy</span> </span>&#123; it.name &#125;
-    <span class="hljs-keyword">val</span> primaryConstructor = T::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">primaryConstructor</span>!!</span>
-    <span class="hljs-keyword">val</span> args = primaryConstructor.parameters.associate &#123; parameter -&gt;
-        <span class="hljs-keyword">val</span> propertySource = nameToPropertySource[parameter.name]
-        <span class="hljs-keyword">val</span> propertyTarget = nameToPropertyTarget[parameter.name]
-        parameter to (propertySource?.<span class="hljs-keyword">get</span>(source) ?: propertyTarget?.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">this</span>))
-    &#125;
-    <span class="hljs-keyword">return</span> primaryConstructor.callBy(args)
-&#125;</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// v2: 通过反射target的类型, 获取主构造函数, 合并source的属性. 重新创建一个target对象</span><br><span class="hljs-keyword">inline</span> <span class="hljs-keyword">infix</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;<span class="hljs-keyword">reified</span> T : Any, <span class="hljs-keyword">reified</span> S : Any&gt;</span> T.<span class="hljs-title">merge</span><span class="hljs-params">(source: <span class="hljs-type">S</span>)</span></span>: T &#123;<br>    <span class="hljs-keyword">val</span> nameToPropertySource = S::<span class="hljs-keyword">class</span>.memberProperties.associateBy &#123; it.name &#125;<br>    <span class="hljs-keyword">val</span> nameToPropertyTarget = T::<span class="hljs-keyword">class</span>.memberProperties.associateBy &#123; it.name &#125;<br>    <span class="hljs-keyword">val</span> primaryConstructor = T::<span class="hljs-keyword">class</span>.primaryConstructor!!<br>    <span class="hljs-keyword">val</span> args = primaryConstructor.parameters.associate &#123; parameter -&gt;<br>        <span class="hljs-keyword">val</span> propertySource = nameToPropertySource[parameter.name]<br>        <span class="hljs-keyword">val</span> propertyTarget = nameToPropertyTarget[parameter.name]<br>        parameter to (propertySource?.<span class="hljs-keyword">get</span>(source) ?: propertyTarget?.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">this</span>))<br>    &#125;<br>    <span class="hljs-keyword">return</span> primaryConstructor.callBy(args)<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>看起来没什么问题了, 但是还有几个潜藏的问题没有解决</p>
@@ -390,101 +302,24 @@ userService.save(item.merge(model))</code></pre>
 <li>如果BaseEntity中</li>
 </ol>
 </blockquote>
-<pre><code class="hljs kotlin"><span class="hljs-comment">// v3: 解决数据类继承属性无法复制的问题</span>
-<span class="hljs-keyword">inline</span> <span class="hljs-keyword">infix</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;<span class="hljs-keyword">reified</span> T : Any, <span class="hljs-keyword">reified</span> S : Any&gt;</span> T.<span class="hljs-title">merge</span><span class="hljs-params">(source: <span class="hljs-type">S</span>)</span></span>: T &#123;
-    <span class="hljs-keyword">val</span> nameToPropertySource = S::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">memberProperties</span>.<span class="hljs-title">associateBy</span> </span>&#123; it.name &#125;
-    <span class="hljs-keyword">val</span> nameToPropertyTarget = T::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">memberProperties</span>.<span class="hljs-title">associateBy</span> </span>&#123; it.name &#125;
-    <span class="hljs-keyword">val</span> primaryConstructor = T::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">primaryConstructor</span>!!</span>
-    <span class="hljs-keyword">val</span> primaryConstructorParams = mutableListOf&lt;String&gt;()
-    <span class="hljs-keyword">val</span> args = primaryConstructor.parameters.associate &#123; parameter -&gt;
-        primaryConstructorParams.add(parameter.name!!)
-        <span class="hljs-keyword">val</span> propertySource = nameToPropertySource[parameter.name.toString()]
-        <span class="hljs-keyword">val</span> propertyTarget = nameToPropertyTarget[parameter.name.toString()]
-        parameter to (propertySource?.<span class="hljs-keyword">get</span>(source) ?: propertyTarget?.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">this</span>))
-    &#125;
-    <span class="hljs-keyword">val</span> newObj = primaryConstructor.callBy(args)
-    nameToPropertyTarget.forEach &#123; (name, propertyOfTarget) -&gt;
-        <span class="hljs-keyword">if</span> (!primaryConstructorParams.contains(name) &amp;&amp; propertyOfTarget <span class="hljs-keyword">is</span> KMutableProperty1) &#123;
-            <span class="hljs-keyword">val</span> mutableProperty = propertyOfTarget <span class="hljs-keyword">as</span> KMutableProperty1&lt;T, Any?&gt;
-            <span class="hljs-keyword">val</span> propertySource = nameToPropertySource[name]
-            <span class="hljs-keyword">if</span> (propertySource != <span class="hljs-literal">null</span>) &#123;
-                mutableProperty.<span class="hljs-keyword">set</span>(newObj, propertySource.<span class="hljs-keyword">get</span>(source))
-            &#125; <span class="hljs-keyword">else</span> &#123;
-                <span class="hljs-keyword">try</span> &#123;
-                    mutableProperty.<span class="hljs-keyword">set</span>(newObj, propertyOfTarget.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">this</span>))
-                &#125; <span class="hljs-keyword">catch</span> (e: Exception) &#123;
-                    <span class="hljs-comment">// lateinit 属性如果没有值, 在这里会报错, 目前还没有找到判断是否有值的方式</span>
-                    <span class="hljs-comment">// 压制异常 e.printStackTrace()</span>
-                &#125;
-            &#125;
-        &#125;
-    &#125;
-    <span class="hljs-keyword">return</span> newObj
-&#125;</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// v3: 解决数据类继承属性无法复制的问题</span><br><span class="hljs-keyword">inline</span> <span class="hljs-keyword">infix</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;<span class="hljs-keyword">reified</span> T : Any, <span class="hljs-keyword">reified</span> S : Any&gt;</span> T.<span class="hljs-title">merge</span><span class="hljs-params">(source: <span class="hljs-type">S</span>)</span></span>: T &#123;<br>    <span class="hljs-keyword">val</span> nameToPropertySource = S::<span class="hljs-keyword">class</span>.memberProperties.associateBy &#123; it.name &#125;<br>    <span class="hljs-keyword">val</span> nameToPropertyTarget = T::<span class="hljs-keyword">class</span>.memberProperties.associateBy &#123; it.name &#125;<br>    <span class="hljs-keyword">val</span> primaryConstructor = T::<span class="hljs-keyword">class</span>.primaryConstructor!!<br>    <span class="hljs-keyword">val</span> primaryConstructorParams = mutableListOf&lt;String&gt;()<br>    <span class="hljs-keyword">val</span> args = primaryConstructor.parameters.associate &#123; parameter -&gt;<br>        primaryConstructorParams.add(parameter.name!!)<br>        <span class="hljs-keyword">val</span> propertySource = nameToPropertySource[parameter.name.toString()]<br>        <span class="hljs-keyword">val</span> propertyTarget = nameToPropertyTarget[parameter.name.toString()]<br>        parameter to (propertySource?.<span class="hljs-keyword">get</span>(source) ?: propertyTarget?.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">this</span>))<br>    &#125;<br>    <span class="hljs-keyword">val</span> newObj = primaryConstructor.callBy(args)<br>    nameToPropertyTarget.forEach &#123; (name, propertyOfTarget) -&gt;<br>        <span class="hljs-keyword">if</span> (!primaryConstructorParams.contains(name) &amp;&amp; propertyOfTarget <span class="hljs-keyword">is</span> KMutableProperty1) &#123;<br>            <span class="hljs-keyword">val</span> mutableProperty = propertyOfTarget <span class="hljs-keyword">as</span> KMutableProperty1&lt;T, Any?&gt;<br>            <span class="hljs-keyword">val</span> propertySource = nameToPropertySource[name]<br>            <span class="hljs-keyword">if</span> (propertySource != <span class="hljs-literal">null</span>) &#123;<br>                mutableProperty.<span class="hljs-keyword">set</span>(newObj, propertySource.<span class="hljs-keyword">get</span>(source))<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    mutableProperty.<span class="hljs-keyword">set</span>(newObj, propertyOfTarget.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">this</span>))<br>                &#125; <span class="hljs-keyword">catch</span> (e: Exception) &#123;<br>                    <span class="hljs-comment">// lateinit 属性如果没有值, 在这里会报错, 目前还没有找到判断是否有值的方式</span><br>                    <span class="hljs-comment">// 压制异常 e.printStackTrace()</span><br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> newObj<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>当前版本使用方式如下</p>
 </blockquote>
-<pre><code class="hljs kotlin">new&lt;User&gt;().merge(model) <span class="hljs-comment">// 不够优雅, 能否new&lt;User&gt;(model)呢?</span>
-
-item.merge(model)</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">new&lt;User&gt;().merge(model) <span class="hljs-comment">// 不够优雅, 能否new&lt;User&gt;(model)呢?</span><br><br>item.merge(model)<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>由于当前版本, 在创建新对象的同时merge属性台啰嗦, 所以我们在对new函数做一次优化<br>同时为了适配新版的new函数, 导致的souce的类型擦除问题, 我们针对source反射部分采用了JDK8带的Introspector.getBeanInfo来解决</p>
 </blockquote>
-<pre><code class="hljs kotlin"><span class="hljs-comment">// 最终版</span>
-<span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;<span class="hljs-keyword">reified</span> T: Any&gt;</span> <span class="hljs-title">new</span><span class="hljs-params">(source: <span class="hljs-type">Any</span>? = <span class="hljs-literal">null</span>)</span></span>: T &#123;
-    <span class="hljs-keyword">val</span> obj = T::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>.<span class="hljs-title">getDeclaredConstructor</span></span>().newInstance()
-    <span class="hljs-keyword">if</span> (source == <span class="hljs-literal">null</span>) &#123;
-        <span class="hljs-keyword">return</span> obj 
-    &#125;
-    <span class="hljs-keyword">return</span> obj.merge(source)
-&#125;
-
-<span class="hljs-keyword">inline</span> <span class="hljs-keyword">infix</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;<span class="hljs-keyword">reified</span> T : Any, <span class="hljs-keyword">reified</span> S : Any&gt;</span> T.<span class="hljs-title">merge</span><span class="hljs-params">(source: <span class="hljs-type">S</span>)</span></span>: T &#123;
-    <span class="hljs-keyword">val</span> beanInfo = Introspector.getBeanInfo(source.javaClass)
-    <span class="hljs-keyword">val</span> nameToPropertyOfSource = beanInfo.propertyDescriptors.associateBy &#123; it.name &#125;
-    <span class="hljs-keyword">val</span> nameToPropertyOfTarget = T::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">memberProperties</span>.<span class="hljs-title">associateBy</span> </span>&#123; it.name &#125;
-
-    <span class="hljs-comment">// 根据目标类的主构造函数创建对象, 不在主构造函数中的var属性在下一步处理, 不在主构造函数中的val属性会略过.</span>
-    <span class="hljs-keyword">val</span> primaryConstructor = T::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">primaryConstructor</span>!!</span>
-    <span class="hljs-keyword">val</span> primaryConstructorParams = mutableListOf&lt;String&gt;()
-    <span class="hljs-keyword">val</span> args = primaryConstructor.parameters.associate &#123; parameter -&gt;
-        <span class="hljs-keyword">val</span> name = parameter.name!!
-        primaryConstructorParams.add(name)
-        <span class="hljs-keyword">val</span> readMethodOfSource = nameToPropertyOfSource[name]?.readMethod
-        <span class="hljs-keyword">val</span> propertyOfTarget = nameToPropertyOfTarget[name]
-        parameter to (readMethodOfSource?.invoke(source) ?: propertyOfTarget?.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">this</span>))
-    &#125;
-    <span class="hljs-keyword">val</span> obj = primaryConstructor.callBy(args)
-
-    <span class="hljs-comment">// 为不在主构造函数中的字段赋值(比如继承的字段)</span>
-    nameToPropertyOfTarget.forEach &#123; (name, propertyOfTarget) -&gt;
-        <span class="hljs-comment">// 只处理, 没有在构造函数中出现, 并且是var修饰的属性. 没有在构造中出现的val属性无法处理</span>
-        <span class="hljs-keyword">if</span> (!primaryConstructorParams.contains(name) &amp;&amp; propertyOfTarget <span class="hljs-keyword">is</span> KMutableProperty1) &#123;
-            <span class="hljs-keyword">val</span> mutableProperty = propertyOfTarget <span class="hljs-keyword">as</span> KMutableProperty1&lt;T, Any?&gt;
-            <span class="hljs-keyword">val</span> readMethodSource = nameToPropertyOfSource[name]?.readMethod
-            <span class="hljs-keyword">if</span> (readMethodSource != <span class="hljs-literal">null</span>) &#123;
-                mutableProperty.<span class="hljs-keyword">set</span>(obj, readMethodSource.invoke(source))
-            &#125; <span class="hljs-keyword">else</span> &#123;
-                <span class="hljs-keyword">try</span> &#123;
-                    mutableProperty.<span class="hljs-keyword">set</span>(obj, propertyOfTarget.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">this</span>))
-                &#125; <span class="hljs-keyword">catch</span> (e: Exception) &#123;
-                    <span class="hljs-comment">// lateinit 属性如果没有值, 在这里会报错, 目前还没有找到判断是否有值的方式</span>
-                    <span class="hljs-comment">// 压制异常 e.printStackTrace()</span>
-                &#125;
-            &#125;
-        &#125;
-    &#125;
-    <span class="hljs-keyword">return</span> obj
-&#125;</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// 最终版</span><br><span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;<span class="hljs-keyword">reified</span> T: Any&gt;</span> <span class="hljs-title">new</span><span class="hljs-params">(source: <span class="hljs-type">Any</span>? = <span class="hljs-literal">null</span>)</span></span>: T &#123;<br>    <span class="hljs-keyword">val</span> obj = T::<span class="hljs-keyword">class</span>.java.getDeclaredConstructor().newInstance()<br>    <span class="hljs-keyword">if</span> (source == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> obj <br>    &#125;<br>    <span class="hljs-keyword">return</span> obj.merge(source)<br>&#125;<br><br><span class="hljs-keyword">inline</span> <span class="hljs-keyword">infix</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;<span class="hljs-keyword">reified</span> T : Any, <span class="hljs-keyword">reified</span> S : Any&gt;</span> T.<span class="hljs-title">merge</span><span class="hljs-params">(source: <span class="hljs-type">S</span>)</span></span>: T &#123;<br>    <span class="hljs-keyword">val</span> beanInfo = Introspector.getBeanInfo(source.javaClass)<br>    <span class="hljs-keyword">val</span> nameToPropertyOfSource = beanInfo.propertyDescriptors.associateBy &#123; it.name &#125;<br>    <span class="hljs-keyword">val</span> nameToPropertyOfTarget = T::<span class="hljs-keyword">class</span>.memberProperties.associateBy &#123; it.name &#125;<br><br>    <span class="hljs-comment">// 根据目标类的主构造函数创建对象, 不在主构造函数中的var属性在下一步处理, 不在主构造函数中的val属性会略过.</span><br>    <span class="hljs-keyword">val</span> primaryConstructor = T::<span class="hljs-keyword">class</span>.primaryConstructor!!<br>    <span class="hljs-keyword">val</span> primaryConstructorParams = mutableListOf&lt;String&gt;()<br>    <span class="hljs-keyword">val</span> args = primaryConstructor.parameters.associate &#123; parameter -&gt;<br>        <span class="hljs-keyword">val</span> name = parameter.name!!<br>        primaryConstructorParams.add(name)<br>        <span class="hljs-keyword">val</span> readMethodOfSource = nameToPropertyOfSource[name]?.readMethod<br>        <span class="hljs-keyword">val</span> propertyOfTarget = nameToPropertyOfTarget[name]<br>        parameter to (readMethodOfSource?.invoke(source) ?: propertyOfTarget?.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">this</span>))<br>    &#125;<br>    <span class="hljs-keyword">val</span> obj = primaryConstructor.callBy(args)<br><br>    <span class="hljs-comment">// 为不在主构造函数中的字段赋值(比如继承的字段)</span><br>    nameToPropertyOfTarget.forEach &#123; (name, propertyOfTarget) -&gt;<br>        <span class="hljs-comment">// 只处理, 没有在构造函数中出现, 并且是var修饰的属性. 没有在构造中出现的val属性无法处理</span><br>        <span class="hljs-keyword">if</span> (!primaryConstructorParams.contains(name) &amp;&amp; propertyOfTarget <span class="hljs-keyword">is</span> KMutableProperty1) &#123;<br>            <span class="hljs-keyword">val</span> mutableProperty = propertyOfTarget <span class="hljs-keyword">as</span> KMutableProperty1&lt;T, Any?&gt;<br>            <span class="hljs-keyword">val</span> readMethodSource = nameToPropertyOfSource[name]?.readMethod<br>            <span class="hljs-keyword">if</span> (readMethodSource != <span class="hljs-literal">null</span>) &#123;<br>                mutableProperty.<span class="hljs-keyword">set</span>(obj, readMethodSource.invoke(source))<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    mutableProperty.<span class="hljs-keyword">set</span>(obj, propertyOfTarget.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">this</span>))<br>                &#125; <span class="hljs-keyword">catch</span> (e: Exception) &#123;<br>                    <span class="hljs-comment">// lateinit 属性如果没有值, 在这里会报错, 目前还没有找到判断是否有值的方式</span><br>                    <span class="hljs-comment">// 压制异常 e.printStackTrace()</span><br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> obj<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 <h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><blockquote>
 <p>现在User构造函数中的属性, 继承到的var属性都能解决.<br>lateinit var以及val属性目前都还未解决, 所以在使用的时候得注意一下.</p>
 </blockquote>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -506,11 +341,11 @@ item.merge(model)</code></pre>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2019/08/12/feign-enable-logger/">
@@ -519,8 +354,8 @@ item.merge(model)</code></pre>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2019/08/01/intellij-idea/">
@@ -529,43 +364,39 @@ item.merge(model)</code></pre>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
                 
                 
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-      function loadDisqus() {
-        var disqus_config = function () {
-          this.page.url = 'http://blog.ely.me/2019/08/02/kotlin-data-class-copy/';
-          this.page.identifier = '/2019/08/02/kotlin-data-class-copy/';
-        };
-        (function () {
-          var d = document,
-            s = d.createElement('script');
-          s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      }
-      createObserver(loadDisqus, 'disqus_thread');
+      var disqus_config = function() {
+        this.page.url = 'http://blog.ely.me/2019/08/02/kotlin-data-class-copy/';
+        this.page.identifier = '/2019/08/02/kotlin-data-class-copy/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'xiaochunyong' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
     </script>
     <noscript>Please enable JavaScript to view the
-      <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
     </noscript>
   </div>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -573,7 +404,7 @@ item.merge(model)</code></pre>
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -585,16 +416,15 @@ item.merge(model)</code></pre>
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -615,21 +445,16 @@ item.merge(model)</code></pre>
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
   <div class="statistics">
     
     
@@ -655,17 +480,33 @@ item.merge(model)</code></pre>
   </div>
 
 
-    
+  
 
-    
-  </div>
+  
 </footer>
 
 <!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
@@ -676,8 +517,23 @@ item.merge(model)</code></pre>
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -686,95 +542,29 @@ item.merge(model)</code></pre>
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Kotlin data class merge properties from another object&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
       }
-    );
+    })()
   </script>
 
 
@@ -791,8 +581,8 @@ item.merge(model)</code></pre>
 
 
 
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 
