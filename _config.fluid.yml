@@ -44,7 +44,7 @@ fun_features: # 一些好玩的功能
 color:  # 主题颜色配置，不一定能每一处都生效，可能会被局部样式覆盖，这种情况建议用自定义 css 解决。配色可以在这获得启发： https://www.webdesignrankings.com/resources/lolcolors/
   body_bg_color: "#eee"             # body 背景色
   navbar_bg_color: "#2f4154"        # 顶部菜单背景色
-#  navbar_bg_color: "#FFDE5C"        # 顶部菜单背景色
+  #  navbar_bg_color: "#FFDE5C"        # 顶部菜单背景色
   navbar_text_color: "white"        # 顶部菜单字体色
   text_color: "#3c4858"             # 全局字体色
   sec_text_color: "#718096"         # 全局次级字体色（摘要、简介等位置）
