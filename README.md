@@ -13,6 +13,11 @@
 [![Issues][issues-shield]][issues-url]
 
 
+更多Github API可前往各repo查看: 
+https://api.github.com/repos/<username>/<repo>
+  
+例如 https://api.github.com/repos/xiaochunyong/xiaochunyong.github.io
+
 # xiaochunyong.github.io
 个人博客
 
