@@ -14,7 +14,7 @@
 
 
 更多Github API可前往各repo查看: 
-https://api.github.com/repos/<username>/<repo>
+https://api.github.com/repos/`username`/`repo`
   
 例如 https://api.github.com/repos/xiaochunyong/xiaochunyong.github.io
 
